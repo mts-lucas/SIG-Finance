@@ -20,7 +20,7 @@
 void menu_principal(void);
 void tela_sobre(void);
 void tela_equipe(void);
-
+void consideracoes_finais(void);
 
 // Programa principal
 
@@ -29,7 +29,7 @@ int main(void) {
     menu_principal();
     tela_sobre();
     tela_equipe();
-
+    consideracoes_finais();
     return 0;
 }
 
@@ -116,6 +116,42 @@ void tela_equipe(void) {
     printf("///            E-mail: lmateus1067@outlook.com                              ///\n");
     printf("///            Redes sociais: @iam.lusca                                    ///\n");
     printf("///            Github: https://github.com/W1ndeck/SIG-Finance/tree/Lucas    ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            Tallys Aureliano Dantas dos Santos                           ///\n");
+    printf("///            E-mail: tallysaureliano@outlook.com                          ///\n");
+    printf("///            Redes sociais: @aureliano_tallys                             ///\n");
+    printf("///            Github: https://github.com/W1ndeck/SIG-Finance/tree/tallys   ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            Codigo fonte do projeto disponivel em:                       ///\n");
+    printf("///            https://github.com/W1ndeck/SIG-Finance                       ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+} 
+
+void consideracoes_finais(void) {
+
+    printf("\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///             Universidade Federal do Rio Grande do Norte                 ///\n");
+    printf("///                 Centro de Ensino Superior do Serido                     ///\n");
+    printf("///               Departamento de Computacoo e Tecnologia                   ///\n");
+    printf("///                  Disciplina DCT1106 -- Programacao                      ///\n");
+    printf("///         Projeto Sistema de Controle de Financas Domesticas              ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///    = = = = = Sistema de Controle de Financas Domesticas  = = = = =      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     Ola espero que tenha gostado, segostou deixe o seu Starred, se      ///\n");
+    printf("/// nao gostou em contato com a gente, voce pode nos ajudar com melhorias   ///\n");
+    printf("/// no nosso sistema. O projeto esta em contante desenvolvimento e ele      ///\n");
+    printf("/// contar com voce! Vamos nessa!                                           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     - Lucas e Tallys                                                    ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
