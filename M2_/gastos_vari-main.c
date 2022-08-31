@@ -4,11 +4,11 @@
 char menu_principal_gv(void);
 void gerencia_menu_principal(void);
 char ler(char);
-void cadastrar(void);
-void editar(void);
-void excluir(void);
-void checar(void);
-void sobre(void);
+void cadastrar_gf(void);
+void editar_gf(void);
+void excluir_gf(void);
+void checar_gf(void);
+void sobre_gf(void);
 
 char ler(char x){
   scanf("%c",&x);
@@ -51,26 +51,26 @@ void gerencia_menu_principal(void){
     while (op != '0') {
         
         if (op == '1') {
-            cadastrar();
+            cadastrar_gf();
         }
 
         else if (op == '2') {
-            editar();
+            editar_gf();
             
         }
 
         else if (op == '3') {
-            excluir();
+            excluir_gf();
             
         }
 
         else if (op == '4') {
-            checar();
+            checar_gf();
             
         }
 
         else if (op == '5') {
-            sobre();
+            sobre_gf();
         }
 
         op = menu_principal_gv();
@@ -78,7 +78,7 @@ void gerencia_menu_principal(void){
         }
     }
 
-void cadastrar(void){
+void cadastrar_gf(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -93,7 +93,7 @@ void cadastrar(void){
     getchar();
 }
 
-void editar(void){
+void editar_gf(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -108,7 +108,7 @@ void editar(void){
     getchar();
 }
 
-void excluir(void){
+void excluir_gf(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -123,7 +123,7 @@ void excluir(void){
     getchar();
 }
 
-void checar(void){
+void checar_gf(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -138,7 +138,7 @@ void checar(void){
     getchar();
 }
 
-void sobre(void){
+void sobre_gf(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
