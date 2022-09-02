@@ -2,7 +2,19 @@
 
 #include <stdio.h>
 
-void menu_indic_eco(void) {
+//void interacao_menu_principal(void); 
+char menu_cad_moradores(void);
+char ler(char);
+ 
+
+int main(void) {
+
+    //interacao_menu_principal(void); 
+
+    return 0;
+}
+
+char menu_cad_moradores(void) {
 
 
     char op;
@@ -22,12 +34,13 @@ void menu_indic_eco(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    return ler(op);
 
 }
 
-void interacao_menu_principal(void) {
-    while ()
-}
+//void interacao_menu_principal(void) {
+
+//}
 
 
 char ler(char x){
