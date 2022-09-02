@@ -3,14 +3,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void interacao_menu_cad_morador(void);
+//void interacao_menu_principal(void); 
 char menu_cad_moradores(void);
 char ler(char);
-void cad_morador(void);
-void visualizar_morador(void);
-void sobre_moradores(void);
-void deletar_morador(void);
-void altera_morador(void);
+ 
+
+int main(void) {
+
+    //interacao_menu_principal(void); 
+
+    return 0;
+}
+
+char menu_cad_moradores(void) {
 
 
     char op;
@@ -30,12 +35,13 @@ void altera_morador(void);
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    return ler(op);
 
 }
 
-void interacao_menu_principal(void) {
-    while ()
-}
+//void interacao_menu_principal(void) {
+
+//}
 
 
 char ler(char x){
