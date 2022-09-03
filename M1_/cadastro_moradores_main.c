@@ -50,7 +50,7 @@ char ler(char x){
 }
 
 void cad_morador(void){
-
+  system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -62,7 +62,7 @@ void cad_morador(void){
 }
 
 void altera_morador(void){
-
+  system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -74,7 +74,7 @@ void altera_morador(void){
 }
 
 void deletar_morador(void){
-
+  system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -86,7 +86,7 @@ void deletar_morador(void){
 }
 
 void visualizar_morador(void){
-
+  system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -98,7 +98,7 @@ void visualizar_morador(void){
 }
 
 void sobre_moradores(void){
-
+  system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
