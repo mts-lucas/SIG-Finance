@@ -53,9 +53,9 @@ void menu_principal(void) {
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Perfil de Moradores                                       ///\n");
-    printf("///            2. Modulo de gestao de gastos a curto prazo                  ///\n");
-    printf("///            3. Modulo de gestao de gatos fixos                           ///\n");
-    printf("///            4. Modulo de indicacao de investimentos                      ///\n");
+    printf("///            2. Receitas                                                  ///\n");
+    printf("///            3. Despesas                                                  ///\n");
+    printf("///            4. Investimentos                                             ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
