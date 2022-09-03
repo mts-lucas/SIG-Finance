@@ -30,7 +30,7 @@ char menu_cad_moradores(void)
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
   printf("///          = = = = =       Perfil de Moradores     = = = = =              ///\n");
   printf("///                                                                         ///\n");
-  printf("///            1. Cadastro Morador                                          ///\n");
+  printf("///            1. Cadastro de Morador                                       ///\n");
   printf("///            2. Alterar dados de Morador                                  ///\n");
   printf("///            3. Deletar Morador                                           ///\n");
   printf("///            4. Visualizar Moradores                                      ///\n");
@@ -97,9 +97,15 @@ void cad_morador(void)
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-  printf("///          = = = = =       Perfil de Moradores     = = = = =              ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =       Cadastro de Morador      = = = = =             ///\n");
   printf("///                                                                         ///\n");
-  printf("///            .EM CONSTRUCAO                                               ///\n");
+  printf("///          Por favor informe os dados do morador:                         ///\n");
+  printf("///          Nome:                                                          ///\n");
+  printf("///          CPF:                                                           ///\n");
+  printf("///          Idade:                                                         ///\n");
+  printf("///          Ocupacao:                                                      ///\n");
+  printf("///          Renda Mensal:                                                  ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
