@@ -50,12 +50,12 @@ void menu_principal(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Modulo de gestao de perfil economico                      ///\n");
-    printf("///            2. Modulo de gestao de gastos a curto prazo                  ///\n");
-    printf("///            3. Modulo de gestao de gatos fixos                           ///\n");
-    printf("///            4. Modulo de indicacao de investimentos                      ///\n");
+    printf("///            1. Perfil de Moradores                                       ///\n");
+    printf("///            2. Receitas                                                  ///\n");
+    printf("///            3. Despesas                                                  ///\n");
+    printf("///            4. Investimentos                                             ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -77,7 +77,7 @@ void tela_sobre(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///      = = = = = Sistema de Controle de Financas Domesticas = = = = =     ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///  O controle de financas domesticas e uma das atividades necessarias     ///\n");
     printf("///  em praticamente todas as residencias, uma vez que para conseguir       ///\n");
@@ -108,7 +108,7 @@ void tela_equipe(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///    = = = = = Sistema de Controle de Financas Domesticas  = = = = =      ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///            Este projeto exemplo foi desenvolvido por:                   ///\n");
     printf("///                                                                         ///\n");
@@ -142,7 +142,7 @@ void consideracoes_finais(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///    = = = = = Sistema de Controle de Financas Domesticas  = = = = =      ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///     Ola espero que tenha gostado, segostou deixe o seu Starred, se      ///\n");
     printf("/// nao gostou em contato com a gente, voce pode nos ajudar com melhorias   ///\n");

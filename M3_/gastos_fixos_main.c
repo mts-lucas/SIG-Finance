@@ -71,7 +71,12 @@ void gerencia_menu_principal_gf(void){
         else if (op == '5') {
             sobre_gf();
         }
+        else {
+            printf("\n\t Opcao invalida. digite outra...");
+            getchar();
 
+        }
+        
         op = menu_principal_gf();
 
         }
