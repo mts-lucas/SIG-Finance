@@ -29,12 +29,12 @@ char ler(char x){
 
 int main(void) {
     
-    gerencia_menu_principal_gf();
+    gerencia_menu_principal_dp();
 
     return 0;
 }
 
-char menu_principal_gf(void) {
+char menu_principal_dp(void) {
     
     char op;
     system("clear||cls");
@@ -56,27 +56,27 @@ char menu_principal_gf(void) {
     return ler(op);
 }
 
-void gerencia_menu_principal_gf(void){
+void gerencia_menu_principal_dp(void){
     char op;
-    op = menu_principal_gf();
+    op = menu_principal_dp();
     while (op != '0') {
         
         if (op == '1') {
-            cadastrar_re();
+            cadastrar_dp();
         }
 
         else if (op == '2') {
-            editar_re();
+            editar_dp();
             
         }
 
         else if (op == '3') {
-            excluir_re();
+            excluir_dp();
             
         }
 
         else if (op == '4') {
-            checar_re();
+            checar_dp();
             
         }
 
@@ -85,7 +85,7 @@ void gerencia_menu_principal_gf(void){
         }
 
         else if (op == '6') {
-            sobre_re();
+            sobre_dp();
         }
 
         else {
@@ -94,7 +94,7 @@ void gerencia_menu_principal_gf(void){
 
         }
         
-        op = menu_principal_gf();
+        op = menu_principal_dp();
 
         }
     }
@@ -247,7 +247,7 @@ void pagar_dp(void){
     getchar();  
 }
 
-void checar_re(void){
+void checar_dp(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -271,7 +271,7 @@ void checar_re(void){
     getchar(); 
 }
 
-void sobre_re(void){
+void sobre_dp(void){
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -284,3 +284,4 @@ void sobre_re(void){
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar(); 
+}
