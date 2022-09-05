@@ -1,6 +1,7 @@
 // arquivo referente ao modulo 1:
 
 #include <stdio.h>
+#include <stdlib.h>
 
 void interacao_menu_cad_morador(void);
 char menu_cad_moradores(void);
