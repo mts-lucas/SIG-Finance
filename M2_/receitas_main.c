@@ -172,7 +172,7 @@ void sobre_re(void){
     printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
     printf("///                                                                         ///\n");
     printf("///     Esse modulo faremos a gestao de receitas onde voce vai poder        ///\n");
-    printf("///  analisar a suas receitas.                                               ///\n");
+    printf("///  analisar a suas receitas.                                              ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
