@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void interacao_menu_principal(void);
+void interacao_menu_cad_morador(void);
 char menu_cad_moradores(void);
 char ler(char);
 void cad_morador(void);
@@ -43,7 +43,7 @@ char menu_cad_moradores(void)
   return ler(op);
 }
 
-void interacao_menu_principal(void)
+void interacao_menu_cad_morador(void)
 {
 
   char op;
@@ -221,8 +221,9 @@ void sobre_moradores(void)
   system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
-  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =          SIG - FINANCE        = = = = =              ///\n");
   printf("///          = = = = =       Perfil de Moradores     = = = = =              ///\n");
+  printf("///          = = = = =              Sobre            = = = = =              ///\n");
   printf("///                                                                         ///\n");
   printf("///  Este modulo e dedicado a gerencia e controle das informacoes dos       ///\n");
   printf("///  moradores da residencia.                                               ///\n");
