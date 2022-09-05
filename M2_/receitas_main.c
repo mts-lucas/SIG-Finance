@@ -32,7 +32,7 @@ char menu_principal_re(void) {
     printf("///                                                                         ///\n");
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///           = == = = Gerenciamento de Gastos Variaveis = = = =            ///\n");
+    printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Cadastrar gasto.                                          ///\n");
     printf("///            2. Editar gasto.                                             ///\n");
@@ -90,7 +90,7 @@ void cadastrar_re(void){
     printf("///                                                                         ///\n");
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///           = == = = Gerenciamento de Gastos Variaveis = = = =            ///\n");
+    printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
     printf("///                                                                         ///\n");
     printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
     printf("/// menu principal                                                          ///\n");
@@ -105,7 +105,7 @@ void editar_re(void){
     printf("///                                                                         ///\n");
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///           = == = = Gerenciamento de Gastos Variaveis = = = =            ///\n");
+    printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
     printf("///                                                                         ///\n");
     printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
     printf("/// menu principal                                                          ///\n");
@@ -120,7 +120,7 @@ void excluir_re(void){
     printf("///                                                                         ///\n");
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///           = == = = Gerenciamento de Gastos Variaveis = = = =            ///\n");
+    printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
     printf("///                                                                         ///\n");
     printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
     printf("/// menu principal                                                          ///\n");
@@ -135,7 +135,7 @@ void checar_re(void){
     printf("///                                                                         ///\n");
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///           = == = = Gerenciamento de Gastos Variaveis = = = =            ///\n");
+    printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
     printf("///                                                                         ///\n");
     printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
     printf("/// menu principal                                                          ///\n");
@@ -150,7 +150,7 @@ void sobre_re(void){
     printf("///                                                                         ///\n");
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///           = == = = Gerenciamento de Gastos Variaveis = = = =            ///\n");
+    printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
     printf("///                                                                         ///\n");
     printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
     printf("/// menu principal                                                          ///\n");
