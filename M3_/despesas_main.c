@@ -1,20 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char menu_principal_gf(void);
-void gerencia_menu_principal_gf(void);
+char menu_principal_dp(void);
+void gerencia_menu_principal_dp(void);
 char ler(char);
-void cadastrar_gf(void);
-void editar_gf(void);
-void excluir_gf(void);
-void checar_gf(void);
-void sobre_gf(void);
+void cadastrar_dp(void);
+void editar_dp(void);
+void excluir_dp(void);
+void checar_dp(void);
+void sobre_dp(void);
 
 char ler(char x){
-  scanf("%c",&x);
-  getchar();
-  return x;
+
+    char op;
+    scanf("%c",&x);
+    getchar();
+    return x;
 }
+
+/*char ler() {
+     char op;
+     scanf("%c", &op);
+     getchar();
+     
+     return op;
+}*/
 
 int main(void) {
     
@@ -31,13 +41,14 @@ char menu_principal_gf(void) {
     printf("///                                                                         ///\n");
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///             = = = = = Gerenciamento de Gastos Fixos = = = =             ///\n");
+    printf("///     = = = = =         Gerenciamento de Despesas          = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Cadastrar gasto.                                          ///\n");
-    printf("///            2. Editar gasto.                                             ///\n");
-    printf("///            3. Excluir gastos.                                           ///\n");
-    printf("///            4. Checar gastos.                                            ///\n");
-    printf("///            5. Sobre o modulo.                                           ///\n");
+    printf("///            1. Cadastrar Despesa.                                        ///\n");
+    printf("///            2. Editar Despesa.                                           ///\n");
+    printf("///            3. Excluir Despesa.                                          ///\n");
+    printf("///            4. Pagar Despesa.                                            ///\n");
+    printf("///            5. Checar historico de despesa.                              ///\n");
+    printf("///            6. Sobre o modulo.                                           ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -50,27 +61,28 @@ void gerencia_menu_principal_gf(void){
     while (op != '0') {
         
         if (op == '1') {
-            cadastrar_gf();
+            cadastrar_re();
         }
 
         else if (op == '2') {
-            editar_gf();
+            editar_re();
             
         }
 
         else if (op == '3') {
-            excluir_gf();
+            excluir_re();
             
         }
 
         else if (op == '4') {
-            checar_gf();
+            checar_re();
             
         }
 
         else if (op == '5') {
-            sobre_gf();
+            sobre_re();
         }
+
         else {
             printf("\n\t Opcao invalida. digite outra...");
             getchar();
@@ -82,13 +94,36 @@ void gerencia_menu_principal_gf(void){
         }
     }
 
-void cadastrar_gf(void){
+void cadastrar_re(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///           = = = = = Gerenciamento de Gastos Variaveis = = = =           ///\n");
+    printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     Adicionar receita em qual morador?                                  ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     Descricao:                                                          ///\n");
+    printf("///     Valor:                                                              ///\n");
+    printf("///     tipo:                                                               ///\n");
+    printf("///     Id de usuario:                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
+    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
+    printf("///  o que vamos fazer)                                                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    getchar();
+}
+
+void editar_re(void){
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     = = = = =         Gerenciamento de Despesas          = = = =        ///\n");
     printf("///                                                                         ///\n");
     printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
     printf("/// menu principal                                                          ///\n");
@@ -97,13 +132,13 @@ void cadastrar_gf(void){
     getchar();
 }
 
-void editar_gf(void){
+void excluir_re(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///           = = = = = Gerenciamento de Gastos Variaveis = = = =           ///\n");
+    printf("///     = = = = =         Gerenciamento de Despesas          = = = =        ///\n");
     printf("///                                                                         ///\n");
     printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
     printf("/// menu principal                                                          ///\n");
@@ -112,13 +147,13 @@ void editar_gf(void){
     getchar();
 }
 
-void excluir_gf(void){
+void checar_re(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///           = = = = = Gerenciamento de Gastos Variaveis = = = =           ///\n");
+    printf("///     = = = = =         Gerenciamento de Despesas          = = = =        ///\n");
     printf("///                                                                         ///\n");
     printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
     printf("/// menu principal                                                          ///\n");
@@ -127,22 +162,7 @@ void excluir_gf(void){
     getchar();
 }
 
-void checar_gf(void){
-    system("clear||cls");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
-    printf("///                                                                         ///\n");
-    printf("///           = = = = = Gerenciamento de Gastos Variaveis = = = =           ///\n");
-    printf("///                                                                         ///\n");
-    printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
-    printf("/// menu principal                                                          ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    getchar();
-}
-
-void sobre_gf(void){
+void sobre_re(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
