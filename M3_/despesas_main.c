@@ -9,6 +9,7 @@ void editar_dp(void);
 void excluir_dp(void);
 void checar_dp(void);
 void sobre_dp(void);
+void pagar_dp(void);
 
 char ler(char x){
 
@@ -46,8 +47,8 @@ char menu_principal_gf(void) {
     printf("///            1. Cadastrar Despesa.                                        ///\n");
     printf("///            2. Editar Despesa.                                           ///\n");
     printf("///            3. Excluir Despesa.                                          ///\n");
-    printf("///            4. Pagar Despesa.                                            ///\n");
-    printf("///            5. Checar historico de despesa.                              ///\n");
+    printf("///            4. Checar historico de despesa.                              ///\n");
+    printf("///            5. Pagar Despesa.                                            ///\n");
     printf("///            6. Sobre o modulo.                                           ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
@@ -80,6 +81,10 @@ void gerencia_menu_principal_gf(void){
         }
 
         else if (op == '5') {
+            pagar_dp();
+        }
+
+        else if (op == '6') {
             sobre_re();
         }
 
