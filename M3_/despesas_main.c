@@ -94,7 +94,7 @@ void gerencia_menu_principal_gf(void){
         }
     }
 
-void cadastrar_re(void){
+void cadastrar_dp(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -113,7 +113,7 @@ void cadastrar_re(void){
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          = = = = =    Gerenciamento de Receitas   = = = = =             ///\n");
+    printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///     Adicionar receita em qual morador?                                  ///\n");
     printf("///                                                                         ///\n");
@@ -130,7 +130,7 @@ void cadastrar_re(void){
     getchar();
 }
 
-void editar_re(void){
+void editar_dp(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -166,19 +166,42 @@ void editar_re(void){
     getchar();
 }
 
-void excluir_re(void){
+void excluir_dp(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     = = = = =         Gerenciamento de Despesas          = = = =        ///\n");
-    printf("///                                                                         ///\n");
-    printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
-    printf("/// menu principal                                                          ///\n");
-    printf("///                                                                         ///\n");
+    printf("///          De qual Morador vai excluir a despesa? (Atencao, excluir       ///\n");
+    printf("///                                             é diferente de pagar...)    ///\n");
+    printf("///          1. Lucas                                                       ///\n");
+    printf("///          2. Tallys                                                      ///\n");
+    printf("///          3. Flavius                                                     ///\n");
+    printf("///                                                                        ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     Excluir qual despesa:                                               ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     1 - Despesa abc                                                     ///\n");
+    printf("///     2 - Despesa abc                                                     ///\n");
+    printf("///     3 - Despesa abc                                                     ///\n");
+    printf("///     4 - Despesa abc                                                     ///\n");
+    printf("///     5 - Despesa abc                                                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     (obs: a meta é fazer um 'for' para gerar essa serie de despesas     ///\n");
+    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
+    printf("///  o que vamos fazer)                                                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    getchar();  
 }
 
 void checar_re(void){
