@@ -115,8 +115,13 @@ void editar_re(void){
     printf("///                                                                         ///\n");
     printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
-    printf("/// menu principal                                                          ///\n");
+    printf("///     Informe de qual morador voce quer alterar a receita:                ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     1 - Lucas                                                           ///\n");
+    printf("///     2 - Tallys                                                          ///\n");
+    printf("///     3 - Flavius                                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     (obs: a partir dai segue o mesmo como no menu de cadastro)          ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
@@ -129,6 +134,12 @@ void excluir_re(void){
     printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
     printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
     printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
     printf("/// menu principal                                                          ///\n");
