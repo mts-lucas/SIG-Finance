@@ -1,4 +1,8 @@
+// arquivo referente ao modulo 4:
+
+
 #include <stdio.h>
+#include <stdlib.h>
 
 char menu_investimentos(void);
 char ler(char);
