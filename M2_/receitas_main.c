@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char menu_principal_gv(void);
+char menu_principal_re(void);
 void gerencia_menu_principal(void);
 char ler(char);
-void cadastrar_gf(void);
-void editar_gf(void);
-void excluir_gf(void);
-void checar_gf(void);
-void sobre_gf(void);
+void cadastrar_re(void);
+void editar_re(void);
+void excluir_re(void);
+void checar_re(void);
+void sobre_re(void);
 
 char ler(char x){
   scanf("%c",&x);
@@ -18,13 +18,13 @@ char ler(char x){
 
 int main(void) {
     
-    // menu_principal_gv();
+    // menu_principal_re();
     gerencia_menu_principal();
 
     return 0;
 }
 
-char menu_principal_gv(void) {
+char menu_principal_re(void) {
     
     char op;
     system("clear||cls");
@@ -47,30 +47,30 @@ char menu_principal_gv(void) {
 
 void gerencia_menu_principal(void){
     char op;
-    op = menu_principal_gv();
+    op = menu_principal_re();
     while (op != '0') {
         
         if (op == '1') {
-            cadastrar_gf();
+            cadastrar_re();
         }
 
         else if (op == '2') {
-            editar_gf();
+            editar_re();
             
         }
 
         else if (op == '3') {
-            excluir_gf();
+            excluir_re();
             
         }
 
         else if (op == '4') {
-            checar_gf();
+            checar_re();
             
         }
 
         else if (op == '5') {
-            sobre_gf();
+            sobre_re();
         }
 
         else {
@@ -79,12 +79,12 @@ void gerencia_menu_principal(void){
 
         }
 
-        op = menu_principal_gv();
+        op = menu_principal_re();
 
         }
     }
 
-void cadastrar_gf(void){
+void cadastrar_re(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -99,7 +99,7 @@ void cadastrar_gf(void){
     getchar();
 }
 
-void editar_gf(void){
+void editar_re(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -114,7 +114,7 @@ void editar_gf(void){
     getchar();
 }
 
-void excluir_gf(void){
+void excluir_re(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -129,7 +129,7 @@ void excluir_gf(void){
     getchar();
 }
 
-void checar_gf(void){
+void checar_re(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -144,7 +144,7 @@ void checar_gf(void){
     getchar();
 }
 
-void sobre_gf(void){
+void sobre_re(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
