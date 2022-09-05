@@ -34,10 +34,10 @@ char menu_principal_re(void) {
     printf("///                                                                         ///\n");
     printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Cadastrar gasto.                                          ///\n");
-    printf("///            2. Editar gasto.                                             ///\n");
-    printf("///            3. Excluir gastos.                                           ///\n");
-    printf("///            4. Checar gastos.                                            ///\n");
+    printf("///            1. Cadastrar Receita.                                        ///\n");
+    printf("///            2. Editar Receita.                                           ///\n");
+    printf("///            3. Excluir Receitas.                                         ///\n");
+    printf("///            4. Checar historico de receitas.                             ///\n");
     printf("///            5. Sobre o modulo.                                           ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
