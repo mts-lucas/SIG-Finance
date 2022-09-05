@@ -92,8 +92,16 @@ void cadastrar_re(void){
     printf("///                                                                         ///\n");
     printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
-    printf("/// menu principal                                                          ///\n");
+    printf("///     Adicionar receita em qual morador?                                  ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     Descricao:                                                          ///\n");
+    printf("///     Valor:                                                              ///\n");
+    printf("///     tipo:                                                               ///\n");
+    printf("///     Id de usuario:                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
+    printf("///     mas por enquanto vamos deixar assim para ficar mais didatico        ///\n");
+    printf("///     o que vamos fazer)                                                  ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
