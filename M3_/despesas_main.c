@@ -204,32 +204,78 @@ void excluir_dp(void){
     getchar();  
 }
 
+void pagar_dp(void){
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =        Login do morador        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///          De qual Morador vai pagar a despesa?                           ///\n");
+    printf("///                                                                         ///\n");
+    printf("///          1. Lucas                                                       ///\n");
+    printf("///          2. Tallys                                                      ///\n");
+    printf("///          3. Flavius                                                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    getchar();
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     Pagar qual despesa:                                                 ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     1 - Despesa abc                                                     ///\n");
+    printf("///     2 - Despesa abc                                                     ///\n");
+    printf("///     3 - Despesa abc                                                     ///\n");
+    printf("///     4 - Despesa abc                                                     ///\n");
+    printf("///     5 - Despesa abc                                                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     (obs: a meta é fazer um 'for' para gerar essa serie de despesas     ///\n");
+    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
+    printf("///  o que vamos fazer, pagando com base na receita e/ou no saldo)          ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    getchar();  
+}
+
 void checar_re(void){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     = = = = =         Gerenciamento de Despesas          = = = =        ///\n");
+    printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
-    printf("/// menu principal                                                          ///\n");
+    printf("///     Lista de despesas:                                                  ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     1 - Despesa abc                                                     ///\n");
+    printf("///     2 - Despesa abc                                                     ///\n");
+    printf("///     3 - Despesa abc                                                     ///\n");
+    printf("///     4 - Despesa abc                                                     ///\n");
+    printf("///     5 - Despesa abc                                                     ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     (obs: a meta é fazer um 'for' para gerar essa serie de despesas     ///\n");
+    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
+    printf("///  o que vamos fazer)                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    getchar();
+    getchar(); 
 }
 
 void sobre_re(void){
-    system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          = = = = = Gerenciamento de Gastos Variaveis = = = =            ///\n");
+    printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Em desenvolvimento... Pressione qualquer tecla para voltar ao       ///\n");
-    printf("/// menu principal                                                          ///\n");
+    printf("///     Modulo encarregado para gerenciamento das despesas, aqui fica       ///\n");
+    printf("///  a parte onde vamos cuidar das despesas, que vai influenciar            ///\n");
+    printf("///  diretamente no saldo.                                                  ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    getchar();
-}
+    getchar(); 
