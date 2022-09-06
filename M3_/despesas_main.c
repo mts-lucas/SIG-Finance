@@ -3,7 +3,7 @@
 
 char menu_principal_dp(void);
 void gerencia_menu_principal_dp(void);
-char ler(char);
+char ler(void);
 void cadastrar_dp(void);
 void editar_dp(void);
 void excluir_dp(void);
@@ -11,12 +11,12 @@ void checar_dp(void);
 void sobre_dp(void);
 void pagar_dp(void);
 
-char ler(char x){
-
-    char op;
-    scanf("%c",&x);
-    getchar();
-    return x;
+char ler(void){
+  printf("Selecione sua opção:");
+  char op;
+  scanf("%c" , &op);
+  getchar();
+  return op;
 }
 
 /*char ler() {
@@ -36,7 +36,6 @@ int main(void) {
 
 char menu_principal_dp(void) {
     
-    char op;
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -53,7 +52,8 @@ char menu_principal_dp(void) {
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    return ler(op);
+    char op;
+    return op = ler();
 }
 
 void gerencia_menu_principal_dp(void){
