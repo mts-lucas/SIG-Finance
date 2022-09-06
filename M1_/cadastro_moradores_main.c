@@ -23,12 +23,6 @@ int main(void)
 
 char menu_cad_moradores(void)
 {
-<<<<<<< HEAD
-
-  char op;
-=======
-  
->>>>>>> 0c81aca (tallys: atualizando funcao ler() e corrigindo prints)
   system("clear||cls");
   printf("\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -45,14 +39,9 @@ char menu_cad_moradores(void)
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
-<<<<<<< HEAD
-  return ler(op);
-
-=======
   char op;
   return op = ler();
   
->>>>>>> 0c81aca (tallys: atualizando funcao ler() e corrigindo prints)
 }
 
 void interacao_menu_cad_morador(void)
