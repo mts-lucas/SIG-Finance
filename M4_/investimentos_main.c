@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 char menu_investimentos(void);
-char ler(char);
+char ler(void);
 void interacao_menu_investimeto(void);
 void renda_fixa(void);
 void renda_variavel(void);
@@ -22,7 +22,6 @@ int main(void)
 
 char menu_investimentos(void)
 {
-    char op;
     system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -38,14 +37,17 @@ char menu_investimentos(void)
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    return ler(op);
+    char op;
+    return op = ler();
 }
 
-char ler(char x)
+char ler(void)
 {
-    scanf("%c", &x);
-    getchar();
-    return x;
+  printf("Selecione sua opção:");
+  char op;
+  scanf("%c" , &op);
+  getchar();
+  return op;
 }
 
 void renda_fixa(void)
