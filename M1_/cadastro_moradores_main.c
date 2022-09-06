@@ -5,7 +5,7 @@
 
 void interacao_menu_cad_morador(void);
 char menu_cad_moradores(void);
-char ler(char);
+char ler(void);
 void cad_morador(void);
 void visualizar_morador(void);
 void sobre_moradores(void);
@@ -23,8 +23,12 @@ int main(void)
 
 char menu_cad_moradores(void)
 {
+<<<<<<< HEAD
 
   char op;
+=======
+  
+>>>>>>> 0c81aca (tallys: atualizando funcao ler() e corrigindo prints)
   system("clear||cls");
   printf("\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -41,8 +45,14 @@ char menu_cad_moradores(void)
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
+<<<<<<< HEAD
   return ler(op);
 
+=======
+  char op;
+  return op = ler();
+  
+>>>>>>> 0c81aca (tallys: atualizando funcao ler() e corrigindo prints)
 }
 
 void interacao_menu_cad_morador(void)
@@ -87,11 +97,13 @@ void interacao_menu_cad_morador(void)
   }
 }
 
-char ler(char x)
+char ler(void)
 {
-  scanf("%c", &x);
+  printf("Selecione sua opção:");
+  char op;
+  scanf("%c" , &op);
   getchar();
-  return x;
+  return op;
 }
 
 void cad_morador(void)
@@ -181,8 +193,8 @@ void deletar_morador(void)
   printf("///                                                                         ///\n");
   printf("///          Qual Morador deseja excluir da lista?                          ///\n");
   printf("///          1. Lucas                                                       ///\n");
-  printf("///          1. Tallys                                                      ///\n");
-  printf("///          1. Flavius                                                     ///\n");
+  printf("///          2. Tallys                                                      ///\n");
+  printf("///          3. Flavius                                                     ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
@@ -210,8 +222,8 @@ void visualizar_morador(void)
   printf("///                                                                         ///\n");
   printf("///          Estes são todos os moradores da residencia:                    ///\n");
   printf("///          1. Lucas                                                       ///\n");
-  printf("///          1. Tallys                                                      ///\n");
-  printf("///          1. Flavius                                                     ///\n");
+  printf("///          2. Tallys                                                      ///\n");
+  printf("///          3. Flavius                                                     ///\n");
   printf("///                                                                         ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
