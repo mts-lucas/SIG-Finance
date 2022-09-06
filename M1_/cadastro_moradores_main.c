@@ -15,6 +15,7 @@ void altera_morador(void);
 int main(void)
 {
 
+
   interacao_menu_cad_morador();
 
   return 0;
@@ -22,6 +23,7 @@ int main(void)
 
 char menu_cad_moradores(void)
 {
+
   char op;
   system("clear||cls");
   printf("\n");
@@ -40,7 +42,7 @@ char menu_cad_moradores(void)
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
   return ler(op);
-  
+
 }
 
 void interacao_menu_cad_morador(void)

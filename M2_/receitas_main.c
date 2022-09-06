@@ -24,7 +24,9 @@ int main(void) {
     return 0;
 }
 
+
 char menu_principal_re(void) {
+
     
     char op;
     system("clear||cls");
@@ -56,21 +58,22 @@ void gerencia_menu_principal(void){
 
         else if (op == '2') {
             editar_re();
-            
         }
 
         else if (op == '3') {
+
             excluir_re();
             
         }
 
         else if (op == '4') {
             checar_re();
-            
+
         }
 
         else if (op == '5') {
             sobre_re();
+
         }
 
         else {
