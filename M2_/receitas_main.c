@@ -3,17 +3,19 @@
 
 char menu_principal_re(void);
 void gerencia_menu_principal(void);
-char ler(char);
+char ler(void);
 void cadastrar_re(void);
 void editar_re(void);
 void excluir_re(void);
 void checar_re(void);
 void sobre_re(void);
 
-char ler(char x){
-  scanf("%c",&x);
+char ler(void){
+  printf("Selecione sua opção:");
+  char op;
+  scanf("%c" , &op);
   getchar();
-  return x;
+  return op;
 }
 
 int main(void) {
@@ -28,7 +30,7 @@ int main(void) {
 char menu_principal_re(void) {
 
     
-    char op;
+    
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -44,7 +46,8 @@ char menu_principal_re(void) {
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    return ler(op);
+    char op;
+    return op = ler();
 }
 
 void gerencia_menu_principal(void){
@@ -156,6 +159,8 @@ void editar_re(void){
     printf("///  o que vamos fazer)                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    getchar();
+
 }
 
 void excluir_re(void){
