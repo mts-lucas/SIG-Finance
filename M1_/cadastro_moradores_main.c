@@ -39,6 +39,7 @@ char menu_cad_moradores(void)
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
+  printf("Selecione sua opção:");
   char op;
   return op = ler();
   
@@ -86,18 +87,19 @@ void interacao_menu_cad_morador(void)
   }
 }
 
-char ler(void)
+char ler_simples(void)
 {
-  printf("Selecione sua opção:");
-  char op;
-  scanf("%c" , &op);
+  
+  char x;
+  scanf("%c" , &x);
   getchar();
-  return op;
+  return x;
 }
 
 void cad_morador(void)
 {
   system("clear||cls");
+  char nome_morador[51], cpf_morador[11], idade_morador[2], ocupacao_morador[12], renda_morador[7];
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -105,14 +107,20 @@ void cad_morador(void)
   printf("///          = = = = =       Cadastro de Morador      = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          Por favor informe os dados do morador:                         ///\n");
-  printf("///          Nome:                                                          ///\n");
-  printf("///          CPF:                                                           ///\n");
-  printf("///          Idade:                                                         ///\n");
-  printf("///          Ocupacao:                                                      ///\n");
-  printf("///          Renda Mensal:                                                  ///\n");
+  printf("///          Informe o nome do morador:                                     ///\n");
+  nome_morador = ler();
+  printf("///          Informe o CPF do morador:                                      ///\n");
+  cpf_morador = ler();
+  printf("///          Informe a idade do morador:                                    ///\n");
+  idade_morador = ler();
+  printf("///          Informe a atual ocupacao do morador:                           ///\n");
+  ocupacao_morador = ler();
+  printf("///          Informe a renda mensal do morador:                             ///\n");
+  renda_morador = ler();
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
-  getchar();
+  
+  
   system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
