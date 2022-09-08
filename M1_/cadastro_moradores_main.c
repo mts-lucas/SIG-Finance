@@ -108,18 +108,22 @@ void cad_morador(void)
   printf("///                                                                         ///\n");
   printf("///          Por favor informe os dados do morador:                         ///\n");
   printf("///          Informe o nome do morador:                                     ///\n");
-  nome_morador = ler();
+  scanf("%c", &nome_morador);
+  getchar();
   printf("///          Informe o CPF do morador:                                      ///\n");
-  cpf_morador = ler();
+  scanf("%c", &cpf_morador);
+  getchar();
   printf("///          Informe a idade do morador:                                    ///\n");
-  idade_morador = ler();
+  scanf("%c", &idade_morador);
+  getchar();
   printf("///          Informe a atual ocupacao do morador:                           ///\n");
-  ocupacao_morador = ler();
+  scanf("%c", &ocupacao_morador);
+  getchar();
   printf("///          Informe a renda mensal do morador:                             ///\n");
-  renda_morador = ler();
+  scanf("%c", &renda_morador);
+  getchar();
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
-  
   
   system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
