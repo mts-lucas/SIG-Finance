@@ -4,6 +4,7 @@
 char menu_principal_re(void);
 void gerencia_menu_principal(void);
 char ler(void);
+// char lers(void);
 void cadastrar_re(void);
 void editar_re(void);
 void excluir_re(void);
@@ -17,6 +18,14 @@ char ler(void){
   getchar();
   return op;
 }
+
+// char lers(void){
+//   printf("Selecione sua opção:");
+//   char st;
+//   scanf("%s" , st);
+//   getchar();
+//   return st[];
+// }
 
 int main(void) {
     
@@ -99,11 +108,8 @@ void cadastrar_re(void){
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai adicionar receita?                         ///\n");
     printf("///                                                                         ///\n");
-    printf("///          1. Lucas                                                       ///\n");
-    printf("///          2. Tallys                                                      ///\n");
-    printf("///          3. Flavius                                                     ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    char morador[100];
+    scanf("%s" , morador);
     getchar();
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -114,9 +120,17 @@ void cadastrar_re(void){
     printf("///     Adicionar receita:                                                  ///\n");
     printf("///                                                                         ///\n");
     printf("///     Descricao:                                                          ///\n");
+    char descricao[100];
+    scanf("%s" , descricao);
+    getchar();
     printf("///     Valor:                                                              ///\n");
+    char valor[100];
+    scanf("%s" , valor);
+    getchar();
     printf("///     tipo:                                                               ///\n");
-    printf("///     Id de usuario:                                                      ///\n");
+    char tipo[100];
+    scanf("%s" , tipo);
+    getchar();
     printf("///                                                                         ///\n");
     printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
     printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
@@ -135,11 +149,8 @@ void editar_re(void){
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai adicionar receita?                         ///\n");
     printf("///                                                                         ///\n");
-    printf("///          1. Lucas                                                       ///\n");
-    printf("///          2. Tallys                                                      ///\n");
-    printf("///          3. Flavius                                                     ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    char morador[100];
+    scanf("%s" , morador);
     getchar();
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
