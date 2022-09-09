@@ -107,9 +107,8 @@ void cadastrar_dp(void){
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///          De qual Morador cadastrar despesa?                            ///\n");
-    printf("///          1. Lucas                                                       ///\n");
-    printf("///          2. Tallys                                                      ///\n");
-    printf("///          3. Flavius                                                     ///\n");
+    char morador[50];
+    scanf("%s" , morador);
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
@@ -123,9 +122,14 @@ void cadastrar_dp(void){
     printf("///     Adicionar receita em qual morador?                                  ///\n");
     printf("///                                                                         ///\n");
     printf("///     Descricao:                                                          ///\n");
+    char descricao[50];
+    scanf("%s" , descricao);
     printf("///     Valor:                                                              ///\n");
+    char valor[50];
+    scanf("%s" , valor);
     printf("///     tipo:                                                               ///\n");
-    printf("///     Id de usuario:                                                      ///\n");
+    char tipo[50];
+    scanf("%s" , tipo);
     printf("///                                                                         ///\n");
     printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
     printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
