@@ -26,7 +26,7 @@ char ler(void){
 //   getchar();
 //   return st[];
 // }
-
+    
 int main(void) {
     
     // menu_principal_re();
@@ -124,11 +124,11 @@ void cadastrar_re(void){
     scanf("%s" , descricao);
     getchar();
     printf("///     Valor:                                                              ///\n");
-    char valor[100];
+    char valor[10];
     scanf("%s" , valor);
     getchar();
     printf("///     tipo:                                                               ///\n");
-    char tipo[100];
+    char tipo[50];
     scanf("%s" , tipo);
     getchar();
     printf("///                                                                         ///\n");
@@ -149,7 +149,7 @@ void editar_re(void){
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai adicionar receita?                         ///\n");
     printf("///                                                                         ///\n");
-    char morador[100];
+    char morador[50];
     scanf("%s" , morador);
     getchar();
     system("clear||cls");
@@ -159,15 +159,15 @@ void editar_re(void){
     printf("///          = = = = =         Editar Receita         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///     Editar   receita:                                                  ///\n");
-    char descricao[100];
+    char descricao[50];
     scanf("%s" , descricao);
     getchar();
     printf("///     Valor:                                                              ///\n");
-    char valor[100];
+    char valor[50];
     scanf("%s" , valor);
     getchar();
     printf("///     tipo:                                                               ///\n");
-    char tipo[100];
+    char tipo[50];
     scanf("%s" , tipo);
     getchar();
     printf("///                                                                         ///\n");
@@ -189,9 +189,8 @@ void excluir_re(void){
     printf("///                                                                         ///\n");
     printf("///     Informe de qual morador voce quer alterar a receita:                ///\n");
     printf("///                                                                         ///\n");
-    printf("///     1 - Lucas                                                           ///\n");
-    printf("///     2 - Tallys                                                          ///\n");
-    printf("///     3 - Flavius                                                         ///\n");
+    char morador[50];
+    scanf("%s" , morador);
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
