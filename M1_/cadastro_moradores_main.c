@@ -7,7 +7,7 @@
 
 // declarando as variaveis globais
 
-char nome_morador[51], cpf_morador[11], idade_morador[2], ocupacao_morador[12], renda_morador[7];
+char nome_morador[51], cpf_morador[11], idade_morador[4], ocupacao_morador[12], renda_morador[7];
 
 int main(void)
 {
@@ -102,19 +102,19 @@ void cad_morador(void)
   printf("///                                                                         ///\n");
   printf("///          Por favor informe os dados do morador:                         ///\n");
   printf("///          Informe o nome do morador:                                     ///\n");
-  scanf("%s", &nome_morador);
+  scanf("%[A-Z a-z]", nome_morador);
   getchar();
   printf("///          Informe o CPF do morador:                                      ///\n");
-  scanf("%s", &cpf_morador);
+  scanf("%[A-Z a-z]", cpf_morador);
   getchar();
   printf("///          Informe a idade do morador:                                    ///\n");
-  scanf("%s", &idade_morador);
+  scanf("%[A-Z a-z]", idade_morador);
   getchar();
   printf("///          Informe a atual ocupacao do morador:                           ///\n");
-  scanf("%s", &ocupacao_morador);
+  scanf("%[A-Z a-z]", ocupacao_morador);
   getchar();
   printf("///          Informe a renda mensal do morador:                             ///\n");
-  scanf("%s", &renda_morador);
+  scanf("%[A-Z a-z]", renda_morador);
   getchar();
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -141,7 +141,7 @@ void altera_morador(void)
   printf("///          = = = = =     Alterar dados de Morador   = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          De qual Morador deseja alterar os dados?                       ///\n");
-  printf("///          %s", nome_morador);
+  scanf("%[A-Z a-z]", nome_morador);
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
@@ -166,23 +166,23 @@ void altera_morador(void)
   {
   case ('1'):
     printf("Qual o novo nome?");
-    scanf("%s", &nome_morador);
+    scanf("%[A-Z a-z]", nome_morador);
     break;
   case ('2'):
     printf("Qual o novo CPF?");
-    scanf("%s", &cpf_morador);
+    scanf("%[A-Z a-z]", cpf_morador);
     break;
   case ('3'):
     printf("Qual a nova idade?");
-    scanf("%s", &idade_morador);
+    scanf("%[A-Z a-z]", idade_morador);
     break;
   case ('4'):
     printf("Qual a nova ocupacao");
-    scanf("%s", &ocupacao_morador);
+    scanf("%[A-Z a-z]", ocupacao_morador);
     break;
   case ('5'):
     printf("Qual a nova renda?");
-    scanf("%s", &renda_morador);
+    scanf("%[A-Z a-z]", renda_morador);
     break;
 
   default:
@@ -211,7 +211,7 @@ void deletar_morador(void)
   printf("///          = = = = =         Deletar Morador        = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          Qual Morador deseja excluir da lista?                          ///\n");
-  printf("///          %s", nome_morador);
+  scanf("%[A-Z a-z]", nome_morador);
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
   remove(nome_morador);
@@ -242,7 +242,7 @@ void visualizar_morador(void)
   printf("///          = = = = =       Visualizar Moradores     = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          Estes são todos os moradores da residencia:                    ///\n");
-  printf("///          %s", nome_morador);
+  scanf("%[A-Z a-z]", nome_morador);
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
