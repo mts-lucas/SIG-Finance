@@ -26,7 +26,7 @@ char ler(void){
 //   getchar();
 //   return st[];
 // }
-    
+
 int main(void) {
     
     // menu_principal_re();
@@ -108,7 +108,7 @@ void cadastrar_re(void){
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai adicionar receita?                         ///\n");
     printf("///                                                                         ///\n");
-    char morador[100];
+    char morador[50];
     scanf("%s" , morador);
     getchar();
     system("clear||cls");
