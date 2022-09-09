@@ -44,7 +44,7 @@ char menu_cad_moradores(void)
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
-  printf("Selecione sua opção:");
+  printf("Selecione sua opcao:");
   char op;
   return op = ler();
 }
@@ -111,19 +111,19 @@ void cad_morador(void)
   printf("///                                                                         ///\n");
   printf("///          Por favor informe os dados do morador:                         ///\n");
   printf("///          Informe o nome do morador:                                     ///\n");
-  scanf("%c", &nome_morador);
+  scanf("%s", &nome_morador);
   getchar();
   printf("///          Informe o CPF do morador:                                      ///\n");
-  scanf("%c", &cpf_morador);
+  scanf("%s", &cpf_morador);
   getchar();
   printf("///          Informe a idade do morador:                                    ///\n");
-  scanf("%c", &idade_morador);
+  scanf("%s", &idade_morador);
   getchar();
   printf("///          Informe a atual ocupacao do morador:                           ///\n");
-  scanf("%c", &ocupacao_morador);
+  scanf("%s", &ocupacao_morador);
   getchar();
   printf("///          Informe a renda mensal do morador:                             ///\n");
-  scanf("%c", &renda_morador);
+  scanf("%s", &renda_morador);
   getchar();
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -150,7 +150,7 @@ void altera_morador(void)
   printf("///          = = = = =     Alterar dados de Morador   = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          De qual Morador deseja alterar os dados?                       ///\n");
-  printf("///          %c", nome_morador);
+  printf("///          %s", nome_morador);
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
@@ -175,25 +175,25 @@ void altera_morador(void)
   {
   case ('1'):
     printf("Qual o novo nome?");
-    scanf("%c", &nome_morador);
+    scanf("%s", &nome_morador);
     break;
   case ('2'):
     printf("Qual o novo CPF?");
-    scanf("%c", &cpf_morador);
+    scanf("%s", &cpf_morador);
     break;
   case ('3'):
     printf("Qual a nova idade?");
-    scanf("%c", &idade_morador);
+    scanf("%s", &idade_morador);
     break;
   case ('4'):
     printf("Qual a nova ocupacao");
-    scanf("%c", &ocupacao_morador);
+    scanf("%s", &ocupacao_morador);
     break;
   case ('5'):
     printf("Qual a nova renda?");
-    scanf("%c", &renda_morador);
+    scanf("%s", &renda_morador);
     break;
-  
+
   default:
     printf("opcao invalida");
     break;
@@ -204,7 +204,7 @@ void altera_morador(void)
   printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
   printf("///          = = = = =     Alterar dados de Morador   = = = = =             ///\n");
   printf("///                                                                         ///\n");
-  printf("///          Dado Alterado!                                                 ///\n");
+  printf("///          Fim da Operacao!                                               ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
@@ -220,9 +220,14 @@ void deletar_morador(void)
   printf("///          = = = = =         Deletar Morador        = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          Qual Morador deseja excluir da lista?                          ///\n");
-  printf("///          %c", nome_morador);
+  printf("///          %s", nome_morador);
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
+  remove(nome_morador);
+  remove(cpf_morador);
+  remove(idade_morador);
+  remove(ocupacao_morador);
+  remove(renda_morador);
   system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
@@ -246,7 +251,7 @@ void visualizar_morador(void)
   printf("///          = = = = =       Visualizar Moradores     = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          Estes são todos os moradores da residencia:                    ///\n");
-  printf("///          %c", nome_morador);
+  printf("///          %s", nome_morador);
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
