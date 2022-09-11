@@ -147,10 +147,8 @@ void editar_dp(void){
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai editar a despesa?                          ///\n");
-    printf("///          1. Lucas                                                       ///\n");
-    printf("///          2. Tallys                                                      ///\n");
-    printf("///          3. Flavius                                                     ///\n");
-    printf("///                                                                         ///\n");
+    char morador[50];
+    scanf("%s" , morador);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
     system("clear||cls");
@@ -163,9 +161,14 @@ void editar_dp(void){
     printf("///     Editar despesa:                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///     Descricao:                                                          ///\n");
+    char descricao_d[50];
+    scanf("%s", descricao_d);
     printf("///     Valor:                                                              ///\n");
+    char valor_d[50];
+    scanf("%s", valor_d);
     printf("///     tipo:                                                               ///\n");
-    printf("///     Id de usuario:                                                      ///\n");
+    char tipo_d[50];
+    scanf("%s", tipo_d);
     printf("///                                                                         ///\n");
     printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
     printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
