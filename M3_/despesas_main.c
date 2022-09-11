@@ -223,10 +223,8 @@ void pagar_dp(void){
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai pagar a despesa?                           ///\n");
     printf("///                                                                         ///\n");
-    printf("///          1. Lucas                                                       ///\n");
-    printf("///          2. Tallys                                                      ///\n");
-    printf("///          3. Flavius                                                     ///\n");
-    printf("///                                                                         ///\n");
+    char morador[50];
+    scanf("%s", morador);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
     system("clear||cls");
