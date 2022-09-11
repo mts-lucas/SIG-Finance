@@ -105,16 +105,16 @@ void cad_morador(void)
   scanf("%[A-Z a-z]", nome_morador);
   getchar();
   printf("///          Informe o CPF do morador:                                      ///\n");
-  scanf("%[A-Z a-z]", cpf_morador);
+  scanf("%[0-9]", cpf_morador);
   getchar();
   printf("///          Informe a idade do morador:                                    ///\n");
-  scanf("%[A-Z a-z]", idade_morador);
+  scanf("%[0-9]", idade_morador);
   getchar();
   printf("///          Informe a atual ocupacao do morador:                           ///\n");
   scanf("%[A-Z a-z]", ocupacao_morador);
   getchar();
   printf("///          Informe a renda mensal do morador:                             ///\n");
-  scanf("%[A-Z a-z]", renda_morador);
+  scanf("%[0-9,.]", renda_morador);
   getchar();
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -133,6 +133,7 @@ void cad_morador(void)
 
 void altera_morador(void)
 {
+  char nome_altera[51];
   system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
@@ -141,7 +142,7 @@ void altera_morador(void)
   printf("///          = = = = =     Alterar dados de Morador   = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          De qual Morador deseja alterar os dados?                       ///\n");
-  scanf("%[A-Z a-z]", nome_morador);
+  scanf("%[A-Z a-z]", nome_altera);
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
@@ -170,11 +171,11 @@ void altera_morador(void)
     break;
   case ('2'):
     printf("Qual o novo CPF?");
-    scanf("%[A-Z a-z]", cpf_morador);
+    scanf("%[0-9]", cpf_morador);
     break;
   case ('3'):
     printf("Qual a nova idade?");
-    scanf("%[A-Z a-z]", idade_morador);
+    scanf("%[0-9]", idade_morador);
     break;
   case ('4'):
     printf("Qual a nova ocupacao");
@@ -182,7 +183,7 @@ void altera_morador(void)
     break;
   case ('5'):
     printf("Qual a nova renda?");
-    scanf("%[A-Z a-z]", renda_morador);
+    scanf("%[0-9,.]", renda_morador);
     break;
 
   default:
@@ -203,6 +204,7 @@ void altera_morador(void)
 
 void deletar_morador(void)
 {
+  char nome_excluir[51];
   system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
@@ -211,7 +213,7 @@ void deletar_morador(void)
   printf("///          = = = = =         Deletar Morador        = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          Qual Morador deseja excluir da lista?                          ///\n");
-  scanf("%[A-Z a-z]", nome_morador);
+  scanf("%[A-Z a-z]", nome_excluir);
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
   remove(nome_morador);
@@ -241,8 +243,8 @@ void visualizar_morador(void)
   printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
   printf("///          = = = = =       Visualizar Moradores     = = = = =             ///\n");
   printf("///                                                                         ///\n");
-  printf("///          Estes são todos os moradores da residencia:                    ///\n");
-  scanf("%[A-Z a-z]", nome_morador);
+  printf("///          Estes sao todos os moradores da residencia:                    ///\n");
+  printf("%s\n", nome_morador);
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
