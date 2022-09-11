@@ -187,10 +187,8 @@ void excluir_dp(void){
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai excluir a despesa? (Atencao, excluir       ///\n");
     printf("///                                             é diferente de pagar...)    ///\n");
-    printf("///          1. Lucas                                                       ///\n");
-    printf("///          2. Tallys                                                      ///\n");
-    printf("///          3. Flavius                                                     ///\n");
-    printf("///                                                                        ///\n");
+    char morador[50];
+    scanf("%s" , morador);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
     system("clear||cls");
