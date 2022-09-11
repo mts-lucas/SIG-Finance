@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "despesas_main.h"
 
 char menu_principal_dp(void);
 void gerencia_menu_principal_dp(void);
