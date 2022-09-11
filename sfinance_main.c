@@ -14,6 +14,7 @@
 
 
 #include <stdio.h>
+#include "cadastro_moradores_main.h"
 
 // Assinatura das funções
 
