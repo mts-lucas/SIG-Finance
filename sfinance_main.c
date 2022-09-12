@@ -13,6 +13,7 @@
 
 #include <stdio.h>
 #include "M1_/cadastro_moradores_main.h"
+#include <stdlib.h>
 
 // Assinatura das funções
 
