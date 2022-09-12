@@ -79,7 +79,6 @@ void interacao_menu_cad_morador(void)
 
     op = menu_cad_moradores();
   }
-  return 0;
 }
 
 char ler(void)
