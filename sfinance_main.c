@@ -12,8 +12,11 @@
 // OLHAR TODOS OS COMENTS
 
 #include <stdio.h>
-#include "M1_/cadastro_moradores_main.h"
 #include <stdlib.h>
+#include "M1_/cadastro_moradores_main.h"
+#include "M2_/receitas_main.h"
+#include "M3_/despesas_main.h"
+
 
 // Assinatura das funções
 
@@ -22,6 +25,9 @@ void tela_sobre(void);
 void tela_equipe(void);
 void consideracoes_finais(void);
 void interacao_menu_principal(void);
+char menu_informacoes(void);
+void interecao_informacoes(void);
+
 
 // Programa principal
 
@@ -38,6 +44,7 @@ int main(void)
 
 char menu_principal(void)
 {
+    char op;
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -62,7 +69,6 @@ char menu_principal(void)
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("Selecione sua opcao:");
-    char op;
     scanf("%c", &op);
     getchar();
     return op;
@@ -70,7 +76,6 @@ char menu_principal(void)
 
 void tela_sobre(void)
 {
-
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -99,7 +104,6 @@ void tela_sobre(void)
 
 void tela_equipe(void)
 {
-
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -134,7 +138,6 @@ void tela_equipe(void)
 
 void consideracoes_finais(void)
 {
-
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -177,16 +180,12 @@ void interacao_menu_principal(void)
 
         else if (op == '2')
         {
-            printf("Em contrucao");
-            printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            getchar();
+            gerencia_menu_principal();
         }
 
         else if (op == '3')
         {
-            printf("Em contrucao");
-            printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            getchar();
+            gerencia_menu_principal_dp();
         }
 
         else if (op == '4')
@@ -198,9 +197,7 @@ void interacao_menu_principal(void)
 
         else if (op == '5')
         {
-            printf("Em contrucao");
-            printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            getchar();
+            interecao_informacoes();
         }
         else
         {

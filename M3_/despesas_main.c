@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "despesas_main.h"
 
 char menu_principal_dp(void);
 void gerencia_menu_principal_dp(void);
-char ler(void);
+char ler_dp(void);
 void cadastrar_dp(void);
 void editar_dp(void);
 void excluir_dp(void);
@@ -11,7 +12,7 @@ void checar_dp(void);
 void sobre_dp(void);
 void pagar_dp(void);
 
-char ler(void){
+char ler_dp(void){
   printf("Selecione sua opção:");
   char op;
   scanf("%c" , &op);
@@ -19,7 +20,7 @@ char ler(void){
   return op;
 }
 
-/*char ler() {
+/*char ler_dp() {
      char op;
      scanf("%c", &op);
      getchar();
@@ -27,12 +28,12 @@ char ler(void){
      return op;
 }*/
 
-int main(void) {
+// int main(void) {
     
-    gerencia_menu_principal_dp();
+//     gerencia_menu_principal_dp();
 
-    return 0;
-}
+//     return 0;
+// }
 
 char menu_principal_dp(void) {
     
@@ -53,7 +54,7 @@ char menu_principal_dp(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     char op;
-    return op = ler();
+    return op = ler_dp();
 }
 
 void gerencia_menu_principal_dp(void){
@@ -107,9 +108,8 @@ void cadastrar_dp(void){
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///          De qual Morador cadastrar despesa?                            ///\n");
-    printf("///          1. Lucas                                                       ///\n");
-    printf("///          2. Tallys                                                      ///\n");
-    printf("///          3. Flavius                                                     ///\n");
+    char morador[50];
+    scanf("%s" , morador);
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
@@ -123,9 +123,14 @@ void cadastrar_dp(void){
     printf("///     Adicionar receita em qual morador?                                  ///\n");
     printf("///                                                                         ///\n");
     printf("///     Descricao:                                                          ///\n");
+    char descricao[50];
+    scanf("%s" , descricao);
     printf("///     Valor:                                                              ///\n");
+    char valor[50];
+    scanf("%s" , valor);
     printf("///     tipo:                                                               ///\n");
-    printf("///     Id de usuario:                                                      ///\n");
+    char tipo[50];
+    scanf("%s" , tipo);
     printf("///                                                                         ///\n");
     printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
     printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
@@ -143,10 +148,8 @@ void editar_dp(void){
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai editar a despesa?                          ///\n");
-    printf("///          1. Lucas                                                       ///\n");
-    printf("///          2. Tallys                                                      ///\n");
-    printf("///          3. Flavius                                                     ///\n");
-    printf("///                                                                         ///\n");
+    char morador[50];
+    scanf("%s" , morador);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
     system("clear||cls");
@@ -159,9 +162,14 @@ void editar_dp(void){
     printf("///     Editar despesa:                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///     Descricao:                                                          ///\n");
+    char descricao_d[50];
+    scanf("%s", descricao_d);
     printf("///     Valor:                                                              ///\n");
+    char valor_d[50];
+    scanf("%s", valor_d);
     printf("///     tipo:                                                               ///\n");
-    printf("///     Id de usuario:                                                      ///\n");
+    char tipo_d[50];
+    scanf("%s", tipo_d);
     printf("///                                                                         ///\n");
     printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
     printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
@@ -180,10 +188,8 @@ void excluir_dp(void){
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai excluir a despesa? (Atencao, excluir       ///\n");
     printf("///                                             é diferente de pagar...)    ///\n");
-    printf("///          1. Lucas                                                       ///\n");
-    printf("///          2. Tallys                                                      ///\n");
-    printf("///          3. Flavius                                                     ///\n");
-    printf("///                                                                        ///\n");
+    char morador[50];
+    scanf("%s" , morador);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
     system("clear||cls");
@@ -218,10 +224,8 @@ void pagar_dp(void){
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai pagar a despesa?                           ///\n");
     printf("///                                                                         ///\n");
-    printf("///          1. Lucas                                                       ///\n");
-    printf("///          2. Tallys                                                      ///\n");
-    printf("///          3. Flavius                                                     ///\n");
-    printf("///                                                                         ///\n");
+    char morador[50];
+    scanf("%s", morador);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
     system("clear||cls");
