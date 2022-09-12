@@ -28,6 +28,7 @@ void interacao_menu_principal(void);
 char menu_informacoes(void);
 void interecao_informacoes(void);
 
+
 // Programa principal
 
 // char nome_morador[51], cpf_morador[11], idade_morador[4], ocupacao_morador[12], renda_morador[7];
@@ -44,6 +45,7 @@ int main(void)
 char menu_principal(void)
 {
     char op;
+
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -74,7 +76,6 @@ char menu_principal(void)
 
 void tela_sobre(void)
 {
-
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -103,7 +104,6 @@ void tela_sobre(void)
 
 void tela_equipe(void)
 {
-
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -138,7 +138,6 @@ void tela_equipe(void)
 
 void consideracoes_finais(void)
 {
-
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
