@@ -41,7 +41,6 @@ char menu_cad_moradores(void)
 
 void interacao_menu_cad_morador(void)
 {
-
   char op;
   op = menu_cad_moradores();
   while (op != '0')
