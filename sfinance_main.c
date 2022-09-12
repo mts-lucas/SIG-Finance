@@ -18,10 +18,11 @@
 // Assinatura das funções
 
 char menu_principal(void);
-void tela_sobre(void);
-void tela_equipe(void);
-void consideracoes_finais(void);
+// void tela_sobre(void);
+// void tela_equipe(void);
+// void consideracoes_finais(void);
 void interacao_menu_principal(void);
+void interacao_menu_cad_morador(void);
 
 // Programa principal
 
