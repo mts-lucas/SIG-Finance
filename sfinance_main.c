@@ -5,40 +5,38 @@
 ///                  Disciplina DCT1106 -- Programação                      ///
 ///    Projeto Sistema de Sistema de Controle de Finanças Domésticas        ///
 ///////////////////////////////////////////////////////////////////////////////
-///                                Semana 2                                 ///
+///                                Semana 3                                 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-
-//LEMBRAR DE NÃO USAR ACENTO E ESSAS COIAS Q DA B.O QUANDO COMPILA!!!!!
-//Telas bunitinhas hehe
-
+// LEMBRAR DE NÃO USAR ACENTO E ESSAS COIAS Q DA B.O QUANDO COMPILA!!!!!
+// depois fazer um menuzinho com equpe,sobre e considercoes finais
 
 #include <stdio.h>
-#include "cadastro_moradores_main.h"
+#include "M1_/cadastro_moradores_main.h"
 
 // Assinatura das funções
 
-void menu_principal(void);
+char menu_principal(void);
 void tela_sobre(void);
 void tela_equipe(void);
 void consideracoes_finais(void);
+void interacao_menu_principal(void);
 
 // Programa principal
 
-int main(void) {
+// char nome_morador[51], cpf_morador[11], idade_morador[4], ocupacao_morador[12], renda_morador[7];
 
-    menu_principal();
-    tela_sobre();
-    tela_equipe();
-    consideracoes_finais();
+int main(void)
+{
+    interacao_menu_principal();
+
     return 0;
 }
 
-
-/////
 // Funções da tela principal
 
-void menu_principal(void) {
+char menu_principal(void)
+{
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -57,15 +55,22 @@ void menu_principal(void) {
     printf("///            2. Receitas                                                  ///\n");
     printf("///            3. Despesas                                                  ///\n");
     printf("///            4. Investimentos                                             ///\n");
+    printf("///            5. Informacoes sobre o Projeto                               ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    printf("Selecione sua opcao:");
+    char op;
+    scanf("%c", &op);
+    getchar();
+    return op;
 }
 
-//ja arrumei a descrição
+// ja arrumei a descrição
 
-void tela_sobre(void) {
+void tela_sobre(void)
+{
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -93,10 +98,10 @@ void tela_sobre(void) {
     printf("\n");
 }
 
+// Add seus dados iguais os meus aqui
 
-//Add seus dados iguais os meus aqui
-
-void tela_equipe(void) {
+void tela_equipe(void)
+{
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -128,9 +133,10 @@ void tela_equipe(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-} 
+}
 
-void consideracoes_finais(void) {
+void consideracoes_finais(void)
+{
 
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -156,4 +162,54 @@ void consideracoes_finais(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-} 
+}
+
+void interacao_menu_principal(void)
+{
+
+    char op;
+    op = menu_principal();
+    while (op != '0')
+    {
+
+        if (op == '1')
+        {
+            interacao_menu_cad_morador();
+        }
+
+        else if (op == '2')
+        {
+            printf("Em contrucao");
+            printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar();
+        }
+
+        else if (op == '3')
+        {
+            printf("Em contrucao");
+            printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar();
+        }
+
+        else if (op == '4')
+        {
+            printf("Em contrucao");
+            printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar();
+        }
+
+        else if (op == '5')
+        {
+            printf("Em contrucao");
+            printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar();
+        }
+        else
+        {
+            printf("\n\t Opcao invalida. digite outra...");
+            getchar();
+        }
+
+        op = menu_principal();
+    }
+}
