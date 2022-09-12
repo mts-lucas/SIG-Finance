@@ -9,7 +9,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // LEMBRAR DE NÃO USAR ACENTO E ESSAS COIAS Q DA B.O QUANDO COMPILA!!!!!
-// depois fazer um menuzinho com equpe,sobre e considercoes finais
+// OLHAR TODOS OS COMENTS
 
 #include <stdio.h>
 #include "M1_/cadastro_moradores_main.h"
@@ -68,8 +68,6 @@ char menu_principal(void)
     return op;
 }
 
-// ja arrumei a descrição
-
 void tela_sobre(void)
 {
 
@@ -98,8 +96,6 @@ void tela_sobre(void)
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
 }
-
-// Add seus dados iguais os meus aqui
 
 void tela_equipe(void)
 {
@@ -163,6 +159,7 @@ void consideracoes_finais(void)
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    getchar();
 }
 
 void interacao_menu_principal(void)
@@ -212,5 +209,60 @@ void interacao_menu_principal(void)
         }
 
         op = menu_principal();
+    }
+}
+
+char menu_informacoes(void)
+{
+
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =  Informacoes sobre o Projeto   = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///            1. Equipe                                                    ///\n");
+    printf("///            2. Sobre                                                     ///\n");
+    printf("///            3. Consideracoes finais                                      ///\n");
+    printf("///            0. Sair                                                      ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("Selecione sua opcao:");
+    char op;
+    scanf("%c", &op);
+    getchar();
+    return op;
+}
+
+void interecao_informacoes(void)
+{
+
+    char op;
+    op = menu_informacoes();
+    while (op != '0')
+    {
+
+        if (op == '1')
+        {
+            tela_equipe();
+        }
+
+        else if (op == '2')
+        {
+            tela_sobre();
+        }
+
+        else if (op == '3')
+        {
+            consideracoes_finais();
+        }
+
+        else
+        {
+            printf("\n\t Opcao invalida. digite outra...");
+            getchar();
+        }
+
+        op = menu_informacoes();
     }
 }

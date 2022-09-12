@@ -5,6 +5,7 @@
 #include "cadastro_moradores_main.h"
 
 // declarando as variaveis globais
+//OLHAR TODOS OS COMENTS
 
 char nome_morador[51], cpf_morador[11], idade_morador[4], ocupacao_morador[12], renda_morador[7];
 
