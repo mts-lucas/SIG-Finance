@@ -8,7 +8,7 @@
 //OLHAR TODOS OS COMENTS
 
 char nome_morador[51], cpf_morador[11], idade_morador[4], ocupacao_morador[12], renda_morador[7];
-
+/*
 int main(void)
 {
 
@@ -16,7 +16,7 @@ int main(void)
 
   return 0;
 }
-
+*/
 char menu_cad_moradores(void)
 {
   system("clear||cls");
