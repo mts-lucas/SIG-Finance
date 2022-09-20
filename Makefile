@@ -1,5 +1,5 @@
 run: all
-	./sfinance_main
+	./sfinancemain
 
 all:
-	gcc -c -Wall M1/.c; gcc -c -Wall M2/.c; gcc -c -Wall M3_/.c; gcc -o sfinance_main sfinancemain.o ./M1/.o ./M2/*.o ./M3/d espesas_main.o
+	gcc -c -Wall M1_/cadastro_moradores_main.c; gcc -c -Wall M2_/receitas_main.c; gcc -c -Wall M3_/despesas_main.c; gcc -o sfinancemain  sfinance_main.c cadastro_moradores_main.o receitas_main.o despesas_main.o
