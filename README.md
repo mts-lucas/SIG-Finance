@@ -17,5 +17,4 @@ O presente projeto tem como objetivo desenvolver um programa de computador que r
 
 #### Para conseguir compilar e executar o projeto, devesse executar os seguintes comandos no terminal:
 
-1º - "gcc -c -Wall M1_/*.c; gcc -c -Wall M2_/*.c; gcc -c -Wall M3_/*.c; gcc -o sfinance_main sfinance_main.o ./M1_/*.o ./M2_/*.o ./M3_/d
-espesas_main.o; ./sfinance_main"
+1º - `	gcc -c -Wall M1_/cadastro_moradores_main.c; gcc -c -Wall M2_/receitas_main.c; gcc -c -Wall M3_/despesas_main.c; gcc -o sfinancemain  sfinance_main.c cadastro_moradores_main.o receitas_main.o despesas_main.o ./sfinancemain`
