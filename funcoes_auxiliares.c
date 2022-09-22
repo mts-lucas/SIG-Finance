@@ -1,10 +1,7 @@
 #include <stdio.h>
+#include "funcoes_auxiliares.h"
 
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-int dia_do_ano(int, int, int);
-int bissexto(int);
-int dataValida(int, int, int);
-int quantos_dias(int, int, int);
 
 
 //criar uma função posterior que verificar se o numero digitado é um inteiro para então jogar os valores pra outras funções
