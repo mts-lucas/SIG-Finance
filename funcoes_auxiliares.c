@@ -3,12 +3,13 @@
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 int dia_do_ano(int, int, int);
 int bissexto(int);
-int loop_validar_data(void);
 int dataValida(int, int, int);
+int quantos_dias(int, int, int);
 
-//criar uma função posterior que verificar se o numero digitado é um inteiro
 
-int loop_validar_data(void)
+//criar uma função posterior que verificar se o numero digitado é um inteiro para então jogar os valores pra outras funções
+
+int main(void)
 {
     int dia, mes, ano, dataOk, dia_ano;
 
@@ -33,8 +34,11 @@ int loop_validar_data(void)
 
     }
 
+    dia_ano = dia_do_ano(dia, mes, ano);
+    printf("Seu dia do ano eh: %d", dia_ano);
     return 0;
 }
+
 int bissexto(int aa)
 {
     if ((aa % 4 == 0) && (aa % 100 != 0))
@@ -97,4 +101,13 @@ int dia_do_ano(int dd, int mm, int aa){
     }
 
     return soma;
+}
+
+//Calcular a quantos dias foi um evento
+
+int quantos_dias(int dd, int mm, int aa){
+
+    printf("Precisa usar struct. ESTUDAR");
+
+    return 0;
 }
