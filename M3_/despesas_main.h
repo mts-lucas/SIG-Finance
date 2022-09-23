@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 char menu_principal_dp(void);
 void gerencia_menu_principal_dp(void);
 char ler(void);
