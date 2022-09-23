@@ -21,7 +21,7 @@ O presente projeto tem como objetivo desenvolver um programa de computador que r
 
 abra o terminal e cole o seguinte comando:
 
-`gcc -c -Wall M1_/cadastro_moradores_main.c; gcc -c -Wall M2_/receitas_main.c; gcc -c -Wall M3_/despesas_main.c; gcc -o sfinancemain sfinance_main.c cadastro_moradores_main.o receitas_main.o despesas_main.o; ./sfinancemain`
+`gcc -c -Wall M1_/cadastro_moradores_main.c; gcc -c -Wall M2_/receitas_main.c; gcc -c -Wall M3_/despesas_main.c; gcc -c -Wall M5_/relatorios.c; gcc -o sfinancemain sfinance_main.c cadastro_moradores_main.o receitas_main.o despesas_main.o relatorios.o; ./sfinancemain`
 
 - No linux
 

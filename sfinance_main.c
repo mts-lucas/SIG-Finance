@@ -5,7 +5,7 @@
 ///                  Disciplina DCT1106 -- Programação                      ///
 ///    Projeto Sistema de Sistema de Controle de Finanças Domésticas        ///
 ///////////////////////////////////////////////////////////////////////////////
-///                                Semana 3                                 ///
+///                                Semana 5                                 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 // LEMBRAR DE NÃO USAR ACENTO E ESSAS COIAS Q DA B.O QUANDO COMPILA!!!!!
@@ -16,17 +16,8 @@
 #include "M1_/cadastro_moradores_main.h"
 #include "M2_/receitas_main.h"
 #include "M3_/despesas_main.h"
-
-
-// Assinatura das funções
-
-char menu_principal(void);
-void tela_sobre(void);
-void tela_equipe(void);
-void consideracoes_finais(void);
-void interacao_menu_principal(void);
-char menu_informacoes(void);
-void interecao_informacoes(void);
+#include "M5_/relatorios.h"
+#include "sfinance_main.h"
 
 
 // Programa principal
@@ -63,7 +54,8 @@ char menu_principal(void)
     printf("///            2. Receitas                                                  ///\n");
     printf("///            3. Despesas                                                  ///\n");
     printf("///            4. Investimentos                                             ///\n");
-    printf("///            5. Informacoes sobre o Projeto                               ///\n");
+    printf("///            5. Relatorios                                                ///\n");
+    printf("///            6. Informacoes sobre o Projeto                               ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -199,6 +191,11 @@ void interacao_menu_principal(void)
         }
 
         else if (op == '5')
+        {
+            interacao_menu_relatorios();
+        }
+
+        else if (op == '6')
         {
             interecao_informacoes();
         }
