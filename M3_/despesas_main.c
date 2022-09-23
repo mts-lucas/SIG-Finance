@@ -267,6 +267,7 @@ void checar_dp(void){
 }
 
 void sobre_dp(void){
+    system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");

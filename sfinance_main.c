@@ -45,7 +45,7 @@ int main(void)
 char menu_principal(void)
 {
     char op;
-
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -76,6 +76,7 @@ char menu_principal(void)
 
 void tela_sobre(void)
 {
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -104,6 +105,7 @@ void tela_sobre(void)
 
 void tela_equipe(void)
 {
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -138,6 +140,7 @@ void tela_equipe(void)
 
 void consideracoes_finais(void)
 {
+    system("clear||cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -211,7 +214,7 @@ void interacao_menu_principal(void)
 
 char menu_informacoes(void)
 {
-
+    system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");

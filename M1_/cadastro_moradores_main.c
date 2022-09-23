@@ -189,6 +189,7 @@ void altera_morador(void)
     printf("opcao invalida");
     break;
   }
+  system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
