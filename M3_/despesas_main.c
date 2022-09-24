@@ -2,15 +2,6 @@
 #include <stdlib.h>
 #include "despesas_main.h"
 
-char menu_principal_dp(void);
-void gerencia_menu_principal_dp(void);
-char ler_dp(void);
-void cadastrar_dp(void);
-void editar_dp(void);
-void excluir_dp(void);
-void checar_dp(void);
-void sobre_dp(void);
-void pagar_dp(void);
 
 char ler_dp(void){
   printf("Selecione sua opção:");
@@ -276,6 +267,7 @@ void checar_dp(void){
 }
 
 void sobre_dp(void){
+    system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");

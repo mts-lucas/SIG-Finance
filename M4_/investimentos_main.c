@@ -1,6 +1,3 @@
-// arquivo referente ao modulo 4:
-
-
 #include <stdio.h>
 #include <stdlib.h>
 

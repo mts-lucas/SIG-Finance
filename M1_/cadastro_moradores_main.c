@@ -189,6 +189,7 @@ void altera_morador(void)
     printf("opcao invalida");
     break;
   }
+  system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -233,6 +234,8 @@ void deletar_morador(void)
   getchar();
 }
 
+//simulado:
+
 void visualizar_morador(void)
 {
   system("clear||cls");
@@ -243,7 +246,9 @@ void visualizar_morador(void)
   printf("///          = = = = =       Visualizar Moradores     = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          Estes sao todos os moradores da residencia:                    ///\n");
-  printf("%s\n", nome_morador);
+  printf("///          1 - Lucas Mateus                                               ///\n");
+  printf("///          2 - Tallys Aureliano                                           ///\n");
+  printf("///          3 - Vinicius Maia                                              ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
