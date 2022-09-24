@@ -56,12 +56,14 @@ char menu_relatorios(void)
 void entre_datas(void){
 
     system("clear||cls");
-    printf("Em construção");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =           Relatorios           = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///     Data inicial: 20/09/22                                              ///\n");
+    printf("///     Data final: 24/09/22                                                ///\n");
     printf("///                                                                         ///\n");
     printf("///     De 20/09/22 a 24/09/22                                              ///\n");
     printf("///                                                                         ///\n");
@@ -91,7 +93,6 @@ void entre_datas(void){
 
 void por_datas(void){
 
-    char op[50];
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -99,20 +100,19 @@ void por_datas(void){
     printf("///                                                                         ///\n");
     printf("///          = = = = =           Relatorios           = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Informe a data:");
-    scanf("%s", op);
-    getchar();
+    printf("///     Escolha a data: (hoje 27/09/22)                                     ///\n");
+    printf("///                                                                         ///\n");
     printf("///          = = = = =          Dia 27/09/22         = = = = =              ///\n");
     printf("///                                                                         ///\n");
     printf("///     Deposito de Flavius                                                 ///\n");
-    printf("///         Valor: 500,00 reais.                                            ///\n");
+    printf("///         Valor: 1000,00 reais.                                           ///\n");
     printf("///         Tipo: Contribuicao mensal.                                      ///\n");
     printf("///         Descrição: 1/100 do meu salario.                                ///\n");
     printf("///                                                                         ///\n");
     printf("///     Despesa cadastrada por Talys                                        ///\n");
-    printf("///         Valor: 50,00 reais                                              ///\n");
-    printf("///         Tipo: Emergencia                                                ///\n");
-    printf("///         Descrição: ventilador quebrado.                                 ///\n");
+    printf("///         Valor: 110,00 reais                                             ///\n");
+    printf("///         Tipo: Contas mensais                                            ///\n");
+    printf("///         Descrição: Aluguel.                                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
