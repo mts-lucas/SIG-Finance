@@ -28,4 +28,3 @@ abra o terminal e cole o seguinte comando:
 abra o terminal e digite o comando:
 
 `make`
-
