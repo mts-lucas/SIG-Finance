@@ -1,4 +1,4 @@
-///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 ///             Universidade Federal do Rio Grande do Norte                 ///
 ///                 Centro de Ensino Superior do Seridó                     ///
 ///               Departamento de Computação e Tecnologia                   ///
@@ -157,6 +157,7 @@ void consideracoes_finais(void)
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+
     getchar();
 }
 
@@ -262,4 +263,5 @@ void interecao_informacoes(void)
 
         op = menu_informacoes();
     }
+
 }
