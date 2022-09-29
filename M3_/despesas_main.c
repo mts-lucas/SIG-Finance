@@ -140,7 +140,7 @@ void editar_dp(void){
     scanf("%s", valor_d);
     getchar();
     printf("///     Tipo da despesa:                                                    ///\n");
-    tipos();
+    tipos_d();
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
@@ -259,8 +259,8 @@ void sobre_dp(void){
 }
 
 void tipos_d(void) {
-    printf("1-Contribuição Mensal\t2-Extra\t3-Emergência\n")
+    printf("1-Contribuição Mensal\t2-Extra\t3-Emergência\n");
     char tipo;
-    scanf("%c",tipo);
+    scanf("%c",&tipo);
     getchar();
 }

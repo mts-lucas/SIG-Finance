@@ -153,7 +153,7 @@ void editar_re(void){
     scanf("%s" , valor);
     getchar();
     printf("///     tipo:                                                               ///\n");
-    tipos()
+    tipos();
     printf("///                                                                                 ///\n");
     printf("///                                                                         ///\n");
     printf("/////////////////////////////////// ////////////////////////////////////////////\n");
@@ -209,12 +209,8 @@ void sobre_re(void){
 }
 
 void tipos(void) {
-    printf("1-Contribuição Mensal\t2-Extra\t3-Emergência\n")
+    printf("1-Contribuição Mensal\n2-Extra\n3-Emergência\n");
     char tipo;
-    scanf("%c",tipo);
+    scanf("%c",&tipo);
     getchar();
 }
-
-
-
-
