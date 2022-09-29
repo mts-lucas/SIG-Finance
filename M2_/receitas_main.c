@@ -110,7 +110,7 @@ void cadastrar_re(void){
     printf("///                                                                         ///\n");
     printf("///     Adicionar receita:                                                  ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Descricao:                                                          ///\n");
+    printf("///     Descrição:                                                          ///\n");
     char descricao[100];
     scanf("%s" , descricao);
     getchar();
@@ -118,14 +118,9 @@ void cadastrar_re(void){
     char valor[10];
     scanf("%s" , valor);
     getchar();
-    printf("///     tipo:                                                               ///\n");
-    char tipo[50];
-    scanf("%s" , tipo);
-    getchar();
+    printf("///     Tipo da receita?                                                   ///\n");
+    tipos();
     printf("///                                                                         ///\n");
-    printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
-    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
-    printf("///  o que vamos fazer)                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
@@ -149,24 +144,19 @@ void editar_re(void){
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =         Editar Receita         = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Editar   receita:                                                  ///\n");
+    printf("///     Editar   receita:                                                   ///\n");
     char descricao[50];
     scanf("%s" , descricao);
     getchar();
-    printf("///     Valor:                                                              ///\n");
+    printf("///     Tipo da receita?                                                    ///\n");
     char valor[50];
     scanf("%s" , valor);
     getchar();
     printf("///     tipo:                                                               ///\n");
-    char tipo[50];
-    scanf("%s" , tipo);
-    getchar();
+    tipos();
+    printf("///                                                                                 ///\n");
     printf("///                                                                         ///\n");
-    printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
-    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
-    printf("///  o que vamos fazer)                                                     ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("/////////////////////////////////// ////////////////////////////////////////////\n");
     getchar();
 
 }
@@ -178,7 +168,7 @@ void excluir_re(void){
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Informe de qual morador voce quer alterar a receita:                ///\n");
+    printf("///     Informe de qual morador você deseja excluir receita:                ///\n");
     printf("///                                                                         ///\n");
     char morador[50];
     scanf("%s" , morador);
@@ -194,11 +184,11 @@ void checar_re(void){
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Segue a lista das receitas por ordem cronologica:                   ///\n");
+    printf("///     Segue a lista das receitas por ordem cronológica:                   ///\n");
     printf("///                                                                         ///\n");
-    printf("///                  Nome - Data - Valor - Descricao                        ///\n");
+    printf("///                  Nome - Data - Valor - Descrição                        ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Flavius - 05/09/22 - 15.000,00 - premiacao por otimo projeto        ///\n");
+    printf("///     Flavius - 05/09/22 - 15.000,00 - premiação por otimo projeto        ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
@@ -212,8 +202,15 @@ void sobre_re(void){
     printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///     Esse modulo faremos a gestao de receitas onde voce vai poder        ///\n");
-    printf("///  analisar a suas receitas.                                              ///\n");
+    printf("///  cadastrar as suas receitas.                                            ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    getchar();
+}
+
+void tipos(void) {
+    printf("1-Contribuição Mensal\n2-Extra\n3-Emergência\n");
+    char tipo;
+    scanf("%c",&tipo);
     getchar();
 }

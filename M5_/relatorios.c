@@ -22,7 +22,7 @@ void interacao_menu_relatorios(void)
 
         else
         {
-            printf("\n\t Opcao invalida. digite outra...");
+            printf("\n\t Opção invalida. digite outra...");
             getchar();
         }
 
@@ -39,15 +39,15 @@ char menu_relatorios(void)
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          = = = = =           Relatorios           = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Pesquisar por data                                        ///\n");
-    printf("///            2. Pesquisar por periodo de tempo                            ///\n");
+    printf("///            2. Pesquisar por período de tempo                            ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    printf("Selecione sua opcao:");
+    printf("Selecione sua opção:");
     scanf("%c", &op);
     getchar();
     return op;
@@ -60,16 +60,16 @@ void entre_datas(void){
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          = = = = =           Relatorios           = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///     Data inicial: 20/09/22                                              ///\n");
     printf("///     Data final: 24/09/22                                                ///\n");
     printf("///                                                                         ///\n");
     printf("///     De 20/09/22 a 24/09/22                                              ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Deposito de Talys                                                   ///\n");
+    printf("///     Depósito de Talys                                                   ///\n");
     printf("///         Valor: 10,00 reais                                              ///\n");
-    printf("///         Tipo: extra                                                     ///\n");
+    printf("///         Tipo: Extra                                                     ///\n");
     printf("///         Descrição: achei na rua.                                        ///\n");
     printf("///                                                                         ///\n");
     printf("///     Despesas cadastrada por Lucas                                       ///\n");
@@ -79,12 +79,12 @@ void entre_datas(void){
     printf("///                                                                         ///\n");
     printf("///     Deposito de Flavius                                                 ///\n");
     printf("///         Valor: 500,00 reais.                                            ///\n");
-    printf("///         Tipo: Contribuicao mensal.                                      ///\n");
-    printf("///         Descrição: 1/100 do meu salario.                                ///\n");
+    printf("///         Tipo: Contribuição mensal.                                      ///\n");
+    printf("///         Descrição: 1/100 do meu salário.                                ///\n");
     printf("///                                                                         ///\n");
     printf("///     Despesa cadastrada por Talys                                        ///\n");
     printf("///         Valor: 50,00 reais                                              ///\n");
-    printf("///         Tipo: Emergencia                                                ///\n");
+    printf("///         Tipo: Emergência                                                ///\n");
     printf("///         Descrição: ventilador quebrado.                                 ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -98,7 +98,7 @@ void por_datas(void){
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          = = = = =           Relatorios           = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///     Escolha a data: (hoje 27/09/22)                                     ///\n");
     printf("///                                                                         ///\n");
@@ -106,8 +106,8 @@ void por_datas(void){
     printf("///                                                                         ///\n");
     printf("///     Deposito de Flavius                                                 ///\n");
     printf("///         Valor: 1000,00 reais.                                           ///\n");
-    printf("///         Tipo: Contribuicao mensal.                                      ///\n");
-    printf("///         Descrição: 1/100 do meu salario.                                ///\n");
+    printf("///         Tipo: Contribuição mensal.                                      ///\n");
+    printf("///         Descrição: 1/100 do meu salário.                                ///\n");
     printf("///                                                                         ///\n");
     printf("///     Despesa cadastrada por Talys                                        ///\n");
     printf("///         Valor: 110,00 reais                                             ///\n");

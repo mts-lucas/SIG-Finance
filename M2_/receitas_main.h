@@ -7,3 +7,4 @@ void editar_re(void);
 void excluir_re(void);
 void checar_re(void);
 void sobre_re(void);
+void tipos(void);

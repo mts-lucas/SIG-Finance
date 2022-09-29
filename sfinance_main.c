@@ -146,10 +146,10 @@ void consideracoes_finais(void)
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Ola espero que tenha gostado, segostou deixe o seu Starred, se      ///\n");
-    printf("/// nao gostou em contato com a gente, voce pode nos ajudar com melhorias   ///\n");
-    printf("/// no nosso sistema. O projeto esta em contante desenvolvimento e ele      ///\n");
-    printf("/// contar com voce! Vamos nessa!                                           ///\n");
+    printf("///     Olá espero que tenha gostado, se gostou deixe o seu Starred, se      ///\n");
+    printf("/// não gostou em contato com a gente, você pode nos ajudar com melhorias   ///\n");
+    printf("/// no nosso sistema. O projeto está em contante desenvolvimento e ele      ///\n");
+    printf("/// contar com você! Vamos nessa!                                           ///\n");
     printf("///                                                                         ///\n");
     printf("///     - Lucas e Tallys                                                    ///\n");
     printf("///                                                                         ///\n");
@@ -186,7 +186,7 @@ void interacao_menu_principal(void)
 
         else if (op == '4')
         {
-            printf("Em contrucao");
+            printf("Em contrução");
             printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
             getchar();
         }
@@ -202,7 +202,7 @@ void interacao_menu_principal(void)
         }
         else
         {
-            printf("\n\t Opcao invalida. digite outra...");
+            printf("\n\t Opção invalida. digite outra...");
             getchar();
         }
 
@@ -216,11 +216,11 @@ char menu_informacoes(void)
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =  Informacoes sobre o Projeto   = = = = =             ///\n");
+    printf("///          = = = = =  Informações sobre o Projeto   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Equipe                                                    ///\n");
     printf("///            2. Sobre                                                     ///\n");
-    printf("///            3. Consideracoes finais                                      ///\n");
+    printf("///            3. Considerações finais                                      ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
