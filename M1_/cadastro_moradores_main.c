@@ -35,7 +35,7 @@ char menu_cad_moradores(void)
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
-  printf("Selecione sua opcao:");
+  printf("Selecione sua opção:");
   char op;
   return op = ler();
 }
@@ -109,7 +109,7 @@ void cad_morador(void)
   printf("///          Informe a idade do morador:                                    ///\n");
   scanf("%[0-9]", idade_morador);
   getchar();
-  printf("///          Informe a atual ocupacao do morador:                           ///\n");
+  printf("///          Informe a atual ocupação do morador:         v                ///\n");
   scanf("%[A-Z a-z]", ocupacao_morador);
   getchar();
   printf("///          Informe a renda mensal do morador:                             ///\n");
@@ -186,7 +186,7 @@ void altera_morador(void)
     break;
 
   default:
-    printf("opcao invalida");
+    printf("oçcão inválida");
     break;
   }
   system("clear||cls");
@@ -196,7 +196,7 @@ void altera_morador(void)
   printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
   printf("///          = = = = =     Alterar dados de Morador   = = = = =             ///\n");
   printf("///                                                                         ///\n");
-  printf("///          Fim da Operacao!                                               ///\n");
+  printf("///          Fim da Operação!                                               ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();

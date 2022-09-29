@@ -11,34 +11,20 @@ char ler_dp(void){
   return op;
 }
 
-/*char ler_dp() {
-     char op;
-     scanf("%c", &op);
-     getchar();
-     
-     return op;
-}*/
-
-// int main(void) {
-    
-//     gerencia_menu_principal_dp();
-
-//     return 0;
-// }
 
 char menu_principal_dp(void) {
     
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
+    printf("///     = = = = = Sistema de Controle de Finanças Domésticas = = = = =      ///\n");
     printf("///                                                                         ///\n");
     printf("///     = = = = =         Gerenciamento de Despesas          = = = = =      ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Cadastrar Despesa.                                        ///\n");
     printf("///            2. Editar Despesa.                                           ///\n");
     printf("///            3. Excluir Despesa.                                          ///\n");
-    printf("///            4. Checar historico de despesa.                              ///\n");
+    printf("///            4. Checar historico de Despesa.                              ///\n");
     printf("///            5. Pagar Despesa.                                            ///\n");
     printf("///            6. Sobre o modulo.                                           ///\n");
     printf("///            0. Sair                                                      ///\n");
@@ -81,7 +67,7 @@ void gerencia_menu_principal_dp(void){
         }
 
         else {
-            printf("\n\t Opcao invalida. digite outra...");
+            printf("\n\t Opção inválida. digite outra...");
             getchar();
 
         }
@@ -96,9 +82,10 @@ void cadastrar_dp(void){
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///                                                                         ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          De qual Morador cadastrar despesa?                            ///\n");
+    printf("///          De qual Morador vai cadastrar a despesa?                       ///\n");
     char morador[50];
     scanf("%s" , morador);
     printf("///                                                                         ///\n");
@@ -111,21 +98,14 @@ void cadastrar_dp(void){
     printf("///                                                                         ///\n");
     printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Adicionar receita em qual morador?                                  ///\n");
-    printf("///                                                                         ///\n");
-    printf("///     Descricao:                                                          ///\n");
+    printf("///     Descrição:                                                          ///\n");
     char descricao[50];
     scanf("%s" , descricao);
     printf("///     Valor:                                                              ///\n");
     char valor[50];
     scanf("%s" , valor);
-    printf("///     tipo:                                                               ///\n");
-    char tipo[50];
-    scanf("%s" , tipo);
-    printf("///                                                                         ///\n");
-    printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
-    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
-    printf("///  o que vamos fazer)                                                     ///\n");
+    printf("///     Tipo da despesa:                                                    ///\n");
+    tipos_d();
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
@@ -152,19 +132,15 @@ void editar_dp(void){
     printf("///                                                                         ///\n");
     printf("///     Editar despesa:                                                     ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Descricao:                                                          ///\n");
+    printf("///     Descrição:                                                          ///\n");
     char descricao_d[50];
     scanf("%s", descricao_d);
     printf("///     Valor:                                                              ///\n");
     char valor_d[50];
     scanf("%s", valor_d);
-    printf("///     tipo:                                                               ///\n");
-    char tipo_d[50];
-    scanf("%s", tipo_d);
-    printf("///                                                                         ///\n");
-    printf("///     (obs: a meta é fazer um for para gerar essa serie de perguntas      ///\n");
-    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
-    printf("///  o que vamos fazer)                                                     ///\n");
+    getchar();
+    printf("///     Tipo da despesa:                                                    ///\n");
+    tipos();
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
@@ -177,7 +153,7 @@ void excluir_dp(void){
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          De qual Morador vai excluir a despesa? (Atencao, excluir       ///\n");
+    printf("///          De qual Morador vai excluir a despesa? (Atenção, excluir       ///\n");
     printf("///                                             é diferente de pagar...)    ///\n");
     char morador[50];
     scanf("%s" , morador);
@@ -198,8 +174,8 @@ void excluir_dp(void){
     printf("///     4 - Despesa abc                                                     ///\n");
     printf("///     5 - Despesa abc                                                     ///\n");
     printf("///                                                                         ///\n");
-    printf("///     (obs: a meta é fazer um 'for' para gerar essa serie de despesas     ///\n");
-    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
+    printf("///     (obs: a meta é fazer um 'for' para gerar essa série de despesas     ///\n");
+    printf("///  mas por enquanto vamos deixar assim para ficar mais didático           ///\n");
     printf("///  o que vamos fazer)                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -235,7 +211,7 @@ void pagar_dp(void){
     printf("///     5 - Despesa abc                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///     (obs: a meta é fazer um 'for' para gerar essa serie de despesas     ///\n");
-    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
+    printf("///  mas por enquanto vamos deixar assim para ficar mais didático           ///\n");
     printf("///  o que vamos fazer, pagando com base na receita e/ou no saldo)          ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -259,7 +235,7 @@ void checar_dp(void){
     printf("///     5 - Despesa abc                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///     (obs: a meta é fazer um 'for' para gerar essa serie de despesas     ///\n");
-    printf("///  mas por enquanto vamos deixar assim para ficar mais didatico           ///\n");
+    printf("///  mas por enquanto vamos deixar assim para ficar mais didático           ///\n");
     printf("///  o que vamos fazer)                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -274,10 +250,17 @@ void sobre_dp(void){
     printf("///                                                                         ///\n");
     printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Modulo encarregado para gerenciamento das despesas, aqui fica       ///\n");
-    printf("///  a parte onde vamos cuidar das despesas, que vai influenciar            ///\n");
+    printf("///     Modulo encarregado do gerenciamento das despesas, aqui fica         ///\n");
+    printf("///  a parte onde vamos cadastrar as despesas, que vai influenciar            ///\n");
     printf("///  diretamente no saldo.                                                  ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar(); 
+}
+
+void tipos_d(void) {
+    printf("1-Contribuição Mensal\t2-Extra\t3-Emergência\n")
+    char tipo;
+    scanf("%c",tipo);
+    getchar();
 }
