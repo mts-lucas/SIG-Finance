@@ -4,7 +4,7 @@
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 char decimais[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-// criar uma função posterior que verificar se o numero digitado é um inteiro para então jogar os valores pra outras funções
+// depois add func q troca valores de data[2] e data[5] por /
 
 // DataValida, bissexto, dia_do_ano by Flavius Gorgonio
 int main(void)
