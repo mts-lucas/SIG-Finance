@@ -117,24 +117,24 @@ int validar_formato_data(char *data[11])
     if ((data[2] == " " || data[2] == "/" || data[2] == "-") && (data[5] == " " || data[5] == "/" || data[5] == "-"))
     {
 
-        int d1, d2, dia;
+        int d1, d2, dd;
         d1 = data[0] - "0";
         d2 = data[1] - "0";
-        dia = (d1 * 10) + d2;
+        dd = (d1 * 10) + d2;
 
-        int m1, m2, mes;
+        int m1, m2, mm;
         m1 = data[3] - "0";
         m2 = data[4] - "0";
-        mes = (m1 * 10) + m2;
+        mm = (m1 * 10) + m2;
 
-        int a1, a2, a3, a4, ano;
+        int a1, a2, a3, a4, aa;
         a1 = data[6] - "0";
         a2 = data[7] - "0";
         a3 = data[8] - "0";
         a4 = data[9] - "0";
-        mes = (a1 * 1000) + (a2 * 100) + (a3 * 10) + a4;
+        mm = (a1 * 1000) + (a2 * 100) + (a3 * 10) + a4;
 
-        return dataValida(dia, mes, ano);
+        return dataValida(dd, mm, aa);
     }
 
     else
