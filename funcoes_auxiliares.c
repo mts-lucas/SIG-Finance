@@ -2,35 +2,28 @@
 #include "funcoes_auxiliares.h"
 
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+char decimais[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
 // criar uma função posterior que verificar se o numero digitado é um inteiro para então jogar os valores pra outras funções
 
+// DataValida, bissexto, dia_do_ano by Flavius Gorgonio
 int main(void)
 {
-    int dia, mes, ano, dataOk, dia_ano;
+    char data[11];
 
     printf("Validação de datas\n");
-    printf("Informe o dia: ");
-    scanf("%d", &dia);
-    printf("Informe o mes: ");
-    scanf("%d", &mes);
-    printf("Informe o ano: ");
-    scanf("%d", &ano);
+    printf("Informe a data:\n");
+    scanf("%[0-9/]", data);
+    getchar();
 
-    while (!dataValida(dia, mes, ano))
+    while (!(validar_formato_data(data)))
     {
         printf("Data invalida!\n");
-        printf("Informe nova data\n");
-        printf("Informe o dia: ");
-        scanf("%d", &dia);
-        printf("Informe o mes: ");
-        scanf("%d", &mes);
-        printf("Informe o ano: ");
-        scanf("%d", &ano);
+        printf("Informe a data:\n");
+        scanf("%[0-9/]", data);
+        getchar();
     }
-
-    dia_ano = dia_do_ano(dia, mes, ano);
-    printf("Seu dia do ano eh: %d", dia_ano);
+    printf("Data valida");
     return 0;
 }
 
@@ -111,35 +104,43 @@ int quantos_dias(int dd, int mm, int aa)
     return 0;
 }
 
-int validar_formato_data(char *data[11])
+int validar_formato_data(char data[11])
 {
 
-    if ((data[2] == " " || data[2] == "/" || data[2] == "-") && (data[5] == " " || data[5] == "/" || data[5] == "-"))
+    for (int i = 0; i <= 10; i++)
     {
 
-        int d1, d2, dd;
-        d1 = data[0] - "0";
-        d2 = data[1] - "0";
-        dd = (d1 * 10) + d2;
+        if ((i != 2) && (i != 5))
+        {
+            for (int j = 0; j <= 10; j++)
+            {
 
-        int m1, m2, mm;
-        m1 = data[3] - "0";
-        m2 = data[4] - "0";
-        mm = (m1 * 10) + m2;
-
-        int a1, a2, a3, a4, aa;
-        a1 = data[6] - "0";
-        a2 = data[7] - "0";
-        a3 = data[8] - "0";
-        a4 = data[9] - "0";
-        mm = (a1 * 1000) + (a2 * 100) + (a3 * 10) + a4;
-
-        return dataValida(dd, mm, aa);
+                if ((j == 10) && (data[i] != decimais[j]))
+                {
+                    return 0;
+                }
+                else if (data[i] == decimais[j])
+                {
+                    break;
+                }
+            }
+        }
     }
 
-    else
-    {
+    int d1, d2, dd, m1, m2, mm, a1, a2, a3, a4, aa;
+    d1 = data[0] - '0';
+    d2 = data[1] - '0';
+    dd = (d1 * 10) + d2;
 
-        return 0;
-    }
+    m1 = data[3] - '0';
+    m2 = data[4] - '0';
+    mm = (m1 * 10) + m2;
+
+    a1 = data[6] - '0';
+    a2 = data[7] - '0';
+    a3 = data[8] - '0';
+    a4 = data[9] - '0';
+    aa = (a1 * 1000) + (a2 * 100) + (a3 * 10) + a4;
+
+    return dataValida(dd, mm, aa);
 }
