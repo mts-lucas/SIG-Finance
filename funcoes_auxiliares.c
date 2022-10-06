@@ -144,4 +144,3 @@ int validar_formato_data(char data[11])
 
     return dataValida(dd, mm, aa);
 }
-//int medir_valor_array(char *vetor[])
