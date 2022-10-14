@@ -28,7 +28,7 @@ int main(void)
     return 0;
 }
 
-int bissexto(int aa) // DataValida, bissexto, dia_do_ano by Flavius Gorgonio
+int bissexto(int aa) //by Flavius Gorgonio
 {
     if ((aa % 4 == 0) && (aa % 100 != 0))
     {
@@ -44,7 +44,7 @@ int bissexto(int aa) // DataValida, bissexto, dia_do_ano by Flavius Gorgonio
     }
 }
 
-int dataValida(int dd, int mm, int aa) // DataValida, bissexto, dia_do_ano by Flavius Gorgonio
+int dataValida(int dd, int mm, int aa) //by Flavius Gorgonio
 {
     int maiorDia;
     if (aa < 0 || mm < 1 || mm > 12 || dd < 1)
@@ -77,7 +77,7 @@ int dataValida(int dd, int mm, int aa) // DataValida, bissexto, dia_do_ano by Fl
     return 1;
 }
 
-int dia_do_ano(int dd, int mm, int aa) // DataValida, bissexto, dia_do_ano by Flavius Gorgonio
+int dia_do_ano(int dd, int mm, int aa) //by Flavius Gorgonio
 {
 
     dataValida(dd, mm, aa);
