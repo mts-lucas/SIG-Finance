@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "funcoes_auxiliares.h"
+#include <string.h>
 
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 char decimais[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -143,4 +144,64 @@ int validar_formato_data(char data[11])
     aa = (a1 * 1000) + (a2 * 100) + (a3 * 10) + a4;
 
     return dataValida(dd, mm, aa);
+}
+
+int validar_letras(char nome[], int tam)
+{
+
+    for (int i = 0; i <= (tam - 1); i++)
+    {
+
+        if (((nome[i] <= 'z') && (nome[i] >= 'A')))
+        {
+
+            if (((nome[i] > 'Z') && (nome[i] < 'a')))
+            {
+
+                return 0;
+            }
+        }
+        else
+        {
+
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+int validar_dinheiro(char dinheiro[], int tam)
+{
+
+    if ((dinheiro[tam - 3] != ',') && (dinheiro[tam - 3] != '.'))
+    {
+        return 0;
+    }
+    else
+    {
+
+        for (int i = 0; i = (tam - 1); i++)
+        {
+            for (int j = 0; j <= 10; j++)
+            {
+
+                if ((j == 10) && (dinheiro[i] != decimais[j]))
+                {
+                    return 0;
+                }
+                else if (dinheiro[i] == decimais[j])
+                {
+                    break;
+                }
+                else if (i == (tam - 3))
+                {
+
+                    break;
+                }
+            }
+        }
+    }
+
+    return 1;
 }
