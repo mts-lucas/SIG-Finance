@@ -181,7 +181,7 @@ int validar_dinheiro(char dinheiro[], int tam)
     else
     {
 
-        for (int i = 0; i = (tam - 1); i++)
+        for (int i = 0; i <= (tam - 1); i++)
         {
             for (int j = 0; j <= 10; j++)
             {
