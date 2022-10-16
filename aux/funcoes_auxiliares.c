@@ -8,25 +8,6 @@ char decimais[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 // depois add func q troca valores de data[2] e data[5] por /
 
 // DataValida, bissexto, dia_do_ano by Flavius Gorgonio
-int main(void)
-{
-    char data[11];
-
-    printf("Validação de datas\n");
-    printf("Informe a data:\n");
-    scanf("%[0-9/]", data);
-    getchar();
-
-    while (!(validar_formato_data(data)))
-    {
-        printf("Data invalida!\n");
-        printf("Informe a data:\n");
-        scanf("%[0-9/]", data);
-        getchar();
-    }
-    printf("Data valida");
-    return 0;
-}
 
 int bissexto(int aa) //by Flavius Gorgonio
 {
@@ -172,6 +153,7 @@ int validar_letras(char nome[], int tam)
 }
 
 int validar_dinheiro(char dinheiro[], int tam)
+
 {
 
     if ((dinheiro[tam - 3] != ',') && (dinheiro[tam - 3] != '.'))
@@ -200,6 +182,94 @@ int validar_dinheiro(char dinheiro[], int tam)
                     break;
                 }
             }
+        }
+    }
+
+    return 1;
+}
+
+char verificarcpf(char *cpf, int tam)
+{
+
+    for (int i = 0; i < tam; i++)
+    {
+        if (tam < 11)
+        {
+            return 0;
+        }
+        else if ((cpf[i] < '-' || cpf[i] > '9') || cpf[i] == '/')
+        {
+            if (cpf[i] == 46 && (i != 3 || i != 7))
+            {
+                return 0;
+            }
+
+            return 0;
+        }
+
+        /* code */
+    }
+    if (tam == 11)
+    {
+        int calc = 0;
+        int mult = 10;
+        int dv1, dv2;
+        for (int i = 0; i < 9; i++)
+        {
+            calc = calc + ((cpf[i] - 48) * mult);
+            mult = mult - 1;
+            dv1 = calc % 11;
+        }
+        mult = 11;
+        calc = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            calc = calc + ((cpf[i] - 48) * mult);
+            mult = mult - 1;
+            dv2 = calc % 11;
+        }
+        char dc1, dc2;
+        dc1 = (11 - dv1) + 48;
+        dc2 = (11 - dv2) + 48;
+        if ((dv1 < 2 && cpf[tam - 2] != '0') || (dv2 < 2 && cpf[tam - 2] != '0'))
+        {
+            return 0;
+        }
+        else if ((dv1 >= 2 && cpf[tam - 2] == '0') || (dv2 >= 2 && cpf[tam - 2] == '0'))
+        {
+            return 0;
+        }
+        else if ((dv1 >= 2 && cpf[tam - 2] != dc1) || (dv2 >= 2 && cpf[tam - 1] != dc2))
+        {
+            return 0;
+        }
+    }
+
+    else if (tam > 11)
+    {
+        int calc = 0;
+        calc = (cpf[0] - 48) * 10 + (cpf[1] - 48) * 9 + (cpf[2] - 48) * 8 + (cpf[4] - 48) * 7 + (cpf[5] - 48) * 6 + (cpf[6] - 48) * 5 + (cpf[8] - 48) * 4 + (cpf[9] - 48) * 3 + (cpf[10] - 48) * 2;
+        int dv1 = calc % 11;
+        int dv2 = ((cpf[0] - 48) * 11 + (cpf[1] - 48) * 10 + (cpf[2] - 48) * 9 + (cpf[4] - 48) * 8 + (cpf[5] - 48) * 7 + (cpf[6] - 48) * 6 + (cpf[8] - 48) * 5 + (cpf[9] - 48) * 4 + (cpf[10] - 48) * 3 + (cpf[12] - 48) * 2) % 11;
+        char dc1, dc2;
+        dc1 = (11 - dv1) + 48;
+        dc2 = (11 - dv2) + 48;
+        if ((dv1 < 2 && cpf[12] != '0') || (dv2 < 2 && cpf[13] != '0'))
+        {
+            return 0;
+        }
+        else if ((dv1 >= 2 && cpf[12] == '0') || (dv2 >= 2 && cpf[13] == '0'))
+        {
+            return 0;
+        }
+
+        else if ((dv1 >= 2 && cpf[12] != dc1) || (dv2 >= 2 && cpf[13] != dc2))
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
         }
     }
 
