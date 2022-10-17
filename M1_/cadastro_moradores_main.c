@@ -188,7 +188,7 @@ void altera_morador(void)
       printf("///          Informe o nome do morador:                                     ///\n");
       scanf("%s", nome_morador);
       getchar();
-      int tam = strlen(nome_morador);
+      tam = strlen(nome_morador);
     } while (!(validar_letras(nome_morador, tam)));
     break;
   case ('2'):
@@ -199,7 +199,7 @@ void altera_morador(void)
       printf("///          Informe o nome CPF do morador:                                ///\n");
       scanf("%s", cpf_morador);
       getchar();
-      int tam = strlen(cpf_morador);
+      tam = strlen(cpf_morador);
     } while (!(verificarcpf(cpf_morador, tam)));
     break;
   case ('3'):
@@ -218,7 +218,7 @@ void altera_morador(void)
       printf("///          Informe a renda mensal do morador:                             ///\n");
       scanf("%s", renda_morador);
       getchar();
-      int tam = strlen(renda_morador);
+      tam = strlen(renda_morador);
     } while (!(validar_dinheiro(renda_morador, tam)));
     break;
 
