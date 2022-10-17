@@ -102,20 +102,21 @@ void cad_morador(void)
   printf("///          = = = = =       Cadastro de Morador      = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///          Por favor informe os dados do morador:                         ///\n");
-  printf("///          Informe o nome do morador:                                     ///\n");
-  scanf("%s", nome_morador);
-  getchar();
   int tam;
   do
   {
-    printf("Insira um nome\n");
+    printf("///          Informe o nome do morador:                                     ///\n");    
     scanf("%s", nome_morador);
     getchar();
     tam = strlen(nome_morador);
   } while (!(validar_letras(nome_morador, tam)));
-  printf("///          Informe o CPF do morador:                                      ///\n");
-  scanf("%[0-9]", cpf_morador);
-  getchar();
+  do
+  {
+    printf("///          Informe o nome CPF do morador:                                ///\n");    
+    scanf("%s", cpf_morador);
+    getchar();
+    tam = strlen(cpf_morador);
+  } while (!(verificarcpf(cpf_morador, tam)));
   printf("///          Informe a idade do morador:                                    ///\n");
   scanf("%[0-9]", idade_morador);
   getchar();
@@ -123,8 +124,12 @@ void cad_morador(void)
   scanf("%[A-Z a-z]", ocupacao_morador);
   getchar();
   printf("///          Informe a renda mensal do morador:                             ///\n");
-  scanf("%[0-9,.]", renda_morador);
-  getchar();
+  do
+  {
+    scanf("%s", renda_morador);
+    getchar();
+    tam = strlen(renda_morador);
+  } while (!(validar_dinheiro(renda_morador, tam)));
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   system("clear||cls");
