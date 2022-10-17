@@ -190,7 +190,6 @@ int validar_dinheiro(char dinheiro[], int tam)
 
 char verificarcpf(char *cpf, int tam)
 {
-
     for (int i = 0; i < tam; i++)
     {
         if (tam < 11)
@@ -209,6 +208,7 @@ char verificarcpf(char *cpf, int tam)
 
         /* code */
     }
+    
     if (tam == 11)
     {
         int calc = 0;
@@ -231,6 +231,7 @@ char verificarcpf(char *cpf, int tam)
         char dc1, dc2;
         dc1 = (11 - dv1) + 48;
         dc2 = (11 - dv2) + 48;
+
         if ((dv1 < 2 && cpf[tam - 2] != '0') || (dv2 < 2 && cpf[tam - 2] != '0'))
         {
             return 0;
@@ -273,5 +274,22 @@ char verificarcpf(char *cpf, int tam)
         }
     }
 
+    int cont = 0;
+    
+    for (int i = 0; i < tam; i++)
+    {
+        if (i>0 && cpf[i] == cpf[i-1])
+        {
+            cont = cont + 1;
+            
+            if (cont == tam -1)
+            {
+                return 0;
+            }
+            
+        }
+        
+    }
+    
     return 1;
 }
