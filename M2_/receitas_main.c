@@ -206,7 +206,7 @@ void excluir_re(void){
         scanf("%s", morador);
         getchar();
         tam = strlen(morador);
-    } while (!(validar_dinheiro(morador, tam)));
+    } while (!(validar_letras(morador, tam)));
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
