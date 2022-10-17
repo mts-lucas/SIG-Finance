@@ -156,9 +156,15 @@ void altera_morador(void)
   printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
   printf("///          = = = = =     Alterar dados de Morador   = = = = =             ///\n");
   printf("///                                                                         ///\n");
-  printf("///          De qual Morador deseja alterar os dados?                       ///\n");
-  scanf("%[A-Z a-z]", nome_altera);
-  printf("///                                                                         ///\n");
+  // scanf("%[A-Z a-z]", nome_altera);
+  // printf("///                                                                         ///\n");
+  do
+    {
+        printf("///          De qual Morador deseja alterar os dados?                       ///\n");
+        scanf("%s", nome_altera);
+        getchar();
+        tam = strlen(nome_altera);
+    } while (!(validar_letras(nome_altera, tam)));
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
   system("clear||cls");
