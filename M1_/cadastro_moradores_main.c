@@ -148,6 +148,7 @@ void cad_morador(void)
 void altera_morador(void)
 {
   char nome_altera[51];
+  int tam;
   system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
@@ -187,7 +188,7 @@ void altera_morador(void)
       printf("///          Informe o nome do morador:                                     ///\n");
       scanf("%s", nome_morador);
       getchar();
-      tam = strlen(nome_morador);
+      int tam = strlen(nome_morador);
     } while (!(validar_letras(nome_morador, tam)));
     break;
   case ('2'):
@@ -198,7 +199,7 @@ void altera_morador(void)
       printf("///          Informe o nome CPF do morador:                                ///\n");
       scanf("%s", cpf_morador);
       getchar();
-      tam = strlen(cpf_morador);
+      int tam = strlen(cpf_morador);
     } while (!(verificarcpf(cpf_morador, tam)));
     break;
   case ('3'):
@@ -217,7 +218,7 @@ void altera_morador(void)
       printf("///          Informe a renda mensal do morador:                             ///\n");
       scanf("%s", renda_morador);
       getchar();
-      tam = strlen(renda_morador);
+      int tam = strlen(renda_morador);
     } while (!(validar_dinheiro(renda_morador, tam)));
     break;
 
@@ -269,9 +270,7 @@ void deletar_morador(void)
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
 }
-
 // simulado:
-
 void visualizar_morador(void)
 {
   system("clear||cls");
