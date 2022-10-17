@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "despesas_main.h"
+#include "../aux/funcoes_auxiliares.h"
 
 
 char ler_dp(void){
@@ -85,11 +87,18 @@ void cadastrar_dp(void){
     printf("///                                                                         ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          De qual Morador vai cadastrar a despesa?                       ///\n");
     char morador[50];
-    scanf("%s" , morador);
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    int tam;
+    // scanf("%s" , morador);
+    // printf("///                                                                         ///\n");
+    // printf("///////////////////////////////////////////////////////////////////////////////\n");
+    // do
+    // {
+    //     printf("///          De qual Morador vai cadastrar a despesa?                       ///\n");
+    //     scanf("%s", morador);
+    //     getchar();
+    //     int tam = strlen(morador);
+    // } while (!(validar_letras(morador, tam)));
     getchar();
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
