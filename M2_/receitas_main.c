@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include "../auxiliares/funcoes_auxiliares.h"
 #include "receitas_main.h"
 
 char ler_re(void){
@@ -97,11 +99,18 @@ void cadastrar_re(void){
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          De qual Morador vai adicionar receita?                         ///\n");
     printf("///                                                                         ///\n");
     char morador[50];
-    scanf("%s" , morador);
-    getchar();
+    int tam;
+    // scanf("%s" , morador);
+    // getchar();
+    do
+    {
+        printf("///          De qual Morador vai adicionar receita?                         ///\n");
+        scanf("%s", morador);
+        getchar();
+        tam = strlen(morador);
+    } while (!(validar_letras(morador, tam)));
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -116,8 +125,13 @@ void cadastrar_re(void){
     getchar();
     printf("///     Valor:                                                              ///\n");
     char valor[10];
-    scanf("%s" , valor);
-    getchar();
+    do
+    {
+        printf("///     Valor:                                                              ///\n");
+        scanf("%s", valor);
+        getchar();
+        tam = strlen(valor);
+    } while (!(validar_dinheiro(valor, tam)));
     printf("///     Tipo da receita?                                                   ///\n");
     tipos();
     printf("///                                                                         ///\n");
@@ -136,8 +150,16 @@ void editar_re(void){
     printf("///          De qual Morador vai adicionar receita?                         ///\n");
     printf("///                                                                         ///\n");
     char morador[50];
-    scanf("%s" , morador);
-    getchar();
+    int tam;
+    // scanf("%s" , morador);
+    // getchar();
+    do
+    {
+        printf("///          De qual Morador vai adicionar receita?                         ///\n");
+        scanf("%s", morador);
+        getchar();
+        tam = strlen(morador);
+    } while (!(validar_letras(morador, tam)));
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -148,15 +170,21 @@ void editar_re(void){
     char descricao[50];
     scanf("%s" , descricao);
     getchar();
-    printf("///     Tipo da receita?                                                    ///\n");
     char valor[50];
-    scanf("%s" , valor);
-    getchar();
+    // scanf("%s" , valor);
+    // getchar();
+    do
+    {
+        printf("///     Valor da receita?                                                    ///\n");
+        scanf("%s", valor);
+        getchar();
+        tam = strlen(valor);
+    } while (!(validar_dinheiro(valor, tam)));
     printf("///     tipo:                                                               ///\n");
     tipos();
     printf("///                                                                                 ///\n");
-    printf("///                                                                         ///\n");
-    printf("/////////////////////////////////// ////////////////////////////////////////////\n");
+    printf("///                                                                                 ///\n");
+    printf("/////////////////////////////////// //////////////////////////////////////////////////\n");
     getchar();
 
 }
@@ -168,10 +196,17 @@ void excluir_re(void){
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///     Informe de qual morador você deseja excluir receita:                ///\n");
     printf("///                                                                         ///\n");
     char morador[50];
-    scanf("%s" , morador);
+    int tam;
+    // scanf("%s" , morador);
+    do
+    {
+        printf("///     Informe de qual morador você deseja excluir receita:                ///\n");
+        scanf("%s", morador);
+        getchar();
+        tam = strlen(morador);
+    } while (!(validar_letras(morador, tam)));
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "despesas_main.h"
+#include "../auxiliares/funcoes_auxiliares.h"
 
 
 char ler_dp(void){
@@ -85,11 +87,18 @@ void cadastrar_dp(void){
     printf("///                                                                         ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          De qual Morador vai cadastrar a despesa?                       ///\n");
     char morador[50];
-    scanf("%s" , morador);
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    int tam;
+    // scanf("%s" , morador);
+    // printf("///                                                                         ///\n");
+    // printf("///////////////////////////////////////////////////////////////////////////////\n");
+    do
+    {
+        printf("///          De qual Morador vai cadastrar a despesa?                       ///\n");
+        scanf("%s", morador);
+        getchar();
+        tam = strlen(morador);
+    } while (!(validar_letras(morador, tam)));
     getchar();
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -101,9 +110,15 @@ void cadastrar_dp(void){
     printf("///     Descrição:                                                          ///\n");
     char descricao[50];
     scanf("%s" , descricao);
-    printf("///     Valor:                                                              ///\n");
     char valor[50];
-    scanf("%s" , valor);
+    // scanf("%s" , valor);
+    do
+    {
+        printf("///     Valor:                                                              ///\n");
+        scanf("%s", valor);
+        getchar();
+        tam = strlen(valor);
+    } while (!(validar_dinheiro(valor, tam)));
     printf("///     Tipo da despesa:                                                    ///\n");
     tipos_d();
     printf("///                                                                         ///\n");
@@ -120,7 +135,15 @@ void editar_dp(void){
     printf("///                                                                         ///\n");
     printf("///          De qual Morador vai editar a despesa?                          ///\n");
     char morador[50];
-    scanf("%s" , morador);
+    int tam;
+    // scanf("%s" , morador);
+    do
+    {
+        printf("///          De qual Morador vai cadastrar a despesa?                       ///\n");
+        scanf("%s", morador);
+        getchar();
+        tam = strlen(morador);
+    } while (!(validar_letras(morador, tam)));
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
     system("clear||cls");
@@ -135,10 +158,16 @@ void editar_dp(void){
     printf("///     Descrição:                                                          ///\n");
     char descricao_d[50];
     scanf("%s", descricao_d);
-    printf("///     Valor:                                                              ///\n");
     char valor_d[50];
-    scanf("%s", valor_d);
-    getchar();
+    // scanf("%s", valor_d);
+    // getchar();
+    do
+    {
+        printf("///     Valor:                                                              ///\n");
+        scanf("%s", valor_d);
+        getchar();
+        tam = strlen(valor_d);
+    } while (!(validar_dinheiro(valor_d, tam)));
     printf("///     Tipo da despesa:                                                    ///\n");
     tipos_d();
     printf("///                                                                         ///\n");
@@ -153,10 +182,19 @@ void excluir_dp(void){
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          De qual Morador vai excluir a despesa? (Atenção, excluir       ///\n");
-    printf("///                                             é diferente de pagar...)    ///\n");
     char morador[50];
-    scanf("%s" , morador);
+    int tam;
+    // scanf("%s" , morador);
+    // printf("///////////////////////////////////////////////////////////////////////////////\n");
+    // getchar();
+    do
+    {
+        printf("///          De qual Morador vai excluir a despesa? (Atenção, excluir       ///\n");
+        printf("///                                             é diferente de pagar...)    ///\n");        
+        scanf("%s", morador);
+        getchar();
+        tam = strlen(morador);
+    } while (!(validar_letras(morador, tam)));
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
     system("clear||cls");
@@ -189,10 +227,16 @@ void pagar_dp(void){
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///          De qual Morador vai pagar a despesa?                           ///\n");
-    printf("///                                                                         ///\n");
     char morador[50];
-    scanf("%s", morador);
+    int tam;
+    // scanf("%s", morador);
+    do
+    {
+        printf("///          De qual Morador vai cadastrar a despesa?                       ///\n");
+        scanf("%s", morador);
+        getchar();
+        tam = strlen(morador);
+    } while (!(validar_letras(morador, tam)));
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
     system("clear||cls");
