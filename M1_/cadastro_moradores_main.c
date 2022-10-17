@@ -105,14 +105,14 @@ void cad_morador(void)
   int tam;
   do
   {
-    printf("///          Informe o nome do morador:                                     ///\n");    
+    printf("///          Informe o nome do morador:                                     ///\n");
     scanf("%s", nome_morador);
     getchar();
     tam = strlen(nome_morador);
   } while (!(validar_letras(nome_morador, tam)));
   do
   {
-    printf("///          Informe o nome CPF do morador:                                ///\n");    
+    printf("///          Informe o nome CPF do morador:                                ///\n");
     scanf("%s", cpf_morador);
     getchar();
     tam = strlen(cpf_morador);
@@ -123,9 +123,9 @@ void cad_morador(void)
   printf("///          Informe a atual ocupação do morador:         v                ///\n");
   scanf("%[A-Z a-z]", ocupacao_morador);
   getchar();
-  printf("///          Informe a renda mensal do morador:                             ///\n");
   do
   {
+    printf("///          Informe a renda mensal do morador:                             ///\n");
     scanf("%s", renda_morador);
     getchar();
     tam = strlen(renda_morador);
@@ -180,12 +180,26 @@ void altera_morador(void)
   switch (op)
   {
   case ('1'):
-    printf("Qual o novo nome?");
-    scanf("%[A-Z a-z]", nome_morador);
+    // printf("Qual o novo nome?");
+    // scanf("%[A-Z a-z]", nome_morador);
+    do
+    {
+      printf("///          Informe o nome do morador:                                     ///\n");
+      scanf("%s", nome_morador);
+      getchar();
+      tam = strlen(nome_morador);
+    } while (!(validar_letras(nome_morador, tam)));
     break;
   case ('2'):
-    printf("Qual o novo CPF?");
-    scanf("%[0-9]", cpf_morador);
+    // printf("Qual o novo CPF?");
+    // scanf("%[0-9]", cpf_morador);
+    do
+    {
+      printf("///          Informe o nome CPF do morador:                                ///\n");
+      scanf("%s", cpf_morador);
+      getchar();
+      tam = strlen(cpf_morador);
+    } while (!(verificarcpf(cpf_morador, tam)));
     break;
   case ('3'):
     printf("Qual a nova idade?");
@@ -196,8 +210,15 @@ void altera_morador(void)
     scanf("%[A-Z a-z]", ocupacao_morador);
     break;
   case ('5'):
-    printf("Qual a nova renda?");
-    scanf("%[0-9,.]", renda_morador);
+    // printf("Qual a nova renda?");
+    // scanf("%[0-9,.]", renda_morador);
+    do
+    {
+      printf("///          Informe a renda mensal do morador:                             ///\n");
+      scanf("%s", renda_morador);
+      getchar();
+      tam = strlen(renda_morador);
+    } while (!(validar_dinheiro(renda_morador, tam)));
     break;
 
   default:
