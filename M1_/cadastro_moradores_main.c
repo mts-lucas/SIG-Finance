@@ -7,7 +7,7 @@
 #include "../aux/funcoes_auxiliares.h"
 
 // declarando as variaveis globais
-//OLHAR TODOS OS COMENTS
+// OLHAR TODOS OS COMENTS
 
 char nome_morador[51], cpf_morador[11], idade_morador[4], ocupacao_morador[12], renda_morador[7];
 /*
@@ -105,14 +105,14 @@ void cad_morador(void)
   printf("///          Informe o nome do morador:                                     ///\n");
   scanf("%s", nome_morador);
   getchar();
-  int tam = strlen(nome_morador);
-  while (!validar_letras(nome_morador, tam))
+  int tam;
+  do
   {
-    printf("Nome inválido.\n");
-    printf("///          Informe o nome do morador:                                     ///\n");
+    printf("Insira um nome\n");
     scanf("%s", nome_morador);
     getchar();
-  }
+    tam = strlen(nome_morador);
+  } while (!(validar_letras(nome_morador, tam)));
   printf("///          Informe o CPF do morador:                                      ///\n");
   scanf("%[0-9]", cpf_morador);
   getchar();
@@ -244,7 +244,7 @@ void deletar_morador(void)
   getchar();
 }
 
-//simulado:
+// simulado:
 
 void visualizar_morador(void)
 {
