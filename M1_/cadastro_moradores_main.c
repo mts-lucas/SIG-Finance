@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cadastro_moradores_main.h"
-#include "../aux/funcoes_auxiliares.h"
+#include "../auxiliares/funcoes_auxiliares.h"
 
 // declarando as variaveis globais
 // OLHAR TODOS OS COMENTS

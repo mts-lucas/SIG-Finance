@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "despesas_main.h"
-#include "../aux/funcoes_auxiliares.h"
+#include "../auxiliares/funcoes_auxiliares.h"
 
 
 char ler_dp(void){

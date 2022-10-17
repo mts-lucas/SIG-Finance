@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../aux/funcoes_auxiliares.h"
+#include "../auxiliares/funcoes_auxiliares.h"
 #include "receitas_main.h"
 
 char ler_re(void){
