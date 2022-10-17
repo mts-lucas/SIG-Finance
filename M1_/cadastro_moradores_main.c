@@ -103,8 +103,16 @@ void cad_morador(void)
   printf("///                                                                         ///\n");
   printf("///          Por favor informe os dados do morador:                         ///\n");
   printf("///          Informe o nome do morador:                                     ///\n");
-  scanf("%[A-Z a-z]", nome_morador);
+  scanf("%s", nome_morador);
   getchar();
+  int tam = strlen(nome_morador);
+  while (!validar_letras(nome_morador, tam))
+  {
+    printf("Nome inválido.\n");
+    printf("///          Informe o nome do morador:                                     ///\n");
+    scanf("%s", nome_morador);
+    getchar();
+  }
   printf("///          Informe o CPF do morador:                                      ///\n");
   scanf("%[0-9]", cpf_morador);
   getchar();
