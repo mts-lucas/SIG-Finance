@@ -19,4 +19,4 @@ struct morador
 };
 
 void preenche_morador(Morador *mor);
-void exibe_morador(Morador *mor);
+// void exibe_morador(Morador *mor);

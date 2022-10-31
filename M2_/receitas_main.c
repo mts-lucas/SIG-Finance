@@ -92,25 +92,15 @@ void gerencia_menu_principal(void){
         }
     }
 
-void cadastrar_re(void){
-    system("clear||cls");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =        Login do morador        = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///                                                                         ///\n");
-    char morador[50];
+void preenche_receita(Receita *rec){
     int tam;
-    // scanf("%s" , morador);
-    // getchar();
     do
     {
         printf("///          De qual Morador vai adicionar receita?                         ///\n");
-        scanf("%s", morador);
+        scanf("%s", rec->morador);
         getchar();
-        tam = strlen(morador);
-    } while (!(validar_letras(morador, tam)));
+        tam = strlen(rec->morador);
+    } while (!(validar_letras(rec->morador, tam)));
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -120,24 +110,37 @@ void cadastrar_re(void){
     printf("///     Adicionar receita:                                                  ///\n");
     printf("///                                                                         ///\n");
     printf("///     Descrição:                                                          ///\n");
-    char descricao[100];
-    scanf("%s" , descricao);
+    scanf("%s" , rec->descricao);
     getchar();
     printf("///     Valor:                                                              ///\n");
-    char valor[10];
     do
     {
         printf("///     Valor:                                                              ///\n");
-        scanf("%s", valor);
+        scanf("%s", rec->valor);
         getchar();
-        tam = strlen(valor);
-    } while (!(validar_dinheiro(valor, tam)));
+        tam = strlen(rec->valor);
+    } while (!(validar_dinheiro(rec->valor, tam)));
     printf("///     Tipo da receita?                                                   ///\n");
-    tipos();
+    rec->tipo = tipos();
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
+
+
+}
+
+void cadastrar_re(void){
+    system("clear||cls");
+    Receita* newmreceita;
+    newmreceita = (Receita*) malloc(sizeof(Receita));
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =        Login do morador        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                                                                         ///\n");
+    preenche_receita(newmreceita);
 }
 
 void editar_re(void){
@@ -243,9 +246,10 @@ void sobre_re(void){
     getchar();
 }
 
-void tipos(void) {
+char tipos(void) {
     printf("1-Contribuição Mensal\n2-Extra\n3-Emergência\n");
     char tipo;
     scanf("%c",&tipo);
     getchar();
+    return tipo;
 }
