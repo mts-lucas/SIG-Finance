@@ -7,7 +7,7 @@ void excluir_dp(void);
 void checar_dp(void);
 void sobre_dp(void);
 void pagar_dp(void);
-void tipos_d(void);
+char tipos_d(void);
 
 typedef struct despesa Despesa;
 

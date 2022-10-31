@@ -83,7 +83,7 @@ char ler(void)
   return x;
 }
 
-void preenche_morador(Morador *mor)
+void preenche_morador(Morador* mor)
 {
 
   printf("///          Por favor informe os dados do morador:                         ///\n");
@@ -141,7 +141,7 @@ void cad_morador(void)
   printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
   printf("///          = = = = =       Cadastro de Morador      = = = = =             ///\n");
   printf("///                                                                         ///\n");
-  preenche_morador(&newmorador);
+  preenche_morador(newmorador);
 
 }
 
