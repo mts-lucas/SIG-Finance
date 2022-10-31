@@ -19,7 +19,6 @@
 #include "M5_/relatorios.h"
 #include "sfinance_main.h"
 
-
 // Programa principal
 
 // char nome_morador[51], cpf_morador[11], idade_morador[4], ocupacao_morador[12], renda_morador[7];
@@ -263,5 +262,4 @@ void interecao_informacoes(void)
 
         op = menu_informacoes();
     }
-
 }
