@@ -8,3 +8,16 @@ void checar_dp(void);
 void sobre_dp(void);
 void pagar_dp(void);
 void tipos_d(void);
+
+typedef struct despesa Despesa;
+
+struct despesa
+{
+    char morador[51];
+    char descricao[100];
+    char valor[7];
+    char tipo;
+};
+
+void preenche_despesa(Despesa *desp);
+// void exibe_receita(Despesa* desp);

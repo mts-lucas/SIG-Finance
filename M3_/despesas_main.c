@@ -79,26 +79,16 @@ void gerencia_menu_principal_dp(void){
         }
     }
 
-void cadastrar_dp(void){
-    system("clear||cls");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =        Login do morador        = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    char morador[50];
+void preenche_despesa(Despesa *desp){
+
     int tam;
-    // scanf("%s" , morador);
-    // printf("///                                                                         ///\n");
-    // printf("///////////////////////////////////////////////////////////////////////////////\n");
     do
     {
         printf("///          De qual Morador vai cadastrar a despesa?                       ///\n");
-        scanf("%s", morador);
+        scanf("%s", desp->morador);
         getchar();
-        tam = strlen(morador);
-    } while (!(validar_letras(morador, tam)));
+        tam = strlen(desp->morador);
+    } while (!(validar_letras(desp->morador, tam)));
     getchar();
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -108,22 +98,33 @@ void cadastrar_dp(void){
     printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///     Descrição:                                                          ///\n");
-    char descricao[50];
-    scanf("%s" , descricao);
-    char valor[50];
-    // scanf("%s" , valor);
+    scanf("%s" , desp->descricao);
     do
     {
         printf("///     Valor:                                                              ///\n");
-        scanf("%s", valor);
+        scanf("%s", desp->valor);
         getchar();
-        tam = strlen(valor);
-    } while (!(validar_dinheiro(valor, tam)));
+        tam = strlen(desp->valor);
+    } while (!(validar_dinheiro(desp->valor, tam)));
     printf("///     Tipo da despesa:                                                    ///\n");
-    tipos_d();
+    desp->tipo = tipos_d();
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
+
+}   
+
+void cadastrar_dp(void){
+    system("clear||cls");
+    Despesa* newmdespesa;
+    newmdespesa = (Despesa*) malloc(sizeof(Despesa));
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =        Login do morador        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    preenche_despesa(newmdespesa);
 }
 
 void editar_dp(void){
@@ -302,9 +303,10 @@ void sobre_dp(void){
     getchar(); 
 }
 
-void tipos_d(void) {
+char tipos_d(void) {
     printf("1-Contribuição Mensal\t2-Extra\t3-Emergência\n");
     char tipo;
     scanf("%c",&tipo);
     getchar();
+    return tipo;
 }
