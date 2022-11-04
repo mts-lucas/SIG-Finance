@@ -19,7 +19,7 @@ char menu_cad_moradores(void)
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
   printf("///          = = = = =       Perfil de Moradores     = = = = =              ///\n");
   printf("///                                                                         ///\n");
-  printf("///            1. Cadastro de Morador                                       ///\n");
+  printf("///            1. Cadastrar de Morador                                       ///\n");
   printf("///            2. Alterar dados de Morador                                  ///\n");
   printf("///            3. Deletar Morador                                           ///\n");
   printf("///            4. Visualizar Moradores                                      ///\n");
@@ -42,7 +42,7 @@ void interacao_menu_cad_morador(void)
 
     if (op == '1')
     {
-      cad_morador();
+      preenche_morador();
     }
 
     else if (op == '2')
@@ -83,11 +83,21 @@ char ler(void)
   return x;
 }
 
-void preenche_morador(Morador* mor)
+void preenche_morador(void)
 {
-
+  system("clear||cls");
+  Morador *mor;
+  mor = (Morador*)malloc(sizeof(Morador));
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                         ///\n");
+  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =       Cadastro de Morador      = = = = =             ///\n");
+  printf("///                                                                         ///\n");
   printf("///          Por favor informe os dados do morador:                         ///\n");
+
   int tam;
+
   do
   {
     printf("///          Informe o nome do morador:                                     ///\n");
@@ -95,6 +105,7 @@ void preenche_morador(Morador* mor)
     getchar();
     tam = strlen(mor->nome);
   } while (!(validar_letras(mor->nome, tam)));
+
   do
   {
     printf("///          Informe o nome CPF do morador:                                ///\n");
@@ -102,12 +113,14 @@ void preenche_morador(Morador* mor)
     getchar();
     tam = strlen(mor->cpf);
   } while (!(verificarcpf(mor->cpf, tam)));
+
   printf("///          Informe a idade do morador:                                    ///\n");
-  scanf("%[0-9]", mor->idade);
+  scanf("%s", mor->idade);
   getchar();
-  printf("///          Informe a atual ocupação do morador:         v                ///\n");
-  scanf("%[A-Z a-z]", mor->ocupacao);
+  printf("///          Informe a atual ocupação do morador:                          ///\n");
+  scanf("%s", mor->ocupacao);
   getchar();
+
   do
   {
     printf("///          Informe a renda mensal do morador:                             ///\n");
@@ -115,9 +128,12 @@ void preenche_morador(Morador* mor)
     getchar();
     tam = strlen(mor->renda);
   } while (!(validar_dinheiro(mor->renda, tam)));
-  printf("///                                                                         ///\n");
-  printf("///////////////////////////////////////////////////////////////////////////////\n");
-  system("clear||cls");
+
+  // printf("///////////////////////////////////////////////////////////////////////////////\n");
+  // system("clear||cls");
+
+  mostrarMorador(mor);
+  // gravarMorador(mor);
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -127,22 +143,24 @@ void preenche_morador(Morador* mor)
   printf("///          Morador cadastrado!:                                           ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t ...Enter para sair");
   getchar();
+  free(mor);
 }
 
+// nao precisa dela
 void cad_morador(void)
 {
-  system("clear||cls");
-  Morador* newmorador;
-  newmorador = (Morador*) malloc(sizeof(Morador));
+  // system("clear||cls");
+  // Morador *newmorador;
+  // newmorador = (Morador *)malloc(sizeof(Morador));
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
   printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
   printf("///          = = = = =       Cadastro de Morador      = = = = =             ///\n");
   printf("///                                                                         ///\n");
-  preenche_morador(newmorador);
-
+  // preenche_morador(newmorador);
 }
 
 void altera_morador(void)
@@ -305,4 +323,22 @@ void sobre_moradores(void)
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   getchar();
+}
+
+void mostrarMorador(Morador *mor) {
+
+  printf("\nCPF do morador: %s", mor->cpf);
+  printf("\nIdade do morador: %s", mor->idade);
+  printf("\nOcupação do morador: %s", mor->ocupacao);
+  printf("\nRenda do morador: %s", mor->renda);
+  printf("\nStatus do morador: %c", mor->status);
+  printf("\n");
+
+  // char nome[51];
+  //   char cpf[12];
+  //   char idade[4];
+  //   char ocupacao[12];
+  //   char renda[7];
+  //   char status;
+
 }
