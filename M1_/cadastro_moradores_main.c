@@ -133,7 +133,7 @@ void preenche_morador(void)
   // system("clear||cls");
 
   mostrarMorador(mor);
-  // gravarMorador(mor);
+  gravarMorador(mor);
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -341,4 +341,17 @@ void mostrarMorador(Morador *mor) {
   //   char renda[7];
   //   char status;
 
+}
+
+void gravarMorador(Morador *mor) {
+   FILE *fp;
+    fp = fopen("finance.dat", "ab");
+    if (fp == NULL)
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    fwrite(mor, sizeof(Morador), 1, fp);
+    fclose(fp);
 }
