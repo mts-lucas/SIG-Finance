@@ -10,7 +10,7 @@ struct receita
 };
 
 void preenche_receita(void);
-void mostrar_re(Receita* newreceita);
+void mostrarReceita(Receita* newreceita);
 void gravarReceita(Receita* newreceita);
 // void exibe_receita(Receita* mor);
 
