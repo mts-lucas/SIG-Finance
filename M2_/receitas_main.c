@@ -38,8 +38,8 @@ char menu_principal_re(void) {
 
 void gerencia_menu_principal(void){
     char op;
-    Receita *newreceitas;
-    newreceitas = (Receita *)malloc(sizeof(Receita));
+    // Receita *newreceitas;
+    // newreceitas = (Receita *)malloc(sizeof(Receita));
     op = menu_principal_re();
     while (op != '0') {
         
@@ -58,7 +58,7 @@ void gerencia_menu_principal(void){
         }
 
         else if (op == '4') {
-            checar_re(newreceitas);
+            checar_re();
 
         }
 
@@ -200,7 +200,7 @@ void excluir_re(void){
     getchar();
 }
 
-void checar_re(Receita* newreceita){
+void checar_re(void){
     // system("clear||cls");
     // printf("///////////////////////////////////////////////////////////////////////////////\n");
     // printf("///                                                                         ///\n");
@@ -225,7 +225,6 @@ void mostrar_re(Receita* newreceita){
     printf("\nTipo: %c", newreceita->tipo);
     printf("\nValor: %s", newreceita->valor);
     printf("\n");
-
 }
 
 void sobre_re(void){
