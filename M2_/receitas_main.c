@@ -121,7 +121,8 @@ void preenche_receita(void){
     printf("///                                                                         ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    mostrar_re(newreceita);
+    mostrarReceita(newreceita);
+    gravarReceita(newreceita);
     getchar();
     free(newreceita);
 
@@ -214,7 +215,7 @@ void checar_re(void){
 
 }
 
-void mostrar_re(Receita* newreceita){
+void mostrarReceita(Receita* newreceita){
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -247,4 +248,17 @@ char tipos(void) {
     scanf("%c",&tipo);
     getchar();
     return tipo;
+}
+
+void gravarReceita (Receita* newreceita) {
+    FILE *fp;
+    fp = fopen("finance.dat", "ab");
+    if (fp == NULL)
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    fwrite(newreceita, sizeof(Receita), 1, fp);
+    fclose(fp);
 }
