@@ -10,7 +10,7 @@ struct receita
 };
 
 void preenche_receita(void);
-void checar_re(Receita* newreceita);
+void mostrar_re(Receita* newreceita);
 void gravarReceita(Receita* newreceita);
 // void exibe_receita(Receita* mor);
 
@@ -20,6 +20,7 @@ char ler(void);
 void cadastrar_re(void);
 void editar_re(void);
 void excluir_re(void);
+void checar_re(void);
 void sobre_re(void);
 char tipos(void);
 
