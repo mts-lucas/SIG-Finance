@@ -58,6 +58,7 @@ void interacao_menu_cad_morador(void)
     else if (op == '4')
     {
       visualizar_morador();
+      getchar();
     }
 
     else if (op == '5')
@@ -87,7 +88,7 @@ void preenche_morador(void)
 {
   system("clear||cls");
   Morador *mor;
-  mor = (Morador*)malloc(sizeof(Morador));
+  mor = (Morador *)malloc(sizeof(Morador));
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -129,6 +130,7 @@ void preenche_morador(void)
     tam = strlen(mor->renda);
   } while (!(validar_dinheiro(mor->renda, tam)));
 
+  mor->status = 'C';
   // printf("///////////////////////////////////////////////////////////////////////////////\n");
   // system("clear||cls");
 
@@ -293,24 +295,32 @@ void deletar_morador(void)
 // simulado:
 void visualizar_morador(void)
 {
-  system("clear||cls");
-  printf("///////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                         ///\n");
-  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
-  printf("///          = = = = =       Visualizar Moradores     = = = = =             ///\n");
-  printf("///                                                                         ///\n");
-  printf("///          Estes sao todos os moradores da residencia:                    ///\n");
-  printf("///          1 - Lucas Mateus                                               ///\n");
-  printf("///          2 - Tallys Aureliano                                           ///\n");
-  printf("///          3 - Vinicius Maia                                              ///\n");
-  printf("///                                                                         ///\n");
-  printf("///////////////////////////////////////////////////////////////////////////////\n");
-  getchar();
+  FILE *fp;
+  Morador *mor;
+  fp = fopen("cadastro-m1.dat", "rb");
+  if (fp == NULL)
+  {
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar o programa...\n");
+    exit(1);
+  }
+  printf("\n\n");
+  printf("= = =   SIG FINANCE   = = = \n");
+  printf("= = = Exibe Moradores = = = \n");
+  printf("= = = = = = = = = = = = \n");
+  mor = (Morador*)malloc(sizeof(Morador));
+  while (fread(mor, sizeof(Morador), 1, fp))
+  {
+    if (mor->status == 'C')
+    {
+      mostrarMorador(mor);
+    }
+  }
+  fclose(fp);
+  free(mor);
 }
 
-void sobre_moradores(void)
-{
+void sobre_moradores(void) {
   system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
@@ -325,8 +335,10 @@ void sobre_moradores(void)
   getchar();
 }
 
-void mostrarMorador(Morador *mor) {
+void mostrarMorador(Morador *mor)
+{
 
+  printf("\n Nome do morador: %s",mor->nome);
   printf("\nCPF do morador: %s", mor->cpf);
   printf("\nIdade do morador: %s", mor->idade);
   printf("\nOcupação do morador: %s", mor->ocupacao);
@@ -340,18 +352,17 @@ void mostrarMorador(Morador *mor) {
   //   char ocupacao[12];
   //   char renda[7];
   //   char status;
-
 }
 
 void gravarMorador(Morador *mor) {
-   FILE *fp;
-    fp = fopen("finance.dat", "ab");
-    if (fp == NULL)
-    {
-        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-        printf("Não é possível continuar o programa...\n");
-        exit(1);
-    }
-    fwrite(mor, sizeof(Morador), 1, fp);
-    fclose(fp);
+  FILE *fp;
+  fp = fopen("cadastro-m1.dat", "ab");
+  if (fp == NULL)
+  {
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar o programa...\n");
+    exit(1);
+  }
+  fwrite(mor, sizeof(Morador), 1, fp);
+  fclose(fp);
 }
