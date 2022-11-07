@@ -42,7 +42,7 @@ void gerencia_menu_principal_dp(void){
     while (op != '0') {
         
         if (op == '1') {
-            cadastrar_dp();
+            preenche_despesa();
         }
 
         else if (op == '2') {
@@ -79,16 +79,24 @@ void gerencia_menu_principal_dp(void){
         }
     }
 
-void preenche_despesa(Despesa *desp){
-
+void preenche_despesa(void){
+    system("clear||cls");
+    Despesa* newdespesa;
+    newdespesa = (Despesa*) malloc(sizeof(Despesa));
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =        Login do morador        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
     int tam;
     do
     {
         printf("///          De qual Morador vai cadastrar a despesa?                       ///\n");
-        scanf("%s", desp->morador);
+        scanf("%s", newdespesa->morador);
         getchar();
-        tam = strlen(desp->morador);
-    } while (!(validar_letras(desp->morador, tam)));
+        tam = strlen(newdespesa->morador);
+    } while (!(validar_letras(newdespesa->morador, tam)));
     getchar();
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -98,17 +106,21 @@ void preenche_despesa(Despesa *desp){
     printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///     Descrição:                                                          ///\n");
-    scanf("%s" , desp->descricao);
+    scanf("%s" , newdespesa->descricao);
     do
     {
         printf("///     Valor:                                                              ///\n");
-        scanf("%s", desp->valor);
+        scanf("%s", newdespesa->valor);
         getchar();
-        tam = strlen(desp->valor);
-    } while (!(validar_dinheiro(desp->valor, tam)));
+        tam = strlen(newdespesa->valor);
+    } while (!(validar_dinheiro(newdespesa->valor, tam)));
     printf("///     Tipo da despesa:                                                    ///\n");
-    desp->tipo = tipos_d();
+    newdespesa->tipo = tipos_d();
+    newdespesa->status = 'C';
     printf("///                                                                         ///\n");
+    mostrarDesepesa(newdespesa);
+    gravarDesepesa(newdespesa);
+    free(newdespesa);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
 
@@ -116,15 +128,15 @@ void preenche_despesa(Despesa *desp){
 
 void cadastrar_dp(void){
     system("clear||cls");
-    Despesa* newmdespesa;
-    newmdespesa = (Despesa*) malloc(sizeof(Despesa));
+    // Despesa* newmdespesa;
+    // newmdespesa = (Despesa*) malloc(sizeof(Despesa));
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    preenche_despesa(newmdespesa);
+    // preenche_despesa(newmdespesa);
 }
 
 void editar_dp(void){
@@ -309,4 +321,31 @@ char tipos_d(void) {
     scanf("%c",&tipo);
     getchar();
     return tipo;
+}
+
+void mostrarDesepesa (Despesa *newdespesa) { 
+
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =    Gerenciamento de Desepesa   = = = = =             ///\n");
+    printf("\nMorador: %s", newdespesa->morador);
+    printf("\nDescrição: %s", newdespesa->descricao);
+    printf("\nTipo: %c", newdespesa->tipo);
+    printf("\nValor: %s", newdespesa->valor);
+    printf("\n");
+}
+
+void gravarDesepesa(Despesa *newdespesa) {
+    FILE *fp;
+    fp = fopen("finance.dat", "ab");
+    if (fp == NULL)
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    fwrite(newdespesa, sizeof(Despesa), 1, fp);
+    fclose(fp);
 }

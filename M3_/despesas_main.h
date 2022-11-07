@@ -1,3 +1,19 @@
+typedef struct despesa Despesa;
+
+struct despesa
+{
+    char morador[51];
+    char descricao[100];
+    char valor[7];
+    char tipo;
+    char status;
+};
+
+void preenche_despesa(void);
+void mostrarDesepesa(Despesa *newdespesa);
+void gravarDesepesa(Despesa *newdespesa);
+// void exibe_receita(Despesa* desp);
+
 char menu_principal_dp(void);
 void gerencia_menu_principal_dp(void);
 char ler_dp(void);
@@ -8,16 +24,3 @@ void checar_dp(void);
 void sobre_dp(void);
 void pagar_dp(void);
 char tipos_d(void);
-
-typedef struct despesa Despesa;
-
-struct despesa
-{
-    char morador[51];
-    char descricao[100];
-    char valor[7];
-    char tipo;
-};
-
-void preenche_despesa(Despesa *desp);
-// void exibe_receita(Despesa* desp);
