@@ -61,6 +61,7 @@ void gerencia_menu_principal_dp(void)
         else if (op == '4')
         {
             checar_dp();
+            getchar();
         }
 
         else if (op == '5')
