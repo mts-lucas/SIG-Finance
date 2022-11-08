@@ -4,19 +4,18 @@
 #include "../auxiliares/funcoes_auxiliares.h"
 #include "receitas_main.h"
 
-char ler_re(void){
-  printf("Selecione sua opção:");
-  char op;
-  scanf("%c" , &op);
-  getchar();
-  return op;
+char ler_re(void)
+{
+    printf("Selecione sua opção:");
+    char op;
+    scanf("%c", &op);
+    getchar();
+    return op;
 }
 
+char menu_principal_re(void)
+{
 
-char menu_principal_re(void) {
-
-    
-    
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -36,53 +35,58 @@ char menu_principal_re(void) {
     return op = ler_re();
 }
 
-void gerencia_menu_principal(void){
+void gerencia_menu_principal(void)
+{
     char op;
     // Receita *newreceitas;
     // newreceitas = (Receita *)malloc(sizeof(Receita));
     op = menu_principal_re();
-    while (op != '0') {
-        
-        if (op == '1') {
+    while (op != '0')
+    {
+
+        if (op == '1')
+        {
             preenche_receita();
         }
 
-        else if (op == '2') {
+        else if (op == '2')
+        {
             editar_re();
         }
 
-        else if (op == '3') {
+        else if (op == '3')
+        {
 
             excluir_re();
-            
         }
 
-        else if (op == '4') {
+        else if (op == '4')
+        {
             checar_re();
-
+            getchar();
         }
 
-        else if (op == '5') {
+        else if (op == '5')
+        {
             sobre_re();
-
         }
 
-        else {
+        else
+        {
             printf("\n\t Opcao invalida. digite outra...");
             getchar();
-
         }
 
         op = menu_principal_re();
-
-        }
     }
+}
 
-void preenche_receita(void){
+void preenche_receita(void)
+{
     int tam;
     system("clear||cls");
-    Receita* newreceita;
-    newreceita = (Receita*) malloc(sizeof(Receita));
+    Receita *newreceita;
+    newreceita = (Receita *)malloc(sizeof(Receita));
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -97,7 +101,7 @@ void preenche_receita(void){
         getchar();
         tam = strlen(newreceita->morador);
     } while (!(validar_letras(newreceita->morador, tam)));
-    
+
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =       Cadastrar Receita        = = = = =             ///\n");
@@ -105,7 +109,7 @@ void preenche_receita(void){
     printf("///     Adicionar receita:                                                  ///\n");
     printf("///                                                                         ///\n");
     printf("///     Descrição:                                                          ///\n");
-    scanf("%s" , newreceita->descricao);
+    scanf("%s", newreceita->descricao);
     getchar();
     printf("///     Valor:                                                              ///\n");
     do
@@ -125,11 +129,10 @@ void preenche_receita(void){
     gravarReceita(newreceita);
     getchar();
     free(newreceita);
-
 }
 
-
-void editar_re(void){
+void editar_re(void)
+{
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -157,7 +160,7 @@ void editar_re(void){
     printf("///                                                                         ///\n");
     printf("///     Editar   receita:                                                   ///\n");
     char descricao[50];
-    scanf("%s" , descricao);
+    scanf("%s", descricao);
     getchar();
     char valor[50];
     // scanf("%s" , valor);
@@ -175,10 +178,10 @@ void editar_re(void){
     printf("///                                                                                 ///\n");
     printf("/////////////////////////////////// //////////////////////////////////////////////////\n");
     getchar();
-
 }
 
-void excluir_re(void){
+void excluir_re(void)
+{
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -201,21 +204,36 @@ void excluir_re(void){
     getchar();
 }
 
-void checar_re(void){
-    // system("clear||cls");
-    // printf("///////////////////////////////////////////////////////////////////////////////\n");
-    // printf("///                                                                         ///\n");
-    // printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    // printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
-    // printf("\nMorador: %s", newreceita->morador);
-    // printf("\nDescrição: %s", newreceita->descricao);
-    // printf("\nTipo: %c", newreceita->tipo);
-    // printf("\nValor: %s", newreceita->valor);
-    printf("\n");
-
+void checar_re(void)
+{
+    system("clear||cls");
+    FILE *fp1;
+    Receita *rc;
+    fp1 = fopen("cad-receita-m2.dat", "rb");
+    if (fp1 == NULL)
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    printf("\n\n");
+    printf("= = =      SIG - FINANCE         = = = \n");
+    printf("= = =  Gerenciamento de Receita  = = = \n");
+    printf("= = = = = = = = = = = = \n");
+    rc = (Receita *)malloc(sizeof(Receita));
+    while (fread(rc, sizeof(Receita), 1, fp1))
+    {
+        if (rc->status == 'C')
+        {
+            mostrarReceita(rc);
+        }
+    }
+    fclose(fp1);
+    free(rc);
 }
 
-void mostrarReceita(Receita* newreceita){
+void mostrarReceita(Receita *newreceita)
+{
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -228,7 +246,8 @@ void mostrarReceita(Receita* newreceita){
     printf("\n");
 }
 
-void sobre_re(void){
+void sobre_re(void)
+{
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -242,23 +261,25 @@ void sobre_re(void){
     getchar();
 }
 
-char tipos(void) {
+char tipos(void)
+{
     printf("1-Contribuição Mensal\n2-Extra\n3-Emergência\n");
     char tipo;
-    scanf("%c",&tipo);
+    scanf("%c", &tipo);
     getchar();
     return tipo;
 }
 
-void gravarReceita (Receita* newreceita) {
-    FILE *fp;
-    fp = fopen("finance.dat", "ab");
-    if (fp == NULL)
+void gravarReceita(Receita *newreceita)
+{
+    FILE *fp1;
+    fp1 = fopen("cad-receita-m2.dat", "ab");
+    if (fp1 == NULL)
     {
         printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
         printf("Não é possível continuar o programa...\n");
         exit(1);
     }
-    fwrite(newreceita, sizeof(Receita), 1, fp);
-    fclose(fp);
+    fwrite(newreceita, sizeof(Receita), 1, fp1);
+    fclose(fp1);
 }

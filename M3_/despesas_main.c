@@ -4,18 +4,18 @@
 #include "despesas_main.h"
 #include "../auxiliares/funcoes_auxiliares.h"
 
-
-char ler_dp(void){
-  printf("Selecione sua opção:");
-  char op;
-  scanf("%c" , &op);
-  getchar();
-  return op;
+char ler_dp(void)
+{
+    printf("Selecione sua opção:");
+    char op;
+    scanf("%c", &op);
+    getchar();
+    return op;
 }
 
+char menu_principal_dp(void)
+{
 
-char menu_principal_dp(void) {
-    
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -36,53 +36,58 @@ char menu_principal_dp(void) {
     return op = ler_dp();
 }
 
-void gerencia_menu_principal_dp(void){
+void gerencia_menu_principal_dp(void)
+{
     char op;
     op = menu_principal_dp();
-    while (op != '0') {
-        
-        if (op == '1') {
+    while (op != '0')
+    {
+
+        if (op == '1')
+        {
             preenche_despesa();
         }
 
-        else if (op == '2') {
+        else if (op == '2')
+        {
             editar_dp();
-            
         }
 
-        else if (op == '3') {
+        else if (op == '3')
+        {
             excluir_dp();
-            
         }
 
-        else if (op == '4') {
+        else if (op == '4')
+        {
             checar_dp();
-            
         }
 
-        else if (op == '5') {
+        else if (op == '5')
+        {
             pagar_dp();
         }
 
-        else if (op == '6') {
+        else if (op == '6')
+        {
             sobre_dp();
         }
 
-        else {
+        else
+        {
             printf("\n\t Opção inválida. digite outra...");
             getchar();
-
         }
-        
+
         op = menu_principal_dp();
-
-        }
     }
+}
 
-void preenche_despesa(void){
+void preenche_despesa(void)
+{
     system("clear||cls");
-    Despesa* newdespesa;
-    newdespesa = (Despesa*) malloc(sizeof(Despesa));
+    Despesa *newdespesa;
+    newdespesa = (Despesa *)malloc(sizeof(Despesa));
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -106,7 +111,7 @@ void preenche_despesa(void){
     printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///     Descrição:                                                          ///\n");
-    scanf("%s" , newdespesa->descricao);
+    scanf("%s", newdespesa->descricao);
     do
     {
         printf("///     Valor:                                                              ///\n");
@@ -123,10 +128,10 @@ void preenche_despesa(void){
     free(newdespesa);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
+}
 
-}   
-
-void cadastrar_dp(void){
+void cadastrar_dp(void)
+{
     system("clear||cls");
     // Despesa* newmdespesa;
     // newmdespesa = (Despesa*) malloc(sizeof(Despesa));
@@ -139,7 +144,8 @@ void cadastrar_dp(void){
     // preenche_despesa(newmdespesa);
 }
 
-void editar_dp(void){
+void editar_dp(void)
+{
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -188,7 +194,8 @@ void editar_dp(void){
     getchar();
 }
 
-void excluir_dp(void){
+void excluir_dp(void)
+{
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -203,7 +210,7 @@ void excluir_dp(void){
     do
     {
         printf("///          De qual Morador vai excluir a despesa? (Atenção, excluir       ///\n");
-        printf("///                                             é diferente de pagar...)    ///\n");        
+        printf("///                                             é diferente de pagar...)    ///\n");
         scanf("%s", morador);
         getchar();
         tam = strlen(morador);
@@ -230,10 +237,11 @@ void excluir_dp(void){
     printf("///  o que vamos fazer)                                                     ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    getchar();  
+    getchar();
 }
 
-void pagar_dp(void){
+void pagar_dp(void)
+{
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -272,34 +280,60 @@ void pagar_dp(void){
     printf("///  o que vamos fazer, pagando com base na receita e/ou no saldo)          ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    getchar();  
+    getchar();
 }
 
-void checar_dp(void){
+void checar_dp(void)
+{
     system("clear||cls");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///     Lista de despesas:                                                  ///\n");
-    printf("///                                                                         ///\n");
-    printf("///     1 - Despesa abc                                                     ///\n");
-    printf("///     2 - Despesa abc                                                     ///\n");
-    printf("///     3 - Despesa abc                                                     ///\n");
-    printf("///     4 - Despesa abc                                                     ///\n");
-    printf("///     5 - Despesa abc                                                     ///\n");
-    printf("///                                                                         ///\n");
-    printf("///     (obs: a meta é fazer um 'for' para gerar essa serie de despesas     ///\n");
-    printf("///  mas por enquanto vamos deixar assim para ficar mais didático           ///\n");
-    printf("///  o que vamos fazer)                                                     ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    getchar(); 
+    // printf("///////////////////////////////////////////////////////////////////////////////\n");
+    // printf("///                                                                         ///\n");
+    // printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    // printf("///                                                                         ///\n");
+    // printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
+    // printf("///                                                                         ///\n");
+    // printf("///     Lista de despesas:                                                  ///\n");
+    // printf("///                                                                         ///\n");
+    // printf("///     1 - Despesa abc                                                     ///\n");
+    // printf("///     2 - Despesa abc                                                     ///\n");
+    // printf("///     3 - Despesa abc                                                     ///\n");
+    // printf("///     4 - Despesa abc                                                     ///\n");
+    // printf("///     5 - Despesa abc                                                     ///\n");
+    // printf("///                                                                         ///\n");
+    // printf("///     (obs: a meta é fazer um 'for' para gerar essa serie de despesas     ///\n");
+    // printf("///  mas por enquanto vamos deixar assim para ficar mais didático           ///\n");
+    // printf("///  o que vamos fazer)                                                     ///\n");
+    // printf("///                                                                         ///\n");
+    // printf("///////////////////////////////////////////////////////////////////////////////\n");
+
+    FILE *fp2;
+    Despesa *dp;
+    fp2 = fopen("cad-despesa-m3.dat", "rb");
+    if (fp2 == NULL)
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    printf("\n\n");
+    printf("= = =      SIG - FINANCE         = = = \n");
+    printf("= = =  Gerenciamento de Despesa  = = = \n");
+    printf("= = = = = = = = = = = = \n");
+    dp = (Despesa *)malloc(sizeof(Despesa));
+    while (fread(dp, sizeof(Despesa), 1, fp2))
+    {
+        if (dp->status == 'C')
+        {
+            mostrarDesepesa(dp);
+        }
+    }
+    fclose(fp2);
+    free(dp);
+    // getchar();
 }
 
-void sobre_dp(void){
+void sobre_dp(void)
+{
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -308,22 +342,24 @@ void sobre_dp(void){
     printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///     Modulo encarregado do gerenciamento das despesas, aqui fica         ///\n");
-    printf("///  a parte onde vamos cadastrar as despesas, que vai influenciar            ///\n");
+    printf("///  a parte onde vamos cadastrar as despesas, que vai influenciar          ///\n");
     printf("///  diretamente no saldo.                                                  ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    getchar(); 
+    getchar();
 }
 
-char tipos_d(void) {
+char tipos_d(void)
+{
     printf("1-Contribuição Mensal\t2-Extra\t3-Emergência\n");
     char tipo;
-    scanf("%c",&tipo);
+    scanf("%c", &tipo);
     getchar();
     return tipo;
 }
 
-void mostrarDesepesa (Despesa *newdespesa) { 
+void mostrarDesepesa(Despesa *newdespesa)
+{
 
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -337,15 +373,16 @@ void mostrarDesepesa (Despesa *newdespesa) {
     printf("\n");
 }
 
-void gravarDesepesa(Despesa *newdespesa) {
-    FILE *fp;
-    fp = fopen("finance.dat", "ab");
-    if (fp == NULL)
+void gravarDesepesa(Despesa *newdespesa)
+{
+    FILE *fp2;
+    fp2 = fopen("cad-despesa-m3.dat", "ab");
+    if (fp2 == NULL)
     {
         printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
         printf("Não é possível continuar o programa...\n");
         exit(1);
     }
-    fwrite(newdespesa, sizeof(Despesa), 1, fp);
-    fclose(fp);
+    fwrite(newdespesa, sizeof(Despesa), 1, fp2);
+    fclose(fp2);
 }
