@@ -97,7 +97,7 @@ void preenche_despesa(void)
     int tam;
     do
     {
-        printf("             De qual Morador vai cadastrar a despesa?                       \n");
+        printf("            De qual Morador vai cadastrar a despesa?                       \n");
         scanf("%s", newdespesa->morador);
         getchar();
         tam = strlen(newdespesa->morador);
@@ -110,16 +110,16 @@ void preenche_despesa(void)
     printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("        Descrição:                                                             \n");
+    printf("            Descrição:                                                             \n");
     scanf("%s", newdespesa->descricao);
     do
     {
-        printf("        Valor:                                                                \n");
+        printf("            Valor:                                                                \n");
         scanf("%s", newdespesa->valor);
         getchar();
         tam = strlen(newdespesa->valor);
     } while (!(validar_dinheiro(newdespesa->valor, tam)));
-    printf("        Tipo da despesa:                                                       \n");
+    printf("            Tipo da despesa:                                                       \n");
     newdespesa->tipo = tipos_d();
     newdespesa->status = 'C';
     mostrarDesepesa(newdespesa);
@@ -137,7 +137,7 @@ void editar_dp(void)
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n           De qual Morador vai editar a despesa?                             \n");
+    printf("\n          De qual Morador vai editar a despesa?                             \n");
     char morador[50];
     int tam;
     do
@@ -155,22 +155,20 @@ void editar_dp(void)
     printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n       Editar despesa:                                                       \n");
-    printf("         Descrição:                                                            \n");
+    printf("\n          Editar despesa:                                                       \n");
+    printf("            Descrição:                                                            \n");
     char descricao_d[50];
     scanf("%s", descricao_d);
     char valor_d[50];
     do
     {
-        printf("         Valor:                                                              \n");
+        printf("            Valor:                                                              \n");
         scanf("%s", valor_d);
         getchar();
         tam = strlen(valor_d);
     } while (!(validar_dinheiro(valor_d, tam)));
-    printf("         Tipo da despesa:                                                    ///\n");
+    printf("            Tipo da despesa:                                                    \n");
     tipos_d();
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
 }
 
@@ -187,8 +185,8 @@ void excluir_dp(void)
     int tam;
     do
     {
-        printf("        De qual Morador vai excluir a despesa? (Atenção, excluir          \n");
-        printf("                                         é diferente de pagar...)         \n");
+        printf("            De qual Morador vai excluir a despesa? (Atenção, excluir          \n");
+        printf("                                             é diferente de pagar...)         \n");
         scanf("%s", morador);
         getchar();
         tam = strlen(morador);
@@ -229,7 +227,7 @@ void pagar_dp(void)
     int tam;
     do
     {
-        printf("\n             De qual Morador vai cadastrar a despesa?                          \n");
+        printf("\n          De qual Morador vai cadastrar a despesa?                          \n");
         scanf("%s", morador);
         getchar();
         tam = strlen(morador);
@@ -325,10 +323,10 @@ void mostrarDesepesa(Despesa *newdespesa)
     printf("///          = = = = =    Gerenciamento de Desepesa   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\nMorador: %s", newdespesa->morador);
-    printf("\nDescrição: %s", newdespesa->descricao);
-    printf("\nTipo: %c", newdespesa->tipo);
-    printf("\nValor: %s", newdespesa->valor);
+    printf("\n          Morador: %s", newdespesa->morador);
+    printf("\n          Descrição: %s", newdespesa->descricao);
+    printf("\n          Tipo: %c", newdespesa->tipo);
+    printf("\n          Valor: %s", newdespesa->valor);
     printf("\n");
 }
 

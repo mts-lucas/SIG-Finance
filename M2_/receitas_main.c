@@ -93,7 +93,7 @@ void preenche_receita(void)
 
     do
     {
-        printf("             De qual Morador vai adicionar receita?                        \n");
+        printf("            De qual Morador vai adicionar receita?                 \n");
         scanf("%s", newreceita->morador);
         getchar();
         tam = strlen(newreceita->morador);
@@ -106,17 +106,17 @@ void preenche_receita(void)
     printf("///          = = = = =       Cadastrar Receita        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n       Descrição:                                                            \n");
+    printf("\n          Descrição:                                                            \n");
     scanf("%s", newreceita->descricao);
     getchar();
     do
     {
-        printf("        Valor:                                                             \n");
+        printf("            Valor:                                                             \n");
         scanf("%s", newreceita->valor);
         getchar();
         tam = strlen(newreceita->valor);
     } while (!(validar_dinheiro(newreceita->valor, tam)));
-    printf("        Tipo da receita?                                                      \n");
+    printf("            Tipo da receita?                                                      \n");
     newreceita->tipo = tipos();
     newreceita->status = 'C';
     mostrarReceita(newreceita);
@@ -152,19 +152,19 @@ void editar_re(void)
     printf("///          = = = = =         Editar Receita         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n      Editar   receita:                                                      \n");
+    printf("\n          Descrição:                                                      \n");
     char descricao[50];
     scanf("%s", descricao);
     getchar();
     char valor[50];
     do
     {
-        printf("\n      Valor da receita?                                                       \n");
+        printf("\n          Valor da receita?                                                       \n");
         scanf("%s", valor);
         getchar();
         tam = strlen(valor);
     } while (!(validar_dinheiro(valor, tam)));
-    printf("        tipo:                                                                  \n");
+    printf("            tipo:                                                                  \n");
     tipos();
     getchar();
 }
@@ -182,7 +182,7 @@ void excluir_re(void)
     int tam;
     do
     {
-        printf("        Informe de qual morador você deseja excluir receita:                   \n");
+        printf("            Informe de qual morador você deseja excluir receita:                   \n");
         scanf("%s", morador);
         getchar();
         tam = strlen(morador);

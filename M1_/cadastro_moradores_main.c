@@ -6,8 +6,6 @@
 #include "cadastro_moradores_main.h"
 #include "../auxiliares/funcoes_auxiliares.h"
 
-// declarando as variaveis globais
-// OLHAR TODOS OS COMENTS
 char nome_morador[51], cpf_morador[11], idade_morador[4], ocupacao_morador[12], renda_morador[7];
 
 char menu_cad_moradores(void)
@@ -102,7 +100,7 @@ void preenche_morador(void)
 
   do
   {
-    printf("             Informe o nome do morador:                                        \n");
+    printf("          Informe o nome do morador:                                        \n");
     scanf("%s", mor->nome);
     getchar();
     tam = strlen(mor->nome);
@@ -191,7 +189,7 @@ void altera_morador(void)
   case ('1'):
     do
     {
-      printf("             Informe o nome do morador:                                    \n");
+      printf("          Informe o nome do morador:                                    \n");
       scanf("%s", nome_morador);
       getchar();
       tam = strlen(nome_morador);
@@ -200,25 +198,25 @@ void altera_morador(void)
   case ('2'):
     do
     {
-      printf("             Informe o nome CPF do morador:                                \n");
+      printf("          Informe o nome CPF do morador:                                \n");
       scanf("%s", cpf_morador);
       getchar();
       tam = strlen(cpf_morador);
     } while (!(verificarcpf(cpf_morador, tam)));
     break;
   case ('3'):
-    printf("Qual a nova idade?");
+    printf("          Qual a nova idade?");
     scanf("%[0-9]", idade_morador);
     break;
   case ('4'):
-    printf("Qual a nova ocupacao");
+    printf("          Qual a nova ocupacao");
     scanf("%[A-Z a-z]", ocupacao_morador);
     break;
   case ('5'):
 
     do
     {
-      printf("             Informe a renda mensal do morador:                             \n");
+      printf("          Informe a renda mensal do morador:                             \n");
       scanf("%s", renda_morador);
       getchar();
       tam = strlen(renda_morador);
