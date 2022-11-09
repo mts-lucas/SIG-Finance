@@ -19,9 +19,8 @@ char menu_principal_re(void)
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
-    printf("///     = = = = = Sistema de Controle de Financas Domesticas = = = = =      ///\n");
-    printf("///                                                                         ///\n");
-    printf("///     = = = = =        Gerenciamento de Receitas           = = = = =      ///\n");
+    printf("///        = = = = =              SIG - FINANCE            = = = = =        ///\n");
+    printf("///        = = = = =        Gerenciamento de Receitas      = = = = =        ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Cadastrar Receita.                                        ///\n");
     printf("///            2. Editar Receita.                                           ///\n");
