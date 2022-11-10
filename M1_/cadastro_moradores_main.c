@@ -6,7 +6,7 @@
 #include "cadastro_moradores_main.h"
 #include "../auxiliares/funcoes_auxiliares.h"
 
-char nome_morador[51], cpf_morador[11], idade_morador[4], ocupacao_morador[12], renda_morador[7];
+// char nome_morador[51], cpf_morador[11], idade_morador[4], ocupacao_morador[12], renda_morador[7];
 
 char menu_cad_moradores(void)
 {
@@ -174,8 +174,7 @@ void altera_morador(void)
       achou = 1;
     }
   }
-  if (achou)
-  {
+  if (achou) {
     mostrarMorador(mor);
     getchar();
     printf("Deseja realmente editar este Morador (s/n)? ");
@@ -227,6 +226,7 @@ void altera_morador(void)
   else
   {
     printf("O Morador %s não foi encontrado...\n", procurado);
+    getchar();
   }
   free(mor);
   fclose(fp);
@@ -293,6 +293,7 @@ void deletar_morador(void)
   else
   {
     printf("O morador %s não foi encontrado...\n", procurado);
+    getchar();
   }
   free(mor);
   fclose(fp);
