@@ -246,34 +246,85 @@ void altera_morador(void)
 
 void deletar_morador(void)
 {
-  char nome_excluir[51];
-  system("clear||cls");
-  printf("///////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                         ///\n");
-  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-  printf("///          = = = = =       Perfil de Moradores     = = = = =              ///\n");
-  printf("///          = = = = =         Deletar Morador        = = = = =             ///\n");
-  printf("///                                                                         ///\n");
-  printf("///////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n          Qual Morador deseja excluir da lista?                              \n");
-  scanf("%[A-Z a-z]", nome_excluir);
-  getchar();
-  remove(nome_morador);
-  remove(cpf_morador);
-  remove(idade_morador);
-  remove(ocupacao_morador);
-  remove(renda_morador);
-  system("clear||cls");
-  printf("///////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                         ///\n");
-  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
-  printf("///          = = = = =         Deletar Morador        = = = = =             ///\n");
-  printf("///                                                                         ///\n");
-  printf("///                           Morador deletado!                             ///\n");
-  printf("///                                                                         ///\n");
-  printf("///////////////////////////////////////////////////////////////////////////////\n");
-  getchar();
+
+  FILE *fp;
+  Morador *mor;
+  int achou;
+  char resp;
+  char procurado[15];
+  fp = fopen("cadastro-m1.dat", "r+b");
+  if (fp == NULL)
+  {
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar o programa...\n");
+    exit(1);
+  }
+  printf("\n\n");
+  printf("Informe o nome do morador a ser apagado: ");
+  scanf(" %14[^\n]", procurado);
+  mor = (Morador *)malloc(sizeof(Morador));
+  achou = 0;
+  while ((!achou) && (fread(mor, sizeof(Morador), 1, fp)))
+  {
+    if ((strcmp(mor->nome, procurado) == 0) && (mor->status == 'C'))
+    {
+      achou = 1;
+    }
+  }
+
+  if (achou)
+  {
+    mostrarMorador(mor);
+    getchar();
+    printf("Deseja realmente apagar este morador (s/n)? ");
+    scanf("%c", &resp);
+    if (resp == 's' || resp == 'S')
+    {
+      mor->status = 'A';
+      fseek(fp, (-1) * sizeof(Morador), SEEK_CUR);
+      fwrite(mor, sizeof(Morador), 1, fp);
+      printf("\nMorador excluído com sucesso!!!\n");
+    }
+    else
+    {
+      printf("\nOk, os dados não foram alterados\n");
+    }
+  }
+  else
+  {
+    printf("O morador %s não foi encontrado...\n", procurado);
+  }
+  free(mor);
+  fclose(fp);
+
+  // char nome_excluir[51];
+  // system("clear||cls");
+  // printf("///////////////////////////////////////////////////////////////////////////////\n");
+  // printf("///                                                                         ///\n");
+  // printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  // printf("///          = = = = =       Perfil de Moradores     = = = = =              ///\n");
+  // printf("///          = = = = =         Deletar Morador        = = = = =             ///\n");
+  // printf("///                                                                         ///\n");
+  // printf("///////////////////////////////////////////////////////////////////////////////\n");
+  // printf("\n          Qual Morador deseja excluir da lista?                              \n");
+  // scanf("%[A-Z a-z]", nome_excluir);
+  // getchar();
+  // remove(nome_morador);
+  // remove(cpf_morador);
+  // remove(idade_morador);
+  // remove(ocupacao_morador);
+  // remove(renda_morador);
+  // system("clear||cls");
+  // printf("///////////////////////////////////////////////////////////////////////////////\n");
+  // printf("///                                                                         ///\n");
+  // printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  // printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  // printf("///          = = = = =         Deletar Morador        = = = = =             ///\n");
+  // printf("///                                                                         ///\n");
+  // printf("///                           Morador deletado!                             ///\n");
+  // printf("///                                                                         ///\n");
+  // printf("///////////////////////////////////////////////////////////////////////////////\n");
+  // getchar();
 }
 // simulado:
 void visualizar_morador(void)
