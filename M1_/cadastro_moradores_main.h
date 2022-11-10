@@ -20,6 +20,6 @@ void visualizar_morador(void);
 void interacao_menu_cad_morador(void);
 char menu_cad_moradores(void);
 char ler(void);
-void sobre_moradores(void);
+void sobre_m1(void);
 void deletar_morador(void);
 void altera_morador(void);
