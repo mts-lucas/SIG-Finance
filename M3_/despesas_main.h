@@ -17,7 +17,6 @@ void gravarDesepesa(Despesa *newdespesa);
 char menu_principal_dp(void);
 void gerencia_menu_principal_dp(void);
 char ler_dp(void);
-void cadastrar_dp(void);
 void editar_dp(void);
 void excluir_dp(void);
 void checar_dp(void);
