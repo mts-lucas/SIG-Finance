@@ -296,35 +296,6 @@ void deletar_morador(void)
   }
   free(mor);
   fclose(fp);
-
-  // char nome_excluir[51];
-  // system("clear||cls");
-  // printf("///////////////////////////////////////////////////////////////////////////////\n");
-  // printf("///                                                                         ///\n");
-  // printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-  // printf("///          = = = = =       Perfil de Moradores     = = = = =              ///\n");
-  // printf("///          = = = = =         Deletar Morador        = = = = =             ///\n");
-  // printf("///                                                                         ///\n");
-  // printf("///////////////////////////////////////////////////////////////////////////////\n");
-  // printf("\n          Qual Morador deseja excluir da lista?                              \n");
-  // scanf("%[A-Z a-z]", nome_excluir);
-  // getchar();
-  // remove(nome_morador);
-  // remove(cpf_morador);
-  // remove(idade_morador);
-  // remove(ocupacao_morador);
-  // remove(renda_morador);
-  // system("clear||cls");
-  // printf("///////////////////////////////////////////////////////////////////////////////\n");
-  // printf("///                                                                         ///\n");
-  // printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-  // printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
-  // printf("///          = = = = =         Deletar Morador        = = = = =             ///\n");
-  // printf("///                                                                         ///\n");
-  // printf("///                           Morador deletado!                             ///\n");
-  // printf("///                                                                         ///\n");
-  // printf("///////////////////////////////////////////////////////////////////////////////\n");
-  // getchar();
 }
 // simulado:
 void visualizar_morador(void)
