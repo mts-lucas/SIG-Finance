@@ -2,11 +2,12 @@ typedef struct receita Receita;
 
 struct receita
 {
-    char morador[51];
+    char morador[15];
     char descricao[100];
-    char valor[7];
+    char valor[11];
     char tipo;
     char status;
+    char estruta;
 };
 
 void preenche_receita(void);
