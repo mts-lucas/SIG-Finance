@@ -21,7 +21,8 @@ char menu_cad_moradores(void)
   printf("///            2. Alterar dados de Morador                                  ///\n");
   printf("///            3. Deletar Morador                                           ///\n");
   printf("///            4. Visualizar Moradores                                      ///\n");
-  printf("///            5. Sobre o modulo                                            ///\n");
+  printf("///            5. Buscar Morador                                            ///\n");
+  printf("///            6. Sobre o modulo                                            ///\n");
   printf("///            0. Sair                                                      ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -60,6 +61,11 @@ void interacao_menu_cad_morador(void)
     }
 
     else if (op == '5')
+    {
+      buscarUm();
+      getchar();
+    }
+    else if (op == '6')
     {
       sobre_m1();
     }
@@ -174,7 +180,8 @@ void altera_morador(void)
       achou = 1;
     }
   }
-  if (achou) {
+  if (achou)
+  {
     mostrarMorador(mor);
     getchar();
     printf("Deseja realmente editar este Morador (s/n)? ");
@@ -370,4 +377,48 @@ void gravarMorador(Morador *mor)
   }
   fwrite(mor, sizeof(Morador), 1, fp);
   fclose(fp);
+}
+
+void buscarUm(void)
+{
+
+  FILE *fp;
+  Morador *mor;
+  int resultado;
+  char nomeBusca[51];
+  fp = fopen("cadastro-m1.dat", "rb");
+  if (fp == NULL)
+  {
+    /* code */
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar o programa...\n");
+    exit(1);
+  }
+  system("clear");
+  printf("\n informe o nome do morador que voce busca\t");
+  scanf("%s", nomeBusca);
+  mor = (Morador *)malloc(sizeof(Morador));
+  resultado = 0;
+  while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
+  {
+    /* code */
+    if ((strcmp(mor->nome, nomeBusca) == 0) && (mor->status == 'C'))
+    {
+      /* code */
+      resultado = 1;
+    }
+  }
+  fclose(fp);
+  if (resultado)
+  {
+    /* code */
+    mostrarMorador(mor);
+    getchar();
+  }
+  else
+  {
+    printf("Bovino %s não encontrado...", nomeBusca);
+    getchar();
+  }
+  free(mor);
 }
