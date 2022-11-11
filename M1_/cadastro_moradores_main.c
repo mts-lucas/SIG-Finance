@@ -379,8 +379,7 @@ void gravarMorador(Morador *mor)
   fclose(fp);
 }
 
-void buscarUm(void)
-{
+void buscarUm(void) {
 
   FILE *fp;
   Morador *mor;

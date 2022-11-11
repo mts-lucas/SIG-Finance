@@ -3,10 +3,10 @@ typedef struct morador Morador;
 struct morador
 {
     char nome[51];
-    char cpf[12];
+    char cpf[15];
     char idade[4];
-    char ocupacao[12];
-    char renda[7];
+    char ocupacao[20];
+    char renda[11];
     char status;
 };
 
