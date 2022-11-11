@@ -5,11 +5,9 @@
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 char decimais[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-// depois add func q troca valores de data[2] e data[5] por /
-
 // DataValida, bissexto, dia_do_ano by Flavius Gorgonio
 
-int bissexto(int aa) //by Flavius Gorgonio
+int bissexto(int aa) // by Flavius Gorgonio
 {
     if ((aa % 4 == 0) && (aa % 100 != 0))
     {
@@ -25,7 +23,7 @@ int bissexto(int aa) //by Flavius Gorgonio
     }
 }
 
-int dataValida(int dd, int mm, int aa) //by Flavius Gorgonio
+int dataValida(int dd, int mm, int aa) // by Flavius Gorgonio
 {
     int maiorDia;
     if (aa < 0 || mm < 1 || mm > 12 || dd < 1)
@@ -58,7 +56,7 @@ int dataValida(int dd, int mm, int aa) //by Flavius Gorgonio
     return 1;
 }
 
-int dia_do_ano(int dd, int mm, int aa) //by Flavius Gorgonio
+int dia_do_ano(int dd, int mm, int aa) // by Flavius Gorgonio
 {
 
     dataValida(dd, mm, aa);
@@ -106,6 +104,16 @@ int validar_formato_data(char data[11])
                     break;
                 }
             }
+        }
+        else if ((i == 2) && (data[i] != '/'))
+        {
+
+            return 0;
+        }
+        else if ((i == 5) && (data[i] != '/'))
+        {
+
+            return 0;
         }
     }
 
@@ -156,7 +164,7 @@ int validar_dinheiro(char dinheiro[], int tam)
 
 {
 
-    if ((dinheiro[tam - 3] != ',') && (dinheiro[tam - 3] != '.'))
+    if (dinheiro[tam - 3] != '.')
     {
         return 0;
     }
@@ -208,7 +216,7 @@ char verificarcpf(char *cpf, int tam)
 
         /* code */
     }
-    
+
     if (tam == 11)
     {
         int calc = 0;
@@ -275,21 +283,19 @@ char verificarcpf(char *cpf, int tam)
     }
 
     int cont = 0;
-    
+
     for (int i = 0; i < tam; i++)
     {
-        if (i>0 && cpf[i] == cpf[i-1])
+        if (i > 0 && cpf[i] == cpf[i - 1])
         {
             cont = cont + 1;
-            
-            if (cont == tam -1)
+
+            if (cont == tam - 1)
             {
                 return 0;
             }
-            
         }
-        
     }
-    
+
     return 1;
 }
