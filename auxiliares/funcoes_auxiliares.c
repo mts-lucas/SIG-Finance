@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "funcoes_auxiliares.h"
 #include <string.h>
+#include <time.h>
 
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 char decimais[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -73,16 +74,21 @@ int dia_do_ano(int dd, int mm, int aa) // by Flavius Gorgonio
 
     return soma;
 }
+// funcao que retorna o dia atual em forma de vetor de int
 
-// Calcular a quantos dias foi um evento
-
-int quantos_dias(int dd, int mm, int aa)
+int data_atual(void)
 {
+    struct tm *datetime;
+    int idia = datetime->tm_mday;
+    int imes = datetime->tm_mon + 1;
+    int iano = datetime->tm_year + 1900;
 
-    printf("Precisa usar struct. ESTUDAR");
+    int data_hoje[] = {idia, imes, iano};
 
-    return 0;
+    return data_hoje;
 }
+
+
 
 int validar_formato_data(char data[11])
 {
