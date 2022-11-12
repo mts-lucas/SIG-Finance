@@ -26,6 +26,12 @@ int bissexto(int aa) // by Flavius Gorgonio
 
 int dataValida(int dd, int mm, int aa) // by Flavius Gorgonio
 {
+
+    struct tm *datetime;
+    int idia = datetime->tm_mday;
+    int imes = datetime->tm_mon + 1;
+    int iano = datetime->tm_year + 1900;
+
     int maiorDia;
     if (aa < 0 || mm < 1 || mm > 12 || dd < 1)
     {
@@ -52,6 +58,19 @@ int dataValida(int dd, int mm, int aa) // by Flavius Gorgonio
     }
     if (dd > maiorDia)
     {
+        return 0;
+    }
+    if (aa > iano){
+
+        return 0;
+    }
+    else if ((aa == iano) && (mm > imes)){
+
+        return 0;
+
+    }
+    else if ((aa == iano) && (mm == imes) && (dd > idia )){
+
         return 0;
     }
     return 1;
