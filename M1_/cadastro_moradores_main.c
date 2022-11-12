@@ -416,7 +416,7 @@ void buscarUm(void) {
   }
   else
   {
-    printf("Bovino %s não encontrado...", nomeBusca);
+    printf("Morador %s não encontrado...", nomeBusca);
     getchar();
   }
   free(mor);
