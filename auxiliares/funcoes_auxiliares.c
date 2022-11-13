@@ -381,4 +381,15 @@ void ler_ocupacao(char *ocupacao)
     getchar();
 }
 
+void ler_renda(char *renda)
+{
 
+    int tam;
+    do
+    {
+        printf("             Informe a renda mensal do morador:\n");
+        scanf("%s", renda);
+        getchar();
+        tam = strlen(renda);
+    } while (!(validar_dinheiro(renda, tam)));
+}

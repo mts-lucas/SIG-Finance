@@ -93,6 +93,13 @@ void preenche_morador(void)
   system("clear||cls");
   Morador *mor;
   mor = (Morador *)malloc(sizeof(Morador));
+
+  char nome[51];
+  char cpf[15];
+  char idade[4];
+  char ocupacao[20];
+  char renda[11];
+
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -100,42 +107,20 @@ void preenche_morador(void)
   printf("///          = = = = =       Cadastro de Morador      = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n             Por favor informe os dados do morador:                          \n");
 
-  int tam;
+  ler_nome(nome);
+  ler_cpf(cpf);
+  ler_idade(idade);
+  ler_ocupacao(ocupacao);
+  ler_renda(renda);
 
-  do
-  {
-    printf("          Informe o nome do morador:                                        \n");
-    scanf("%s", mor->nome);
-    getchar();
-    tam = strlen(mor->nome);
-  } while (!(validar_letras(mor->nome, tam)));
-
-  do
-  {
-    printf("             Informe o nome CPF do morador:                                   \n");
-    scanf("%s", mor->cpf);
-    getchar();
-    tam = strlen(mor->cpf);
-  } while (!(verificarcpf(mor->cpf, tam)));
-
-  printf("             Informe a idade do morador:                                       \n");
-  scanf("%s", mor->idade);
-  getchar();
-  printf("             Informe a atual ocupação do morador:                             \n");
-  scanf("%s", mor->ocupacao);
-  getchar();
-
-  do
-  {
-    printf("             Informe a renda mensal do morador:                                \n");
-    scanf("%s", mor->renda);
-    getchar();
-    tam = strlen(mor->renda);
-  } while (!(validar_dinheiro(mor->renda, tam)));
-
+  strcpy(mor->nome, nome);
+  strcpy(mor->cpf, cpf);
+  strcpy(mor->idade, idade);
+  strcpy(mor->ocupacao, ocupacao);
+  strcpy(mor->renda, renda);
   mor->status = 'C';
+
   mostrarMorador(mor);
   gravarMorador(mor);
   printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -154,12 +139,18 @@ void preenche_morador(void)
 
 void altera_morador(void)
 {
-  int tam;
   FILE *fp;
   Morador *mor;
   int achou;
   char resp;
   char procurado[15];
+
+  char nome[51];
+  char cpf[15];
+  char idade[4];
+  char ocupacao[20];
+  char renda[11];
+
   fp = fopen("cadastro-m1.dat", "r+b");
   if (fp == NULL)
   {
@@ -189,37 +180,17 @@ void altera_morador(void)
     if (resp == 's' || resp == 'S')
     {
 
-      do
-      {
-        printf("          Informe o nome do morador:                                        \n");
-        scanf("%s", mor->nome);
-        getchar();
-        tam = strlen(mor->nome);
-      } while (!(validar_letras(mor->nome, tam)));
+      ler_nome(nome);
+      ler_cpf(cpf);
+      ler_idade(idade);
+      ler_ocupacao(ocupacao);
+      ler_renda(renda);
 
-      do
-      {
-        printf("             Informe o nome CPF do morador:                                   \n");
-        scanf("%s", mor->cpf);
-        getchar();
-        tam = strlen(mor->cpf);
-      } while (!(verificarcpf(mor->cpf, tam)));
-
-      printf("             Informe a idade do morador:                                       \n");
-      scanf("%s", mor->idade);
-      getchar();
-      printf("             Informe a atual ocupação do morador:                             \n");
-      scanf("%s", mor->ocupacao);
-      getchar();
-
-      do
-      {
-        printf("             Informe a renda mensal do morador:                                \n");
-        scanf("%s", mor->renda);
-        getchar();
-        tam = strlen(mor->renda);
-      } while (!(validar_dinheiro(mor->renda, tam)));
-
+      strcpy(mor->nome, nome);
+      strcpy(mor->cpf, cpf);
+      strcpy(mor->idade, idade);
+      strcpy(mor->ocupacao, ocupacao);
+      strcpy(mor->renda, renda);
       mor->status = 'C';
       fseek(fp, (-1) * sizeof(Morador), SEEK_CUR);
       fwrite(mor, sizeof(Morador), 1, fp);
@@ -379,7 +350,8 @@ void gravarMorador(Morador *mor)
   fclose(fp);
 }
 
-void buscarUm(void) {
+void buscarUm(void)
+{
 
   FILE *fp;
   Morador *mor;
