@@ -1,15 +1,14 @@
 #include <stdio.h>
 #include "funcoes_auxiliares.h"
 #include <string.h>
+#include <time.h>
 
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 char decimais[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-// depois add func q troca valores de data[2] e data[5] por /
-
 // DataValida, bissexto, dia_do_ano by Flavius Gorgonio
 
-int bissexto(int aa) //by Flavius Gorgonio
+int bissexto(int aa) // by Flavius Gorgonio
 {
     if ((aa % 4 == 0) && (aa % 100 != 0))
     {
@@ -25,8 +24,14 @@ int bissexto(int aa) //by Flavius Gorgonio
     }
 }
 
-int dataValida(int dd, int mm, int aa) //by Flavius Gorgonio
+int dataValida(int dd, int mm, int aa) // by Flavius Gorgonio
 {
+
+    struct tm *datetime;
+    int idia = datetime->tm_mday;
+    int imes = datetime->tm_mon + 1;
+    int iano = datetime->tm_year + 1900;
+
     int maiorDia;
     if (aa < 0 || mm < 1 || mm > 12 || dd < 1)
     {
@@ -55,10 +60,25 @@ int dataValida(int dd, int mm, int aa) //by Flavius Gorgonio
     {
         return 0;
     }
+    if (aa > iano)
+    {
+
+        return 0;
+    }
+    else if ((aa == iano) && (mm > imes))
+    {
+
+        return 0;
+    }
+    else if ((aa == iano) && (mm == imes) && (dd > idia))
+    {
+
+        return 0;
+    }
     return 1;
 }
 
-int dia_do_ano(int dd, int mm, int aa) //by Flavius Gorgonio
+int dia_do_ano(int dd, int mm, int aa) // by Flavius Gorgonio
 {
 
     dataValida(dd, mm, aa);
@@ -74,16 +94,6 @@ int dia_do_ano(int dd, int mm, int aa) //by Flavius Gorgonio
     }
 
     return soma;
-}
-
-// Calcular a quantos dias foi um evento
-
-int quantos_dias(int dd, int mm, int aa)
-{
-
-    printf("Precisa usar struct. ESTUDAR");
-
-    return 0;
 }
 
 int validar_formato_data(char data[11])
@@ -106,6 +116,16 @@ int validar_formato_data(char data[11])
                     break;
                 }
             }
+        }
+        else if ((i == 2) && (data[i] != '/'))
+        {
+
+            return 0;
+        }
+        else if ((i == 5) && (data[i] != '/'))
+        {
+
+            return 0;
         }
     }
 
@@ -156,7 +176,7 @@ int validar_dinheiro(char dinheiro[], int tam)
 
 {
 
-    if ((dinheiro[tam - 3] != ',') && (dinheiro[tam - 3] != '.'))
+    if (dinheiro[tam - 3] != '.')
     {
         return 0;
     }
@@ -208,7 +228,7 @@ char verificarcpf(char *cpf, int tam)
 
         /* code */
     }
-    
+
     if (tam == 11)
     {
         int calc = 0;
@@ -275,21 +295,101 @@ char verificarcpf(char *cpf, int tam)
     }
 
     int cont = 0;
-    
+
     for (int i = 0; i < tam; i++)
     {
-        if (i>0 && cpf[i] == cpf[i-1])
+        if (i > 0 && cpf[i] == cpf[i - 1])
         {
             cont = cont + 1;
-            
-            if (cont == tam -1)
+
+            if (cont == tam - 1)
             {
                 return 0;
             }
-            
         }
-        
     }
-    
+
     return 1;
+}
+
+void ler_nome(char *name)
+{
+
+    int tam;
+    do
+    {
+        printf("          Informe o nome do morador:\n");
+        scanf("%s", name);
+        getchar();
+        tam = strlen(name);
+    } while (!(validar_letras(name, tam)));
+}
+
+void ler_cpf(char *cpf)
+{
+
+    int tam;
+    do
+    {
+        printf("             Informe o nome CPF do morador:\n");
+        scanf("%s", cpf);
+        getchar();
+        tam = strlen(cpf);
+    } while (!(verificarcpf(cpf, tam)));
+}
+
+void ler_idade(char *idade)
+{
+
+    int tam;
+    do
+    {
+        printf("             Informe a idade do morador:\n");
+        scanf("%s", idade);
+        getchar();
+        tam = strlen(idade);
+    } while (!(validar_idade(idade, tam)));
+}
+
+int validar_idade(char idade[], int tam)
+{
+
+    for (int i = 0; i <= (tam - 1); i++)
+    {
+
+        for (int j = 0; j <= 10; j++)
+        {
+
+            if ((j == 10) && (idade[i] != decimais[j]))
+            {
+                return 0;
+            }
+            else if (idade[i] == decimais[j])
+            {
+                break;
+            }
+        }
+    }
+
+    return 1;
+}
+
+void ler_ocupacao(char *ocupacao)
+{
+    printf("             Informe a atual ocupação do morador:\n");
+    scanf("%s", ocupacao);
+    getchar();
+}
+
+void ler_renda(char *renda)
+{
+
+    int tam;
+    do
+    {
+        printf("             Informe a renda mensal do morador:\n");
+        scanf("%s", renda);
+        getchar();
+        tam = strlen(renda);
+    } while (!(validar_dinheiro(renda, tam)));
 }
