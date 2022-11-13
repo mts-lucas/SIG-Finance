@@ -60,16 +60,18 @@ int dataValida(int dd, int mm, int aa) // by Flavius Gorgonio
     {
         return 0;
     }
-    if (aa > iano){
+    if (aa > iano)
+    {
 
         return 0;
     }
-    else if ((aa == iano) && (mm > imes)){
+    else if ((aa == iano) && (mm > imes))
+    {
 
         return 0;
-
     }
-    else if ((aa == iano) && (mm == imes) && (dd > idia )){
+    else if ((aa == iano) && (mm == imes) && (dd > idia))
+    {
 
         return 0;
     }
@@ -93,47 +95,6 @@ int dia_do_ano(int dd, int mm, int aa) // by Flavius Gorgonio
 
     return soma;
 }
-
-// funcao que retorna o dia atual em forma de vetor de char
-
-// char data_atual(void)
-// {
-//     struct tm *datetime;
-//     int idia = datetime->tm_mday;
-//     int imes = datetime->tm_mon + 1;
-//     int iano = datetime->tm_year + 1900;
-
-//     char diac[3];
-//     char mesc[3];
-//     char anoc[5];
-
-//     if (idia < 10)
-//     {
-//         char aux;
-//         sprintf(aux, "%d", idia);
-//         diac[0] = '0';
-//         diac[1] = aux;
-//     }
-//     else if (imes < 10)
-//     {
-
-//         char aux2;
-//         sprintf(aux2, "%d", imes);
-//         mesc[0] = '0';
-//         mesc[1] = aux2;
-//     }
-//     else
-//     {
-//         sprintf(diac, "%d", idia);
-//         sprintf(mesc, "%d", imes);
-//     }
-
-//     sprintf(anoc, "%d", iano);
-
-//     char data_hoje[] = {diac[0], diac[1], '/', mesc[0], mesc[1], '/', anoc[0], anoc[1], anoc[2], anoc[3]};
-
-//     return data_hoje;
-// }
 
 int validar_formato_data(char data[11])
 {
@@ -350,3 +311,74 @@ char verificarcpf(char *cpf, int tam)
 
     return 1;
 }
+
+void ler_nome(char *name)
+{
+
+    int tam;
+    do
+    {
+        printf("          Informe o nome do morador:\n");
+        scanf("%s", name);
+        getchar();
+        tam = strlen(name);
+    } while (!(validar_letras(name, tam)));
+}
+
+void ler_cpf(char *cpf)
+{
+
+    int tam;
+    do
+    {
+        printf("             Informe o nome CPF do morador:\n");
+        scanf("%s", cpf);
+        getchar();
+        tam = strlen(cpf);
+    } while (!(verificarcpf(cpf, tam)));
+}
+
+void ler_idade(char *idade)
+{
+
+    int tam;
+    do
+    {
+        printf("             Informe a idade do morador:\n");
+        scanf("%s", idade);
+        getchar();
+        tam = strlen(idade);
+    } while (!(validar_idade(idade, tam)));
+}
+
+int validar_idade(char idade[], int tam)
+{
+
+    for (int i = 0; i <= (tam - 1); i++)
+    {
+
+        for (int j = 0; j <= 10; j++)
+        {
+
+            if ((j == 10) && (idade[i] != decimais[j]))
+            {
+                return 0;
+            }
+            else if (idade[i] == decimais[j])
+            {
+                break;
+            }
+        }
+    }
+
+    return 1;
+}
+
+void ler_ocupacao(char *ocupacao)
+{
+    printf("             Informe a atual ocupação do morador:\n");
+    scanf("%s", ocupacao);
+    getchar();
+}
+
+
