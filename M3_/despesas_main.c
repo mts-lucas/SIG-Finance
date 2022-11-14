@@ -88,20 +88,17 @@ void preenche_despesa(void)
     system("clear||cls");
     Despesa *newdespesa;
     newdespesa = (Despesa *)malloc(sizeof(Despesa));
+    char cpf[15];
+    char descricao[100];
+    char valor[11];
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    int tam;
-    do
-    {
-        printf("            De qual Morador vai cadastrar a despesa?                       \n");
-        scanf("%s", newdespesa->morador);
-        getchar();
-        tam = strlen(newdespesa->morador);
-    } while (!(validar_letras(newdespesa->morador, tam)));
+    printf("            De qual Morador vai cadastrar a despesa?\n");
+    ler_cpf(cpf);
     getchar();
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -110,18 +107,13 @@ void preenche_despesa(void)
     printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("            Descrição:                                                             \n");
-    scanf("%s", newdespesa->descricao);
-    do
-    {
-        printf("            Valor:                                                                \n");
-        scanf("%s", newdespesa->valor);
-        getchar();
-        tam = strlen(newdespesa->valor);
-    } while (!(validar_dinheiro(newdespesa->valor, tam)));
-    printf("            Tipo da despesa:                                                       \n");
-    newdespesa->tipo = tipos_d();
+    ler_descricaor(descricao);
+    ler_valordepositado(valor);
+    newdespesa->tipo = tipos_despesa();
     newdespesa->status = 'C';
+    strcpy(newdespesa->cpf, cpf);
+    strcpy(newdespesa->descricao, descricao);
+    strcpy(newdespesa->valor, valor);
     mostrarDesepesa(newdespesa);
     gravarDesepesa(newdespesa);
     free(newdespesa);
@@ -130,23 +122,19 @@ void preenche_despesa(void)
 
 void editar_dp(void)
 {
+    //abrir o arquivo e tals
     system("clear||cls");
+    char cpf[15];
+    char descricao[100];
+    char valor[11];
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n          De qual Morador vai editar a despesa?                             \n");
-    char morador[50];
-    int tam;
-    do
-    {
-        printf("            De qual Morador vai cadastrar a despesa?                       \n");
-        scanf("%s", morador);
-        getchar();
-        tam = strlen(morador);
-    } while (!(validar_letras(morador, tam)));
+    printf("\n          De qual Morador vai editar a despesa?\n");
+    ler_cpf(cpf); //buscar no arquivo
     getchar();
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -155,42 +143,29 @@ void editar_dp(void)
     printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n          Editar despesa:                                                       \n");
-    printf("            Descrição:                                                            \n");
-    char descricao_d[50];
-    scanf("%s", descricao_d);
-    char valor_d[50];
-    do
-    {
-        printf("            Valor:                                                              \n");
-        scanf("%s", valor_d);
-        getchar();
-        tam = strlen(valor_d);
-    } while (!(validar_dinheiro(valor_d, tam)));
-    printf("            Tipo da despesa:                                                    \n");
-    tipos_d();
+    printf("\n          Editar despesa:\n");
+    ler_descricaor(descricao);
+    ler_valordepositado(valor);
+    //dsp->tipo = tipos_despesa();
+    // antes de implementar a busca no arquivo, usar mesma coisa q no preencher com strcpy
     getchar();
 }
 
 void excluir_dp(void)
 {
+    //esse deixo ineteiramente pra vc mecher mas é so seguir o padrão dos outros
+    // lembrando de buscar pelo cpf como no M1
     system("clear||cls");
+    char procurado[15];
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    char morador[50];
-    int tam;
-    do
-    {
-        printf("            De qual Morador vai excluir a despesa? (Atenção, excluir          \n");
-        printf("                                             é diferente de pagar...)         \n");
-        scanf("%s", morador);
-        getchar();
-        tam = strlen(morador);
-    } while (!(validar_letras(morador, tam)));
+    printf("            De qual Morador vai excluir a despesa? (Atenção, excluir          \n");
+    printf("                                            é diferente de apagar...)         \n");
+    ler_cpf(procurado); 
     getchar();
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -216,6 +191,10 @@ void excluir_dp(void)
 
 void pagar_dp(void)
 {
+    //por hora não vamos mecher nesse modulo, mas teremos de falar com flavius
+
+    //futuramente vamos criar uma tributo de paga e não pago, e criar um sistema pra caso a divida foi parcialmente
+    //ou totalmente paga, mas é trabalho para a semana
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -304,15 +283,6 @@ void sobre_dp(void)
     getchar();
 }
 
-char tipos_despesa(void)
-{
-    printf("1-Gasto Mensal\t2-Gasto Extra\t3-Emergência\n");
-    char tipo;
-    scanf("%c", &tipo);
-    getchar();
-    return tipo;
-}
-
 void mostrarDesepesa(Despesa *newdespesa)
 {
 
@@ -323,7 +293,7 @@ void mostrarDesepesa(Despesa *newdespesa)
     printf("///          = = = = =    Gerenciamento de Desepesa   = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n          Morador: %s", newdespesa->morador);
+    printf("\n          CPF do morador: %s", newdespesa->cpf);
     printf("\n          Descrição: %s", newdespesa->descricao);
     printf("\n          Tipo: %c", newdespesa->tipo);
     printf("\n          Valor: %s", newdespesa->valor);

@@ -2,12 +2,11 @@ typedef struct despesa Despesa;
 
 struct despesa
 {
-    char morador[15];
+    char cpf[15];
     char descricao[100];
     char valor[11];
     char tipo;
     char status;
-    char estrutura;
 };
 
 void preenche_despesa(void);

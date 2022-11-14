@@ -424,3 +424,13 @@ char tipos_rec(void)
     getchar();
     return tipo;
 }
+
+char tipos_despesa(void)
+{
+    printf("            Tipo da despesa:\n");
+    printf("1-Gasto Mensal\t2-Gasto Extra\t3-Emergência\n");
+    char tipo;
+    scanf("%c", &tipo);
+    getchar();
+    return tipo;
+}

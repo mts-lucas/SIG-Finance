@@ -137,8 +137,8 @@ void editar_re(void)
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     ler_descricaor(descricao);
     ler_valordepositado(valor);
-    //rc->tipo = tipos_rec()
-    // depois de implementar a busca no arquivo, usar mesma coisa q no preencher com strcpy
+    //rc->tipo = tipos_rec();
+    // antes de implementar a busca no arquivo, usar mesma coisa q no preencher com strcpy
     getchar();
 }
 
