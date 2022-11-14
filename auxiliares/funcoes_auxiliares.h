@@ -13,3 +13,6 @@ void ler_cpf(char *cpf);
 void ler_idade(char* idade);
 void ler_ocupacao(char* ocupacao);
 void ler_renda(char* renda);
+void ler_descricaor(char *descricaor);
+void ler_valordepositado(char *deposito);
+char tipos_rec(void);
