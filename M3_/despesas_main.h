@@ -23,4 +23,4 @@ void excluir_dp(void);
 void checar_dp(void);
 void sobre_dp(void);
 void pagar_dp(void);
-char tipos_d(void);
+char tipos_despesa(void);

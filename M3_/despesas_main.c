@@ -304,9 +304,9 @@ void sobre_dp(void)
     getchar();
 }
 
-char tipos_d(void)
+char tipos_despesa(void)
 {
-    printf("1-Contribuição Mensal\t2-Extra\t3-Emergência\n");
+    printf("1-Gasto Mensal\t2-Gasto Extra\t3-Emergência\n");
     char tipo;
     scanf("%c", &tipo);
     getchar();
