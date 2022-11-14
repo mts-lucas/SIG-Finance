@@ -107,7 +107,7 @@ void preenche_morador(void)
   printf("///          = = = = =       Cadastro de Morador      = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
-
+  printf("            Insira os dados do novo morador:\n");
   ler_nome(nome);
   ler_cpf(cpf);
   ler_idade(idade);
