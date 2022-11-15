@@ -161,7 +161,6 @@ void altera_morador(void)
     exit(1);
   }
   printf("\n\n");
-  ;
   printf("Informe o CPF do morador a ser alterado: ");
   ler_cpf(procurado);
   mor = (Morador *)malloc(sizeof(Morador));
