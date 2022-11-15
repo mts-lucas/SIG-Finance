@@ -202,18 +202,6 @@ void editar_re(void)
 
 void excluir_re(void)
 {
-    // system("clear||cls");
-    // char cpf[15]; // sempre buscar pelo cpf
-    // printf("///////////////////////////////////////////////////////////////////////////////\n");
-    // printf("///                                                                         ///\n");
-    // printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    // printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
-    // printf("///                                                                         ///\n");
-    // printf("///////////////////////////////////////////////////////////////////////////////\n");
-    // printf("            Informe de qual morador você deseja excluir receita:\n");
-    // ler_cpf(cpf);
-
-    // fazer a exclusão logica a partir daqui
 
     FILE *fp;
     Receita *rec;
