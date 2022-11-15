@@ -2,12 +2,11 @@ typedef struct despesa Despesa;
 
 struct despesa
 {
-    char morador[15];
+    char cpf[15];
     char descricao[100];
     char valor[11];
     char tipo;
     char status;
-    char estrutura;
 };
 
 void preenche_despesa(void);
@@ -23,4 +22,4 @@ void excluir_dp(void);
 void checar_dp(void);
 void sobre_dp(void);
 void pagar_dp(void);
-char tipos_d(void);
+char tipos_despesa(void);

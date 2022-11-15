@@ -208,7 +208,7 @@ int validar_dinheiro(char dinheiro[], int tam)
     return 1;
 }
 
-char verificar(char *cpf, int tam)
+char verificarcpf(char *cpf, int tam)
 {
 
     for (int i = 0; i < tam; i++)
@@ -393,4 +393,44 @@ void ler_renda(char *renda)
         getchar();
         tam = strlen(renda);
     } while (!(validar_dinheiro(renda, tam)));
+}
+
+void ler_descricaor(char *descricaor)
+{
+
+    printf("\n          Descrição:\n");
+    scanf("%s", descricaor);
+    getchar();
+}
+
+void ler_valordepositado(char *deposito)
+{
+    int tam;
+    do
+    {
+        printf("            Valor:\n");
+        scanf("%s", deposito);
+        getchar();
+        tam = strlen(deposito);
+    } while (!(validar_dinheiro(deposito, tam)));
+}
+
+char tipos_rec(void)
+{
+    printf("            Tipo da receita?\n");
+    printf("            1-Contribuição Mensal\n2-Extra\n");
+    char tipo;
+    scanf("%c", &tipo);
+    getchar();
+    return tipo;
+}
+
+char tipos_despesa(void)
+{
+    printf("            Tipo da despesa:\n");
+    printf("1-Gasto Mensal\t2-Gasto Extra\t3-Emergência\n");
+    char tipo;
+    scanf("%c", &tipo);
+    getchar();
+    return tipo;
 }

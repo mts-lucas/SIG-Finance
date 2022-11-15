@@ -80,25 +80,21 @@ void gerencia_menu_principal(void)
 
 void preenche_receita(void)
 {
-    int tam;
     system("clear||cls");
     Receita *newreceita;
     newreceita = (Receita *)malloc(sizeof(Receita));
+    char cpf[15];
+    char descricao[100];
+    char valor[11];
+
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-
-    do
-    {
-        printf("            De qual Morador vai adicionar receita?                 \n");
-        scanf("%s", newreceita->morador);
-        getchar();
-        tam = strlen(newreceita->morador);
-    } while (!(validar_letras(newreceita->morador, tam)));
-
+    printf("            Informe de qual morador você deseja editar a receita:\n");
+    ler_cpf(cpf);
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -106,19 +102,13 @@ void preenche_receita(void)
     printf("///          = = = = =       Cadastrar Receita        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n          Descrição:                                                            \n");
-    scanf("%s", newreceita->descricao);
-    getchar();
-    do
-    {
-        printf("            Valor:                                                             \n");
-        scanf("%s", newreceita->valor);
-        getchar();
-        tam = strlen(newreceita->valor);
-    } while (!(validar_dinheiro(newreceita->valor, tam)));
-    printf("            Tipo da receita?                                                      \n");
-    newreceita->tipo = tipos();
+    ler_descricaor(descricao);
+    ler_valordepositado(valor);
+    newreceita->tipo = tipos_rec();
     newreceita->status = 'C';
+    strcpy(newreceita->cpf, cpf);
+    strcpy(newreceita->descricao, descricao);
+    strcpy(newreceita->valor, valor);
     mostrarReceita(newreceita);
     gravarReceita(newreceita);
     getchar();
@@ -128,23 +118,16 @@ void preenche_receita(void)
 void editar_re(void)
 {
     system("clear||cls");
+    char cpf[15];
+    char descricao[100];
+    char valor[11];
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n          De qual Morador vai adicionar receita?                             \n");
-    char morador[50];
-    int tam;
-    do
-    {
-        printf("            De qual Morador vai adicionar receita?                            \n");
-        scanf("%s", morador);
-        getchar();
-        tam = strlen(morador);
-    } while (!(validar_letras(morador, tam)));
-
+    ler_cpf(cpf);  //apos isso buscar se o pcf existe no arquivo
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -152,42 +135,27 @@ void editar_re(void)
     printf("///          = = = = =         Editar Receita         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n          Descrição:                                                      \n");
-    char descricao[50];
-    scanf("%s", descricao);
-    getchar();
-    char valor[50];
-    do
-    {
-        printf("\n          Valor da receita?                                                       \n");
-        scanf("%s", valor);
-        getchar();
-        tam = strlen(valor);
-    } while (!(validar_dinheiro(valor, tam)));
-    printf("            tipo:                                                                  \n");
-    tipos();
+    ler_descricaor(descricao);
+    ler_valordepositado(valor);
+    //rc->tipo = tipos_rec();
+    // antes de implementar a busca no arquivo, usar mesma coisa q no preencher com strcpy
     getchar();
 }
 
 void excluir_re(void)
 {
     system("clear||cls");
+    char cpf[15]; //sempre buscar pelo cpf
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    char morador[50];
-    int tam;
-    do
-    {
-        printf("            Informe de qual morador você deseja excluir receita:                   \n");
-        scanf("%s", morador);
-        getchar();
-        tam = strlen(morador);
-    } while (!(validar_letras(morador, tam)));
-    getchar();
+    printf("            Informe de qual morador você deseja excluir receita:\n");
+    ler_cpf(cpf);
+
+    //fazer a exclusão logica a partir daqui
 }
 
 void checar_re(void)
@@ -231,7 +199,7 @@ void mostrarReceita(Receita *newreceita)
     printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n          Morador: %s", newreceita->morador);
+    printf("\n          CPF do Morador: %s", newreceita->cpf);
     printf("\n          Descrição: %s", newreceita->descricao);
     printf("\n          Tipo: %c", newreceita->tipo);
     printf("\n          Valor: %s", newreceita->valor);
@@ -252,15 +220,6 @@ void sobre_re(void)
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     getchar();
-}
-
-char tipos(void)
-{
-    printf("1-Contribuição Mensal\n2-Extra\n3-Emergência\n");
-    char tipo;
-    scanf("%c", &tipo);
-    getchar();
-    return tipo;
 }
 
 void gravarReceita(Receita *newreceita)

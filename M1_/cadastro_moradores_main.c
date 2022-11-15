@@ -107,7 +107,7 @@ void preenche_morador(void)
   printf("///          = = = = =       Cadastro de Morador      = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
-
+  printf("            Insira os dados do novo morador:\n");
   ler_nome(nome);
   ler_cpf(cpf);
   ler_idade(idade);
@@ -139,6 +139,8 @@ void preenche_morador(void)
 
 void altera_morador(void)
 {
+
+  //modifiquei para buscar por cpf
   FILE *fp;
   Morador *mor;
   int achou;
@@ -160,13 +162,13 @@ void altera_morador(void)
   }
   printf("\n\n");
   ;
-  printf("Informe o nome do morador a ser alterado: ");
-  scanf(" %14[^\n]", procurado);
+  printf("Informe o CPF do morador a ser alterado: ");
+  ler_cpf(procurado);
   mor = (Morador *)malloc(sizeof(Morador));
   achou = 0;
   while ((!achou) && (fread(mor, sizeof(Morador), 1, fp)))
   {
-    if ((strcmp(mor->nome, procurado) == 0) && (mor->status == 'C'))
+    if ((strcmp(mor->cpf, procurado) == 0) && (mor->status == 'C'))
     {
       achou = 1;
     }
@@ -209,7 +211,7 @@ void altera_morador(void)
   free(mor);
   fclose(fp);
 
-  // system("clear||cls");
+  system("clear||cls");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
   printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -225,6 +227,8 @@ void altera_morador(void)
 void deletar_morador(void)
 {
 
+  //mudei a busca por CPF
+
   FILE *fp;
   Morador *mor;
   int achou;
@@ -238,13 +242,13 @@ void deletar_morador(void)
     exit(1);
   }
   printf("\n\n");
-  printf("Informe o nome do morador a ser apagado: ");
-  scanf(" %14[^\n]", procurado);
+  printf("Informe o CPF do morador a ser apagado: ");
+  ler_cpf(procurado);
   mor = (Morador *)malloc(sizeof(Morador));
   achou = 0;
   while ((!achou) && (fread(mor, sizeof(Morador), 1, fp)))
   {
-    if ((strcmp(mor->nome, procurado) == 0) && (mor->status == 'C'))
+    if ((strcmp(mor->cpf, procurado) == 0) && (mor->status == 'C'))
     {
       achou = 1;
     }
