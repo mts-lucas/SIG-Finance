@@ -134,7 +134,6 @@ void editar_re(void)
     char descricao[100];
     char valor[11];
 
-
     fp = fopen("cad-receita-m2.dat", "r+b");
     if (fp == NULL)
     {
@@ -203,18 +202,68 @@ void editar_re(void)
 
 void excluir_re(void)
 {
-    system("clear||cls");
-    char cpf[15]; // sempre buscar pelo cpf
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("            Informe de qual morador você deseja excluir receita:\n");
-    ler_cpf(cpf);
+    // system("clear||cls");
+    // char cpf[15]; // sempre buscar pelo cpf
+    // printf("///////////////////////////////////////////////////////////////////////////////\n");
+    // printf("///                                                                         ///\n");
+    // printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    // printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
+    // printf("///                                                                         ///\n");
+    // printf("///////////////////////////////////////////////////////////////////////////////\n");
+    // printf("            Informe de qual morador você deseja excluir receita:\n");
+    // ler_cpf(cpf);
 
     // fazer a exclusão logica a partir daqui
+
+    FILE *fp;
+    Receita *rec;
+    int achou;
+    char resp;
+    char procurado[15];
+    fp = fopen("cad-receita-m2.dat", "r+b");
+    if (fp == NULL)
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    printf("\n\n");
+    printf("Buscamos pelo CPF do morador, para apagar receita: \n");
+    ler_cpf(procurado);
+    rec = (Receita *)malloc(sizeof(Receita));
+    achou = 0;
+    while ((!achou) && (fread(rec, sizeof(Receita), 1, fp)))
+    {
+        if ((strcmp(rec->cpf, procurado) == 0) && (rec->status == 'C'))
+        {
+            achou = 1;
+        }
+    }
+
+    if (achou)
+    {
+        mostrarReceita(rec);
+        printf("Deseja realmente apagar está receita (s/n)? ");
+        scanf("%c", &resp);
+        if (resp == 's' || resp == 'S')
+        {
+            rec->status = 'A';
+            fseek(fp, (-1) * sizeof(Receita), SEEK_CUR);
+            fwrite(rec, sizeof(Receita), 1, fp);
+            printf("\nReceita excluído com sucesso!!!\n");
+        }
+        else
+        {
+            printf("\nOk, os dados não foram alterados\n");
+        }
+    }
+    else
+    {
+        printf("A receita do morador com esse cpf %s não foi encontrada...\n", procurado);
+        getchar();
+    }
+    free(rec);
+    fclose(fp);
 }
 
 void checar_re(void)
