@@ -59,6 +59,13 @@ void gerencia_menu_principal(void)
 
         else if (op == '4')
         {
+            system("clear||cls");
+            printf("///////////////////////////////////////////////////////////////////////////////\n");
+            printf("///                                                                         ///\n");
+            printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+            printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
+            printf("///                                                                         ///\n");
+            printf("///////////////////////////////////////////////////////////////////////////////\n");
             checar_re();
             getchar();
         }
@@ -118,26 +125,78 @@ void preenche_receita(void)
 void editar_re(void)
 {
     system("clear||cls");
+    FILE *fp;
+    Receita *rec;
+    int achou;
+    char resp;
+    char procurado[15];
     char cpf[15];
     char descricao[100];
     char valor[11];
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =        Login do morador        = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    ler_cpf(cpf);  //apos isso buscar se o pcf existe no arquivo
+
+
+    fp = fopen("cad-receita-m2.dat", "r+b");
+    if (fp == NULL)
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    printf("\n\n");
+    printf("Buscamos a receita pelo CPF do morador.\n");
+    ler_cpf(procurado);
+    rec = (Receita *)malloc(sizeof(Receita));
+    achou = 0;
+    while ((!achou) && (fread(rec, sizeof(Receita), 1, fp)))
+    {
+        if ((strcmp(rec->cpf, procurado) == 0) && (rec->status == 'C'))
+        {
+            achou = 1;
+        }
+    }
+    if (achou)
+    {
+        mostrarReceita(rec);
+        printf("Deseja realmente editar esta Receita? (s/n)? ");
+        scanf("%c", &resp);
+        if (resp == 's' || resp == 'S')
+        {
+
+            ler_cpf(cpf);
+            ler_valordepositado(valor);
+            ler_descricaor(descricao);
+            rec->tipo = tipos_rec();
+
+            strcpy(rec->cpf, cpf);
+            strcpy(rec->descricao, descricao);
+            strcpy(rec->valor, valor);
+            fseek(fp, (-1) * sizeof(Receita), SEEK_CUR);
+            fwrite(rec, sizeof(Receita), 1, fp);
+            printf("\nREceita editada com sucesso!!!\n");
+        }
+        else
+        {
+            printf("\nOk, os dados não foram alterados\n");
+        }
+    }
+    else
+    {
+        printf("Não ha receitas cadastradas com esse CPF %s...\n", procurado);
+        getchar();
+    }
+    free(rec);
+    fclose(fp);
+
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =         Editar Receita         = = = = =             ///\n");
     printf("///                                                                         ///\n");
+    printf("///                            Fim da Operação!                             ///\n");
+    printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    ler_descricaor(descricao);
-    ler_valordepositado(valor);
-    //rc->tipo = tipos_rec();
+
     // antes de implementar a busca no arquivo, usar mesma coisa q no preencher com strcpy
     getchar();
 }
@@ -145,7 +204,7 @@ void editar_re(void)
 void excluir_re(void)
 {
     system("clear||cls");
-    char cpf[15]; //sempre buscar pelo cpf
+    char cpf[15]; // sempre buscar pelo cpf
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -155,7 +214,7 @@ void excluir_re(void)
     printf("            Informe de qual morador você deseja excluir receita:\n");
     ler_cpf(cpf);
 
-    //fazer a exclusão logica a partir daqui
+    // fazer a exclusão logica a partir daqui
 }
 
 void checar_re(void)
@@ -192,19 +251,13 @@ void checar_re(void)
 
 void mostrarReceita(Receita *newreceita)
 {
-    system("clear||cls");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    // system("clear||cls");
     printf("\n          CPF do Morador: %s", newreceita->cpf);
     printf("\n          Descrição: %s", newreceita->descricao);
     printf("\n          Tipo: %c", newreceita->tipo);
     printf("\n          Valor: %s", newreceita->valor);
     printf("\n");
-    getchar();
+    // getchar();
 }
 
 void sobre_re(void)
