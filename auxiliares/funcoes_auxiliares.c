@@ -332,7 +332,7 @@ void ler_cpf(char *cpf)
     int tam;
     do
     {
-        printf("             Informe o nome CPF do morador:\n");
+        printf("             Informe o CPF do morador:\n");
         scanf("%s", cpf);
         getchar();
         tam = strlen(cpf);
