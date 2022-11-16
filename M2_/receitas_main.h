@@ -1,5 +1,7 @@
 typedef struct receita Receita;
 
+
+
 struct receita
 {
     char cpf[15];
@@ -7,6 +9,7 @@ struct receita
     char valor[11];
     char tipo;
     char status;
+    int id;
 };
 
 void preenche_receita(void);
@@ -21,4 +24,4 @@ void editar_re(void);
 void excluir_re(void);
 void checar_re(void);
 void sobre_re(void);
-
+void idCadastro(Receita *receita);

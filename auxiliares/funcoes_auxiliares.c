@@ -2,6 +2,7 @@
 #include "funcoes_auxiliares.h"
 #include <string.h>
 #include <time.h>
+#include "../M2_/receitas_main.h"
 
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 char decimais[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -28,6 +29,9 @@ int dataValida(int dd, int mm, int aa) // by Flavius Gorgonio
 {
 
     struct tm *datetime;
+    time_t segundos;
+    time(&segundos);
+    datetime=localtime(&segundos);
     int idia = datetime->tm_mday;
     int imes = datetime->tm_mon + 1;
     int iano = datetime->tm_year + 1900;
@@ -433,4 +437,16 @@ char tipos_despesa(void)
     scanf("%c", &tipo);
     getchar();
     return tipo;
+}
+
+void idCadastro(Receita *receita) {
+
+    if (receita->id == 0)
+    {
+        receita->id = 1;
+    } else
+    {
+        receita->id = receita->id + 1;
+    }
+
 }

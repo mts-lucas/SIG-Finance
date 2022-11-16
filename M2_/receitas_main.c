@@ -116,6 +116,7 @@ void preenche_receita(void)
     strcpy(newreceita->cpf, cpf);
     strcpy(newreceita->descricao, descricao);
     strcpy(newreceita->valor, valor);
+    idCadastro(newreceita);
     mostrarReceita(newreceita);
     gravarReceita(newreceita);
     getchar();
@@ -293,6 +294,7 @@ void mostrarReceita(Receita *newreceita)
     printf("\n          Descrição: %s", newreceita->descricao);
     printf("\n          Tipo: %c", newreceita->tipo);
     printf("\n          Valor: %s", newreceita->valor);
+    printf("\n          Id: %d", newreceita->id);
     printf("\n");
     // getchar();
 }
