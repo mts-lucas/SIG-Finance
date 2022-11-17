@@ -31,7 +31,7 @@ int dataValida(int dd, int mm, int aa) // by Flavius Gorgonio
     struct tm *datetime;
     time_t segundos;
     time(&segundos);
-    datetime=localtime(&segundos);
+    datetime = localtime(&segundos);
     int idia = datetime->tm_mday;
     int imes = datetime->tm_mon + 1;
     int iano = datetime->tm_year + 1900;
@@ -403,7 +403,7 @@ void ler_descricaor(char *descricaor)
 {
 
     printf("\n          Descrição:\n");
-    scanf("%s", descricaor);
+    scanf("%50[^\n]", descricaor);
     getchar();
 }
 
@@ -439,14 +439,18 @@ char tipos_despesa(void)
     return tipo;
 }
 
-void idCadastro(Receita *receita) {
+void idCadastro(Receita *receita)
+{
 
-    if (receita->id == 0)
+    FILE *fp1;
+    fp1 = fopen("cad-receita-m2.dat", "ab");
+    if (fp1 == NULL)
     {
-        receita->id = 1;
-    } else
+        receita->id = 0;
+    }
+
+    else
     {
         receita->id = receita->id + 1;
     }
-
 }
