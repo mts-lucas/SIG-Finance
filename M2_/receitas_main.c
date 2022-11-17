@@ -131,7 +131,7 @@ void editar_re(void)
     Receita *rec;
     int achou;
     char resp;
-    char procurado[15];
+    int aux_id;
     char cpf[15];
     char descricao[100];
     char valor[11];
@@ -144,13 +144,15 @@ void editar_re(void)
         exit(1);
     }
     printf("\n\n");
-    printf("Buscamos a receita pelo CPF do morador.\n");
-    ler_cpf(procurado);
+    printf("Buscamos a receita pelo Id da receita.\n");
+    scanf("%d", &aux_id);
+    getchar();
+    // ler_cpf(procurado);
     rec = (Receita *)malloc(sizeof(Receita));
     achou = 0;
     while ((!achou) && (fread(rec, sizeof(Receita), 1, fp)))
     {
-        if ((strcmp(rec->cpf, procurado) == 0) && (rec->status == 'C'))
+        if ((rec->id == aux_id) && (rec->status == 'C'))
         {
             achou = 1;
         }
@@ -182,7 +184,7 @@ void editar_re(void)
     }
     else
     {
-        printf("Não ha receitas cadastradas com esse CPF %s...\n", procurado);
+        printf("Não ha receitas cadastradas com esse CPF %d...\n", aux_id);
         getchar();
     }
     free(rec);
@@ -209,7 +211,7 @@ void excluir_re(void)
     Receita *rec;
     int achou;
     char resp;
-    char procurado[15];
+    int procurado;
     fp = fopen("cad-receita-m2.dat", "r+b");
     if (fp == NULL)
     {
@@ -218,13 +220,15 @@ void excluir_re(void)
         exit(1);
     }
     printf("\n\n");
-    printf("Buscamos pelo CPF do morador, para apagar receita: \n");
-    ler_cpf(procurado);
+    printf("Buscamos pelo ID da receita, para apagar a receita: \n");
+    scanf("%d", &procurado);
+    getchar();
+    
     rec = (Receita *)malloc(sizeof(Receita));
     achou = 0;
     while ((!achou) && (fread(rec, sizeof(Receita), 1, fp)))
     {
-        if ((strcmp(rec->cpf, procurado) == 0) && (rec->status == 'C'))
+        if ((rec->id == procurado) && (rec->status == 'C'))
         {
             achou = 1;
         }
@@ -249,7 +253,7 @@ void excluir_re(void)
     }
     else
     {
-        printf("A receita do morador com esse cpf %s não foi encontrada...\n", procurado);
+        printf("A receita do morador com esse cpf %d não foi encontrada...\n", procurado);
         getchar();
     }
     free(rec);

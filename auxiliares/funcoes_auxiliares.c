@@ -445,7 +445,7 @@ int idCadastro(void)
     Receita *rec;
     rec = (Receita*) malloc(sizeof(Receita));
     FILE *fp;
-    fp = fopen("cad-receita-m2.dat", "ab");
+    fp = fopen("cad-receita-m2.dat", "rb");
     if (fp == NULL)
     {
         return 1;
