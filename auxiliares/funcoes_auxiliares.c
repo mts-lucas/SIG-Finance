@@ -2,6 +2,7 @@
 #include "funcoes_auxiliares.h"
 #include <string.h>
 #include <time.h>
+#include <stdlib.h>
 #include "../M2_/receitas_main.h"
 
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -439,18 +440,21 @@ char tipos_despesa(void)
     return tipo;
 }
 
-void idCadastro(Receita *receita)
+int idCadastro(void)
 {
-
-    FILE *fp1;
-    fp1 = fopen("cad-receita-m2.dat", "ab");
-    if (fp1 == NULL)
+    Receita *rec;
+    rec = (Receita*) malloc(sizeof(Receita));
+    FILE *fp;
+    fp = fopen("cad-receita-m2.dat", "ab");
+    if (fp == NULL)
     {
-        receita->id = 0;
+        return 1;
     }
 
     else
     {
-        receita->id = receita->id + 1;
+        fseek(fp, (-1) * sizeof(Receita), SEEK_END);
+        fread(rec, sizeof(Receita), 1, fp);
+        return rec->id + 1;
     }
 }
