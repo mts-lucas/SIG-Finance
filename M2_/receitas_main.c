@@ -162,6 +162,7 @@ void editar_re(void)
         mostrarReceita(rec);
         printf("Deseja realmente editar esta Receita? (s/n)? ");
         scanf("%c", &resp);
+        getchar();
         if (resp == 's' || resp == 'S')
         {
 
@@ -239,6 +240,7 @@ void excluir_re(void)
         mostrarReceita(rec);
         printf("Deseja realmente apagar está receita (s/n)? ");
         scanf("%c", &resp);
+        getchar();
         if (resp == 's' || resp == 'S')
         {
             rec->status = 'A';
