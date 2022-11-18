@@ -111,6 +111,7 @@ void preenche_despesa(void)
     ler_valordepositado(valor);
     newdespesa->tipo = tipos_despesa();
     newdespesa->status = 'C';
+    newdespesa->sitacao = 'D';
     newdespesa->id = idDespesa();
     strcpy(newdespesa->cpf, cpf);
     strcpy(newdespesa->descricao, descricao);
@@ -262,47 +263,58 @@ void excluir_dp(void) {
 
 void pagar_dp(void)
 {
-    //por hora não vamos mecher nesse modulo, mas teremos de falar com flavius
-
-    //futuramente vamos criar uma tributo de paga e não pago, e criar um sistema pra caso a divida foi parcialmente
-    //ou totalmente paga, mas é trabalho para a semana
-    system("clear||cls");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =        Login do morador        = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    char morador[50];
-    int tam;
-    do
+    FILE *fp;
+    Despesa *des;
+    int achou;
+    char resp;
+    int procurado;
+    fp = fopen("cad-despesa-m3.dat", "r+b");
+    if (fp == NULL)
     {
-        printf("\n          De qual Morador vai cadastrar a despesa?                          \n");
-        scanf("%s", morador);
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    printf("\n\n");
+    printf("Buscamos pelo ID da despesa, para pagar despesa: \n");
+    scanf("%d", &procurado);
+    getchar();
+    des = (Despesa *)malloc(sizeof(Despesa));
+    achou = 0;
+    while ((!achou) && (fread(des, sizeof(Despesa), 1, fp)))
+    {
+        if ((des->id == procurado) && (des->status == 'C') && (des->sitacao == 'D'))
+        {
+            achou = 1;
+        }
+    }
+
+    if (achou)
+    {
+        mostrarDesepesa(des);
+        printf("Deseja realmente pagar está Despesa (s/n)? Esse pagamento será descontado no saldo ");
+        scanf("%c", &resp);
         getchar();
-        tam = strlen(morador);
-    } while (!(validar_letras(morador, tam)));
-    getchar();
-    system("clear||cls");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///     Pagar qual despesa:                                                 ///\n");
-    printf("///                                                                         ///\n");
-    printf("///     1 - Despesa abc                                                     ///\n");
-    printf("///     2 - Despesa abc                                                     ///\n");
-    printf("///     3 - Despesa abc                                                     ///\n");
-    printf("///     4 - Despesa abc                                                     ///\n");
-    printf("///     5 - Despesa abc                                                     ///\n");
-    printf("///                                                                         ///\n");
-    printf("///     (obs: a meta é fazer um 'for' para gerar essa serie de despesas     ///\n");
-    printf("///  mas por enquanto vamos deixar assim para ficar mais didático           ///\n");
-    printf("///  o que vamos fazer, pagando com base na Despesa e/ou no saldo)          ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    getchar();
+        if (resp == 's' || resp == 'S')
+        {
+            des->sitacao = 'Q';
+            fseek(fp, (-1) * sizeof(Despesa), SEEK_CUR);
+            fwrite(des, sizeof(Despesa), 1, fp);
+            printf("\nDespesa quitada com sucesso!!!\n");
+        }
+        else
+        {
+            printf("\nOk, a despesa não foi paga\n");
+        }
+    }
+    else
+    {
+        printf("A despesa do morador com esse ID %d não foi encontrada... Ou já foi paga\n", procurado);
+        printf("\n\t Pressione Enter para sair");
+        getchar();
+    }
+    free(des);
+    fclose(fp);
 }
 
 void checar_dp(void)
@@ -360,6 +372,7 @@ void mostrarDesepesa(Despesa *newdespesa)
     printf("\n          Descrição: %s", newdespesa->descricao);
     printf("\n          Tipo: %c", newdespesa->tipo);
     printf("\n          Valor: %s", newdespesa->valor);
+    printf("\n          Situação: %c", newdespesa->sitacao);
     printf("\n          Id: %d", newdespesa->id);
     printf("\n");
 }

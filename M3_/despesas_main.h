@@ -7,6 +7,7 @@ struct despesa
     char valor[11];
     char tipo;
     char status;
+    char sitacao;
     int id;
 };
 
