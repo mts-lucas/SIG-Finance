@@ -1,7 +1,5 @@
 typedef struct receita Receita;
 
-
-
 struct receita
 {
     char cpf[15];
