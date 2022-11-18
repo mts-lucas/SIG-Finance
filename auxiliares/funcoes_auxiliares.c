@@ -440,7 +440,7 @@ char tipos_despesa(void)
     return tipo;
 }
 
-int idCadastro(void)
+int idReceita(void)
 {
     Receita *rec;
     rec = (Receita*) malloc(sizeof(Receita));
