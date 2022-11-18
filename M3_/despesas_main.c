@@ -61,6 +61,7 @@ void gerencia_menu_principal_dp(void)
         {
             checar_dp();
             getchar();
+            
         }
 
         else if (op == '5')
@@ -99,7 +100,6 @@ void preenche_despesa(void)
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("            De qual Morador vai cadastrar a despesa?\n");
     ler_cpf(cpf);
-    getchar();
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -111,12 +111,14 @@ void preenche_despesa(void)
     ler_valordepositado(valor);
     newdespesa->tipo = tipos_despesa();
     newdespesa->status = 'C';
+    newdespesa->id = idDespesa();
     strcpy(newdespesa->cpf, cpf);
     strcpy(newdespesa->descricao, descricao);
     strcpy(newdespesa->valor, valor);
     mostrarDesepesa(newdespesa);
     gravarDesepesa(newdespesa);
     free(newdespesa);
+    printf("Aperte enter para sair...");
     getchar();
 }
 
@@ -128,7 +130,7 @@ void editar_dp(void)
     Despesa *des;
     int achou;
     char resp;
-    char procurado[15];
+    int procurado;
     char cpf[15];
     char descricao[100];
     char valor[11];
@@ -141,13 +143,14 @@ void editar_dp(void)
         exit(1);
     }
     printf("\n\n");
-    printf("Buscamos a Despesa pelo CPF do morador.\n");
-    ler_cpf(procurado);
+    printf("Buscamos a Despesas pelo ID da Despesa .\n");
+    scanf("%d", &procurado);
+    getchar();
     des = (Despesa *)malloc(sizeof(Despesa));
     achou = 0;
     while ((!achou) && (fread(des, sizeof(Despesa), 1, fp)))
     {
-        if ((strcmp(des->cpf, procurado) == 0) && (des->status == 'C'))
+        if ((des->id == procurado) && (des->status == 'C'))
         {
             achou = 1;
         }
@@ -157,6 +160,7 @@ void editar_dp(void)
         mostrarDesepesa(des);
         printf("Deseja realmente editar esta Despesa? (s/n)? ");
         scanf("%c", &resp);
+        getchar();
         if (resp == 's' || resp == 'S')
         {
 
@@ -179,7 +183,8 @@ void editar_dp(void)
     }
     else
     {
-        printf("Não ha Despesas cadastradas com esse CPF %s...\n", procurado);
+        printf("Não ha Despesas cadastradas com esse ID %d...\n", procurado);
+        printf("\n\t Pressione Enter para sair");
         getchar();
     }
     free(des);
@@ -194,8 +199,7 @@ void editar_dp(void)
     printf("///                            Fim da Operação!                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-
-    // antes de implementar a busca no arquivo, usar mesma coisa q no preencher com strcpy
+    printf("\n\t Pressione Enter para sair");
     getchar();
 }
 
@@ -205,7 +209,7 @@ void excluir_dp(void) {
     Despesa *des;
     int achou;
     char resp;
-    char procurado[15];
+    int procurado;
     fp = fopen("cad-despesa-m3.dat", "r+b");
     if (fp == NULL)
     {
@@ -215,13 +219,14 @@ void excluir_dp(void) {
     }
     printf("\n\n");
     printf("Lembrando que apagar despesa é diferente de pagar!!!\n");
-    printf("Buscamos pelo CPF do morador, para apagar Despesa: \n");
-    ler_cpf(procurado);
+    printf("Buscamos pelo ID da despesa, para apagar sespesa: \n");
+    scanf("%d", &procurado);
+    getchar();
     des = (Despesa *)malloc(sizeof(Despesa));
     achou = 0;
     while ((!achou) && (fread(des, sizeof(Despesa), 1, fp)))
     {
-        if ((strcmp(des->cpf, procurado) == 0) && (des->status == 'C'))
+        if ((des->id == procurado) && (des->status == 'C'))
         {
             achou = 1;
         }
@@ -232,6 +237,7 @@ void excluir_dp(void) {
         mostrarDesepesa(des);
         printf("Deseja realmente apagar está Despesa (s/n)? ");
         scanf("%c", &resp);
+        getchar();
         if (resp == 's' || resp == 'S')
         {
             des->status = 'A';
@@ -246,7 +252,8 @@ void excluir_dp(void) {
     }
     else
     {
-        printf("A despesa do morador com esse cpf %s não foi encontrada...\n", procurado);
+        printf("A despesa do morador com esse ID %d não foi encontrada...\n", procurado);
+        printf("\n\t Pressione Enter para sair");
         getchar();
     }
     free(des);
@@ -349,18 +356,11 @@ void sobre_dp(void)
 
 void mostrarDesepesa(Despesa *newdespesa)
 {
-
-    system("clear||cls");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =    Gerenciamento de Desepesa   = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n          CPF do morador: %s", newdespesa->cpf);
     printf("\n          Descrição: %s", newdespesa->descricao);
     printf("\n          Tipo: %c", newdespesa->tipo);
     printf("\n          Valor: %s", newdespesa->valor);
+    printf("\n          Id: %d", newdespesa->id);
     printf("\n");
 }
 
