@@ -18,3 +18,4 @@ void ler_valordepositado(char *deposito);
 char tipos_rec(void);
 char tipos_despesa(void);
 int idReceita();
+int idDespesa();

@@ -4,6 +4,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "../M2_/receitas_main.h"
+#include "../M3_/despesas_main.h"
 
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 char decimais[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -440,8 +441,7 @@ char tipos_despesa(void)
     return tipo;
 }
 
-int idReceita(void)
-{
+int idReceita(void) {
     Receita *rec;
     rec = (Receita*) malloc(sizeof(Receita));
     FILE *fp;
@@ -456,5 +456,23 @@ int idReceita(void)
         fseek(fp, (-1) * sizeof(Receita), SEEK_END);
         fread(rec, sizeof(Receita), 1, fp);
         return rec->id + 1;
+    }
+}
+
+int idDespesa(void) {
+    Despesa *dep;
+    dep = (Despesa*) malloc(sizeof(Despesa));
+    FILE *fp;
+    fp = fopen("cad-despesa-m3.dat", "rb");
+    if (fp == NULL)
+    {
+        return 1;
+    }
+
+    else
+    {
+        fseek(fp, (-1) * sizeof(Despesa), SEEK_END);
+        fread(dep, sizeof(Despesa), 1, fp);
+        return dep->id + 1;
     }
 }
