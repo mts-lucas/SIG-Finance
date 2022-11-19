@@ -216,28 +216,11 @@ int validar_dinheiro(char dinheiro[], int tam)
 
 char verificarcpf(char *cpf, int tam)
 {
-
-    for (int i = 0; i < tam; i++)
+    if (tam < 11)
     {
-
-        if (tam < 11)
-        {
-            return 0;
-        }
-
-        else if ((cpf[i] <= ',' || cpf[i] >= ':') || cpf[i] == '/')
-        {
-
-            return 0;
-        }
-
-        else if ((cpf[i] == 46 && (i != 3 && i != 7)) || (cpf[i] == 45 && (i != 11)))
-        {
-            return 0;
-        }
-
-        /* code */
+        return 0;
     }
+
     if (tam == 11)
     {
         int calc = 0;
@@ -247,7 +230,7 @@ char verificarcpf(char *cpf, int tam)
         {
             calc = calc + ((cpf[i] - 48) * mult);
             mult = mult - 1;
-            dv1 = calc % 11;
+            dv1 = (calc * 10) % 11;
         }
         mult = 11;
         calc = 0;
@@ -255,20 +238,27 @@ char verificarcpf(char *cpf, int tam)
         {
             calc = calc + ((cpf[i] - 48) * mult);
             mult = mult - 1;
-            dv2 = calc % 11;
+            dv2 = (calc * 10) % 11;
         }
+
+        if ((dv1 == 10))
+        {
+            dv1 = 0;
+        }
+        if ((dv2 == 10))
+        {
+            dv2 = 0;
+        }
+
         char dc1, dc2;
-        dc1 = (11 - dv1) + 48;
-        dc2 = (11 - dv2) + 48;
-        if ((dv1 < 2 && cpf[tam - 2] != '0') || (dv2 < 2 && cpf[tam - 2] != '0'))
+        dc1 = dv1 + '0';
+        dc2 = dv2 + '0';
+
+        if ((dv1 == 10 && cpf[tam - 2] != '0') || (dv2 == 10 && cpf[tam - 1] != '0'))
         {
             return 0;
         }
-        else if ((dv1 >= 2 && cpf[tam - 2] == '0') || (dv2 >= 2 && cpf[tam - 2] == '0'))
-        {
-            return 0;
-        }
-        else if ((dv1 >= 2 && cpf[tam - 2] != dc1) || (dv2 >= 2 && cpf[tam - 1] != dc2))
+        else if ((cpf[tam - 2] != dc1) || (cpf[tam - 1] != dc2))
         {
             return 0;
         }
@@ -276,30 +266,7 @@ char verificarcpf(char *cpf, int tam)
 
     else if (tam > 11)
     {
-        int calc = 0;
-        calc = (cpf[0] - 48) * 10 + (cpf[1] - 48) * 9 + (cpf[2] - 48) * 8 + (cpf[4] - 48) * 7 + (cpf[5] - 48) * 6 + (cpf[6] - 48) * 5 + (cpf[8] - 48) * 4 + (cpf[9] - 48) * 3 + (cpf[10] - 48) * 2;
-        int dv1 = calc % 11;
-        int dv2 = ((cpf[0] - 48) * 11 + (cpf[1] - 48) * 10 + (cpf[2] - 48) * 9 + (cpf[4] - 48) * 8 + (cpf[5] - 48) * 7 + (cpf[6] - 48) * 6 + (cpf[8] - 48) * 5 + (cpf[9] - 48) * 4 + (cpf[10] - 48) * 3 + (cpf[12] - 48) * 2) % 11;
-        char dc1, dc2;
-        dc1 = (11 - dv1) + 48;
-        dc2 = (11 - dv2) + 48;
-        if ((dv1 < 2 && cpf[12] != '0') || (dv2 < 2 && cpf[13] != '0'))
-        {
-            return 0;
-        }
-        else if ((dv1 >= 2 && cpf[12] == '0') || (dv2 >= 2 && cpf[13] == '0'))
-        {
-            return 0;
-        }
-
-        else if ((dv1 >= 2 && cpf[12] != dc1) || (dv2 >= 2 && cpf[13] != dc2))
-        {
-            return 0;
-        }
-        else
-        {
-            return 1;
-        }
+        return 0;
     }
 
     int cont = 0;
@@ -441,9 +408,10 @@ char tipos_despesa(void)
     return tipo;
 }
 
-int idReceita(void) {
+int idReceita(void)
+{
     Receita *rec;
-    rec = (Receita*) malloc(sizeof(Receita));
+    rec = (Receita *)malloc(sizeof(Receita));
     FILE *fp;
     fp = fopen("cad-receita-m2.dat", "rb");
     if (fp == NULL)
@@ -459,9 +427,10 @@ int idReceita(void) {
     }
 }
 
-int idDespesa(void) {
+int idDespesa(void)
+{
     Despesa *dep;
-    dep = (Despesa*) malloc(sizeof(Despesa));
+    dep = (Despesa *)malloc(sizeof(Despesa));
     FILE *fp;
     fp = fopen("cad-despesa-m3.dat", "rb");
     if (fp == NULL)
