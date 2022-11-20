@@ -21,3 +21,5 @@ int idReceita();
 int idDespesa();
 int validar_id(char* id, int tam);
 void ler_id(char* id);
+int transform_to_integer(char* vetorchar, int tam);
+float transform_to_float(char* vetorchar, int tam);

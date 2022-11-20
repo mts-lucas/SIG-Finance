@@ -469,15 +469,53 @@ int validar_id(char *id, int tam)
     return 1;
 }
 
-int transform_to_integer(char* vetorchar, int tam){
+void ler_id(char *id)
+{
 
-    long int vetor_retorno = 0;
+    int tam;
+    do
+    {
+        printf("             Informe ID:\n");
+        scanf("%s", id);
+        getchar();
+        tam = strlen(id);
+    } while (!(validar_id(id, tam)));
+}
+
+int transform_to_integer(char *vetorchar, int tam)
+{
+
+    int vetor_retorno = 0;
     int aux = 1;
-    for (int i = (tam - 1); i >= 0; i--){
+    for (int i = (tam - 1); i >= 0; i--)
+    {
 
         vetor_retorno += (vetorchar[i] - '0') * aux;
         aux *= 10;
+    }
 
+    return vetor_retorno;
+}
+
+float transform_to_float(char *vetorchar, int tam)
+{
+
+    float vetor_retorno = 0.0;
+    float auxq = 0.01;
+    float aux = 1.0;
+
+    for (int i = (tam - 4); i >= 0; i--)
+    {
+
+        vetor_retorno += (vetorchar[i] - '0') * aux;
+        aux *= 10;
+    }
+
+    for (int j = (tam - 1); j >= (tam - 2); j--)
+    {
+
+        vetor_retorno += (vetorchar[j] - '0') * auxq;
+        auxq *= 10;
     }
 
     return vetor_retorno;
