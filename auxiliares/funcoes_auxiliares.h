@@ -19,3 +19,5 @@ char tipos_rec(void);
 char tipos_despesa(void);
 int idReceita();
 int idDespesa();
+int validar_id(char* id, int tam);
+void ler_id(char* id);

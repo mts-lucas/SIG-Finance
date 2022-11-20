@@ -445,3 +445,26 @@ int idDespesa(void)
         return dep->id + 1;
     }
 }
+
+int validar_id(char *id, int tam)
+{
+
+    for (int i = 0; i <= (tam - 1); i++)
+    {
+
+        for (int j = 0; j <= 10; j++)
+        {
+
+            if ((j == 10) && (id[i] != decimais[j]))
+            {
+                return 0;
+            }
+            else if (id[i] == decimais[j])
+            {
+                break;
+            }
+        }
+    }
+
+    return 1;
+}
