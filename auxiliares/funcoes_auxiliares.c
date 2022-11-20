@@ -468,3 +468,17 @@ int validar_id(char *id, int tam)
 
     return 1;
 }
+
+int transform_to_integer(char* vetorchar, int tam){
+
+    long int vetor_retorno = 0;
+    int aux = 1;
+    for (int i = (tam - 1); i >= 0; i--){
+
+        vetor_retorno += (vetorchar[i] - '0') * aux;
+        aux *= 10;
+
+    }
+
+    return vetor_retorno;
+}
