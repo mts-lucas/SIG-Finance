@@ -7,6 +7,7 @@ struct receita
     char valor[11];
     char tipo;
     char status;
+    int id;
 };
 
 void preenche_receita(void);
