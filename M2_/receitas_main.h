@@ -4,7 +4,8 @@ struct receita
 {
     char cpf[15];
     char descricao[100];
-    char valor[11];
+    // char valor[11];
+    float valor;
     char tipo;
     char status;
     int id;

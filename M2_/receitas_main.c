@@ -59,13 +59,6 @@ void gerencia_menu_principal(void)
 
         else if (op == '4')
         {
-            system("clear||cls");
-            printf("///////////////////////////////////////////////////////////////////////////////\n");
-            printf("///                                                                         ///\n");
-            printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-            printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
-            printf("///                                                                         ///\n");
-            printf("///////////////////////////////////////////////////////////////////////////////\n");
             checar_re();
             getchar();
         }
@@ -111,13 +104,15 @@ void preenche_receita(void)
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     ler_descricaor(descricao);
     ler_valordepositado(valor);
+    int tam = strlen(valor);
     newreceita->tipo = tipos_rec();
     newreceita->status = 'C';
     strcpy(newreceita->cpf, cpf);
     strcpy(newreceita->descricao, descricao);
-    strcpy(newreceita->valor, valor);
+    // strcpy(newreceita->valor, valor);
+    newreceita->valor = transform_to_float(valor, tam);
     newreceita->id = idReceita();
-    
+
     mostrarReceita(newreceita);
     gravarReceita(newreceita);
     getchar();
@@ -127,10 +122,17 @@ void preenche_receita(void)
 void editar_re(void)
 {
     system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Editar Receita         = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
     FILE *fp;
     Receita *rec;
     int achou;
     char resp;
+    char procurado[20];
     int aux_id;
     char cpf[15];
     char descricao[100];
@@ -145,7 +147,10 @@ void editar_re(void)
     }
     printf("\n\n");
     printf("Buscamos a receita pelo Id da receita.\n");
-    scanf("%d", &aux_id);
+    // scanf("%d", &aux_id);
+    ler_id(procurado);
+    int tam = strlen(procurado);
+    aux_id = transform_to_integer(procurado, tam);
     getchar();
     // ler_cpf(procurado);
     rec = (Receita *)malloc(sizeof(Receita));
@@ -168,12 +173,14 @@ void editar_re(void)
 
             ler_cpf(cpf);
             ler_valordepositado(valor);
+            int tam = strlen(valor);
             ler_descricaor(descricao);
             rec->tipo = tipos_rec();
 
             strcpy(rec->cpf, cpf);
             strcpy(rec->descricao, descricao);
-            strcpy(rec->valor, valor);
+            // strcpy(rec->valor, valor);
+            rec->valor = transform_to_float(valor, tam);
             fseek(fp, (-1) * sizeof(Receita), SEEK_CUR);
             fwrite(rec, sizeof(Receita), 1, fp);
             printf("\nREceita editada com sucesso!!!\n");
@@ -207,11 +214,18 @@ void editar_re(void)
 
 void excluir_re(void)
 {
-
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Excluir Receita        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
     FILE *fp;
     Receita *rec;
     int achou;
     char resp;
+    char procuradoc[20];
     int procurado;
     fp = fopen("cad-receita-m2.dat", "r+b");
     if (fp == NULL)
@@ -222,9 +236,12 @@ void excluir_re(void)
     }
     printf("\n\n");
     printf("Buscamos pelo ID da receita, para apagar a receita: \n");
-    scanf("%d", &procurado);
+    // scanf("%d", &procurado);
+    ler_id(procuradoc);
+    int tam = strlen(procuradoc);
+    procurado = transform_to_integer(procuradoc, tam);
     getchar();
-    
+
     rec = (Receita *)malloc(sizeof(Receita));
     achou = 0;
     while ((!achou) && (fread(rec, sizeof(Receita), 1, fp)))
@@ -260,11 +277,26 @@ void excluir_re(void)
     }
     free(rec);
     fclose(fp);
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Excluir Receita        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                            Fim da Operação!                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
 }
 
 void checar_re(void)
 {
     system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Exibir Receitas        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
     FILE *fp1;
     Receita *rc;
     fp1 = fopen("cad-receita-m2.dat", "rb");
@@ -275,13 +307,7 @@ void checar_re(void)
         exit(1);
     }
     printf("\n\n");
-    system("clear||cls");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
+
     rc = (Receita *)malloc(sizeof(Receita));
     while (fread(rc, sizeof(Receita), 1, fp1))
     {
@@ -292,6 +318,17 @@ void checar_re(void)
     }
     fclose(fp1);
     free(rc);
+    getchar();
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Exibir Receitas        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                            Fim da Operação!                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("... Pressione enter pra sair");
 }
 
 void mostrarReceita(Receita *newreceita)
@@ -300,7 +337,7 @@ void mostrarReceita(Receita *newreceita)
     printf("\n          CPF do Morador: %s", newreceita->cpf);
     printf("\n          Descrição: %s", newreceita->descricao);
     printf("\n          Tipo: %c", newreceita->tipo);
-    printf("\n          Valor: %s", newreceita->valor);
+    printf("\n          Valor: %.2f", newreceita->valor);
     printf("\n          Id: %d", newreceita->id);
     printf("\n");
     // getchar();

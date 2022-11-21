@@ -99,6 +99,7 @@ void preenche_morador(void)
   char idade[4];
   char ocupacao[20];
   char renda[11];
+  // float rendaf;
 
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
@@ -113,12 +114,14 @@ void preenche_morador(void)
   ler_idade(idade);
   ler_ocupacao(ocupacao);
   ler_renda(renda);
+  int tam = strlen(renda);
 
   strcpy(mor->nome, nome);
   strcpy(mor->cpf, cpf);
   strcpy(mor->idade, idade);
   strcpy(mor->ocupacao, ocupacao);
-  strcpy(mor->renda, renda);
+  mor->renda = transform_to_float(renda, tam);
+  // strcpy(mor->renda, renda);
   mor->status = 'C';
 
   mostrarMorador(mor);
@@ -140,7 +143,16 @@ void preenche_morador(void)
 void altera_morador(void)
 {
 
-  //modifiquei para buscar por cpf
+  // modifiquei para buscar por cpf
+
+  system("clear||cls");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                         ///\n");
+  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =     Alterar dados de Morador   = = = = =             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
   FILE *fp;
   Morador *mor;
   int achou;
@@ -178,6 +190,7 @@ void altera_morador(void)
     getchar();
     printf("Deseja realmente editar este Morador (s/n)? ");
     scanf("%c", &resp);
+    getchar();
     if (resp == 's' || resp == 'S')
     {
 
@@ -186,12 +199,14 @@ void altera_morador(void)
       ler_idade(idade);
       ler_ocupacao(ocupacao);
       ler_renda(renda);
+      int tam = strlen(renda);
 
       strcpy(mor->nome, nome);
       strcpy(mor->cpf, cpf);
       strcpy(mor->idade, idade);
       strcpy(mor->ocupacao, ocupacao);
-      strcpy(mor->renda, renda);
+      // strcpy(mor->renda, renda);
+      mor->renda = transform_to_float(renda, tam);
       mor->status = 'C';
       fseek(fp, (-1) * sizeof(Morador), SEEK_CUR);
       fwrite(mor, sizeof(Morador), 1, fp);
@@ -226,7 +241,16 @@ void altera_morador(void)
 void deletar_morador(void)
 {
 
-  //mudei a busca por CPF
+  // mudei a busca por CPF
+
+  system("clear||cls");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                         ///\n");
+  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =     Deletar dados de Morador   = = = = =             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
 
   FILE *fp;
   Morador *mor;
@@ -259,6 +283,7 @@ void deletar_morador(void)
     getchar();
     printf("Deseja realmente apagar este morador (s/n)? ");
     scanf("%c", &resp);
+    getchar();
     if (resp == 's' || resp == 'S')
     {
       mor->status = 'A';
@@ -274,10 +299,23 @@ void deletar_morador(void)
   else
   {
     printf("O morador %s não foi encontrado...\n", procurado);
+    printf("...Pressione Enter para sair");
     getchar();
   }
   free(mor);
   fclose(fp);
+
+  system("clear||cls");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                         ///\n");
+  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =     Deletar dados de Morador   = = = = =             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///                            Fim da Operação!                             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  getchar();
 }
 // simulado:
 void visualizar_morador(void)
@@ -309,6 +347,17 @@ void visualizar_morador(void)
   }
   fclose(fp);
   free(mor);
+  getchar();
+  system("clear||cls");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                         ///\n");
+  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =         Exibir Moradores       = = = = =             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///                            Fim da Operação!                             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
 }
 
 void sobre_m1(void)
@@ -334,7 +383,7 @@ void mostrarMorador(Morador *mor)
   printf("\nCPF do morador: %s", mor->cpf);
   printf("\nIdade do morador: %s", mor->idade);
   printf("\nOcupação do morador: %s", mor->ocupacao);
-  printf("\nRenda do morador: %s", mor->renda);
+  printf("\nRenda do morador: %.2f", mor->renda);
   printf("\nStatus do morador: %c", mor->status);
   printf("\n");
 }
@@ -371,6 +420,7 @@ void buscarUm(void)
   system("clear");
   printf("\n informe o nome do morador que voce busca\t");
   scanf("%s", nomeBusca);
+  getchar();
   mor = (Morador *)malloc(sizeof(Morador));
   resultado = 0;
   while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
@@ -392,7 +442,7 @@ void buscarUm(void)
   else
   {
     printf("Morador %s não encontrado...", nomeBusca);
-    getchar();
+    printf("...Pressione enter para sair");
   }
   free(mor);
 }

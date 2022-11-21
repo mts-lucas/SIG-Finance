@@ -391,7 +391,7 @@ void ler_valordepositado(char *deposito)
 char tipos_rec(void)
 {
     printf("            Tipo da receita?\n");
-    printf("            1-Contribuição Mensal\n2-Extra\n");
+    printf("            1-Contribuição Mensal\t2-Extra\n");
     char tipo;
     scanf("%c", &tipo);
     getchar();
@@ -444,4 +444,79 @@ int idDespesa(void)
         fread(dep, sizeof(Despesa), 1, fp);
         return dep->id + 1;
     }
+}
+
+int validar_id(char *id, int tam)
+{
+
+    for (int i = 0; i <= (tam - 1); i++)
+    {
+
+        for (int j = 0; j <= 10; j++)
+        {
+
+            if ((j == 10) && (id[i] != decimais[j]))
+            {
+                return 0;
+            }
+            else if (id[i] == decimais[j])
+            {
+                break;
+            }
+        }
+    }
+
+    return 1;
+}
+
+void ler_id(char *id)
+{
+
+    int tam;
+    do
+    {
+        printf("             Informe ID:\n");
+        scanf("%s", id);
+        getchar();
+        tam = strlen(id);
+    } while (!(validar_id(id, tam)));
+}
+
+int transform_to_integer(char *vetorchar, int tam)
+{
+
+    int vetor_retorno = 0;
+    int aux = 1;
+    for (int i = (tam - 1); i >= 0; i--)
+    {
+
+        vetor_retorno += (vetorchar[i] - '0') * aux;
+        aux *= 10;
+    }
+
+    return vetor_retorno;
+}
+
+float transform_to_float(char *vetorchar, int tam)
+{
+
+    float vetor_retorno = 0.0;
+    float auxq = 0.01;
+    float aux = 1.0;
+
+    for (int i = (tam - 4); i >= 0; i--)
+    {
+
+        vetor_retorno += (vetorchar[i] - '0') * aux;
+        aux *= 10;
+    }
+
+    for (int j = (tam - 1); j >= (tam - 2); j--)
+    {
+
+        vetor_retorno += (vetorchar[j] - '0') * auxq;
+        auxq *= 10;
+    }
+
+    return vetor_retorno;
 }
