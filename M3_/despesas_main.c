@@ -61,7 +61,6 @@ void gerencia_menu_principal_dp(void)
         {
             checar_dp();
             getchar();
-            
         }
 
         else if (op == '5')
@@ -109,13 +108,15 @@ void preenche_despesa(void)
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     ler_descricaor(descricao);
     ler_valordepositado(valor);
+    int tam = strlen(valor);
     newdespesa->tipo = tipos_despesa();
     newdespesa->status = 'C';
     newdespesa->sitacao = 'D';
     newdespesa->id = idDespesa();
     strcpy(newdespesa->cpf, cpf);
     strcpy(newdespesa->descricao, descricao);
-    strcpy(newdespesa->valor, valor);
+    // strcpy(newdespesa->valor, valor);
+    newdespesa->valor = transform_to_float(valor, tam);
     mostrarDesepesa(newdespesa);
     gravarDesepesa(newdespesa);
     free(newdespesa);
@@ -125,7 +126,7 @@ void preenche_despesa(void)
 
 void editar_dp(void)
 {
-    //abrir o arquivo e tals
+    // abrir o arquivo e tals
     system("clear||cls");
     FILE *fp;
     Despesa *des;
@@ -167,12 +168,14 @@ void editar_dp(void)
 
             ler_cpf(cpf);
             ler_valordepositado(valor);
+            int tam = strlen(valor);
             ler_descricaor(descricao);
             des->tipo = tipos_despesa();
 
             strcpy(des->cpf, cpf);
             strcpy(des->descricao, descricao);
-            strcpy(des->valor, valor);
+            // strcpy(des->valor, valor);
+            des->valor = transform_to_float(valor, tam);
             fseek(fp, (-1) * sizeof(Despesa), SEEK_CUR);
             fwrite(des, sizeof(Despesa), 1, fp);
             printf("\nDespesa editada com sucesso!!!\n");
@@ -204,7 +207,8 @@ void editar_dp(void)
     getchar();
 }
 
-void excluir_dp(void) {
+void excluir_dp(void)
+{
 
     FILE *fp;
     Despesa *des;
@@ -371,7 +375,7 @@ void mostrarDesepesa(Despesa *newdespesa)
     printf("\n          CPF do morador: %s", newdespesa->cpf);
     printf("\n          Descrição: %s", newdespesa->descricao);
     printf("\n          Tipo: %c", newdespesa->tipo);
-    printf("\n          Valor: %s", newdespesa->valor);
+    printf("\n          Valor: %f", newdespesa->valor);
     printf("\n          Situação: %c", newdespesa->sitacao);
     printf("\n          Id: %d", newdespesa->id);
     printf("\n");
