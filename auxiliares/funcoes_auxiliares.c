@@ -182,7 +182,7 @@ int validar_dinheiro(char dinheiro[], int tam)
 
 {
 
-    if (dinheiro[tam - 3] != '.')
+    if ((dinheiro[tam - 3] != '.') || (dinheiro[tam - 3] != ',') )
     {
         return 0;
     }

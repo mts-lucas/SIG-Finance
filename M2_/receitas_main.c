@@ -111,13 +111,15 @@ void preenche_receita(void)
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     ler_descricaor(descricao);
     ler_valordepositado(valor);
+    int tam = strlen(valor);
     newreceita->tipo = tipos_rec();
     newreceita->status = 'C';
     strcpy(newreceita->cpf, cpf);
     strcpy(newreceita->descricao, descricao);
-    strcpy(newreceita->valor, valor);
+    // strcpy(newreceita->valor, valor);
+    newreceita->valor = transform_to_float(valor, tam);
     newreceita->id = idReceita();
-    
+
     mostrarReceita(newreceita);
     gravarReceita(newreceita);
     getchar();
@@ -168,12 +170,14 @@ void editar_re(void)
 
             ler_cpf(cpf);
             ler_valordepositado(valor);
+            int tam = strlen(valor);
             ler_descricaor(descricao);
             rec->tipo = tipos_rec();
 
             strcpy(rec->cpf, cpf);
             strcpy(rec->descricao, descricao);
-            strcpy(rec->valor, valor);
+            // strcpy(rec->valor, valor);
+            rec->valor = transform_to_float(valor, tam);
             fseek(fp, (-1) * sizeof(Receita), SEEK_CUR);
             fwrite(rec, sizeof(Receita), 1, fp);
             printf("\nREceita editada com sucesso!!!\n");
@@ -224,7 +228,7 @@ void excluir_re(void)
     printf("Buscamos pelo ID da receita, para apagar a receita: \n");
     scanf("%d", &procurado);
     getchar();
-    
+
     rec = (Receita *)malloc(sizeof(Receita));
     achou = 0;
     while ((!achou) && (fread(rec, sizeof(Receita), 1, fp)))
@@ -300,7 +304,7 @@ void mostrarReceita(Receita *newreceita)
     printf("\n          CPF do Morador: %s", newreceita->cpf);
     printf("\n          Descrição: %s", newreceita->descricao);
     printf("\n          Tipo: %c", newreceita->tipo);
-    printf("\n          Valor: %s", newreceita->valor);
+    printf("\n          Valor: %f", newreceita->valor);
     printf("\n          Id: %d", newreceita->id);
     printf("\n");
     // getchar();

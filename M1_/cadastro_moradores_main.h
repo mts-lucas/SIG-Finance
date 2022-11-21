@@ -6,7 +6,7 @@ struct morador
     char cpf[15];
     char idade[4];
     char ocupacao[20];
-    char renda[11];
+    float renda;
     char status;
 };
 

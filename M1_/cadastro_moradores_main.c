@@ -99,6 +99,7 @@ void preenche_morador(void)
   char idade[4];
   char ocupacao[20];
   char renda[11];
+  // float rendaf;
 
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                         ///\n");
@@ -113,12 +114,14 @@ void preenche_morador(void)
   ler_idade(idade);
   ler_ocupacao(ocupacao);
   ler_renda(renda);
+  int tam = strlen(renda);
 
   strcpy(mor->nome, nome);
   strcpy(mor->cpf, cpf);
   strcpy(mor->idade, idade);
   strcpy(mor->ocupacao, ocupacao);
-  strcpy(mor->renda, renda);
+  mor->renda = transform_to_float(renda, tam);
+  // strcpy(mor->renda, renda);
   mor->status = 'C';
 
   mostrarMorador(mor);
@@ -186,12 +189,14 @@ void altera_morador(void)
       ler_idade(idade);
       ler_ocupacao(ocupacao);
       ler_renda(renda);
+      int tam = strlen(renda);
 
       strcpy(mor->nome, nome);
       strcpy(mor->cpf, cpf);
       strcpy(mor->idade, idade);
       strcpy(mor->ocupacao, ocupacao);
-      strcpy(mor->renda, renda);
+      // strcpy(mor->renda, renda);
+      mor->renda = transform_to_float(renda, tam);
       mor->status = 'C';
       fseek(fp, (-1) * sizeof(Morador), SEEK_CUR);
       fwrite(mor, sizeof(Morador), 1, fp);
@@ -334,7 +339,7 @@ void mostrarMorador(Morador *mor)
   printf("\nCPF do morador: %s", mor->cpf);
   printf("\nIdade do morador: %s", mor->idade);
   printf("\nOcupação do morador: %s", mor->ocupacao);
-  printf("\nRenda do morador: %s", mor->renda);
+  printf("\nRenda do morador: %f", mor->renda);
   printf("\nStatus do morador: %c", mor->status);
   printf("\n");
 }
