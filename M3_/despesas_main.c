@@ -128,6 +128,12 @@ void editar_dp(void)
 {
     // abrir o arquivo e tals
     system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =          Editar Despesa        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
     FILE *fp;
     Despesa *des;
     int achou;
@@ -209,6 +215,13 @@ void editar_dp(void)
 
 void excluir_dp(void)
 {
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Excluir Despesa        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
 
     FILE *fp;
     Despesa *des;
@@ -263,10 +276,30 @@ void excluir_dp(void)
     }
     free(des);
     fclose(fp);
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Excluir Despesa        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                            Fim da Operação!                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n\t Pressione Enter para sair");
+    getchar();
 }
 
 void pagar_dp(void)
 {
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Pagar Despesa          = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                            Fim da Operação!                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
     FILE *fp;
     Despesa *des;
     int achou;
@@ -319,11 +352,27 @@ void pagar_dp(void)
     }
     free(des);
     fclose(fp);
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Pagar Despesa          = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                            Fim da Operação!                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    getchar();
 }
 
 void checar_dp(void)
 {
     system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Exibir Despesas        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
     FILE *fp2;
     Despesa *dp;
     fp2 = fopen("cad-despesa-m3.dat", "rb");
@@ -334,13 +383,6 @@ void checar_dp(void)
         exit(1);
     }
     printf("\n\n");
-    system("clear||cls");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                         ///\n");
-    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =    Gerenciamento de Despesas   = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///////////////////////////////////////////////////////////////////////////////\n");
     dp = (Despesa *)malloc(sizeof(Despesa));
     while (fread(dp, sizeof(Despesa), 1, fp2))
     {
@@ -351,6 +393,16 @@ void checar_dp(void)
     }
     fclose(fp2);
     free(dp);
+    getchar();
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =         Exibir Despesas        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///                            Fim da Operação!                             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
 }
 
 void sobre_dp(void)
@@ -375,7 +427,7 @@ void mostrarDesepesa(Despesa *newdespesa)
     printf("\n          CPF do morador: %s", newdespesa->cpf);
     printf("\n          Descrição: %s", newdespesa->descricao);
     printf("\n          Tipo: %c", newdespesa->tipo);
-    printf("\n          Valor: %f", newdespesa->valor);
+    printf("\n          Valor: %.2f", newdespesa->valor);
     printf("\n          Situação: %c", newdespesa->sitacao);
     printf("\n          Id: %d", newdespesa->id);
     printf("\n");

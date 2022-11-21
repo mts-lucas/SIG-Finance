@@ -143,7 +143,16 @@ void preenche_morador(void)
 void altera_morador(void)
 {
 
-  //modifiquei para buscar por cpf
+  // modifiquei para buscar por cpf
+
+  system("clear||cls");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                         ///\n");
+  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =     Alterar dados de Morador   = = = = =             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
   FILE *fp;
   Morador *mor;
   int achou;
@@ -231,7 +240,16 @@ void altera_morador(void)
 void deletar_morador(void)
 {
 
-  //mudei a busca por CPF
+  // mudei a busca por CPF
+
+  system("clear||cls");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                         ///\n");
+  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =     Deletar dados de Morador   = = = = =             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
 
   FILE *fp;
   Morador *mor;
@@ -283,6 +301,18 @@ void deletar_morador(void)
   }
   free(mor);
   fclose(fp);
+
+  system("clear||cls");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                         ///\n");
+  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =     Deletar dados de Morador   = = = = =             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///                            Fim da Operação!                             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  getchar();
 }
 // simulado:
 void visualizar_morador(void)
@@ -314,6 +344,17 @@ void visualizar_morador(void)
   }
   fclose(fp);
   free(mor);
+  getchar();
+  system("clear||cls");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                         ///\n");
+  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =         Exibir Moradores       = = = = =             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///                            Fim da Operação!                             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
 }
 
 void sobre_m1(void)
@@ -339,7 +380,7 @@ void mostrarMorador(Morador *mor)
   printf("\nCPF do morador: %s", mor->cpf);
   printf("\nIdade do morador: %s", mor->idade);
   printf("\nOcupação do morador: %s", mor->ocupacao);
-  printf("\nRenda do morador: %f", mor->renda);
+  printf("\nRenda do morador: %.2f", mor->renda);
   printf("\nStatus do morador: %c", mor->status);
   printf("\n");
 }
