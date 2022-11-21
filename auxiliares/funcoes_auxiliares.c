@@ -182,7 +182,7 @@ int validar_dinheiro(char dinheiro[], int tam)
 
 {
 
-    if ((dinheiro[tam - 3] != '.') || (dinheiro[tam - 3] != ',') )
+    if (dinheiro[tam - 3] != '.')
     {
         return 0;
     }
@@ -391,7 +391,7 @@ void ler_valordepositado(char *deposito)
 char tipos_rec(void)
 {
     printf("            Tipo da receita?\n");
-    printf("            1-Contribuição Mensal\n2-Extra\n");
+    printf("            1-Contribuição Mensal\t2-Extra\n");
     char tipo;
     scanf("%c", &tipo);
     getchar();

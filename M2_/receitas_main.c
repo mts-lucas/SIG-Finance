@@ -133,6 +133,7 @@ void editar_re(void)
     Receita *rec;
     int achou;
     char resp;
+    char procurado[20];
     int aux_id;
     char cpf[15];
     char descricao[100];
@@ -147,7 +148,10 @@ void editar_re(void)
     }
     printf("\n\n");
     printf("Buscamos a receita pelo Id da receita.\n");
-    scanf("%d", &aux_id);
+    // scanf("%d", &aux_id);
+    ler_id(procurado);
+    int tam = strlen(procurado);
+    aux_id = transform_to_integer(procurado, tam);
     getchar();
     // ler_cpf(procurado);
     rec = (Receita *)malloc(sizeof(Receita));
@@ -216,6 +220,7 @@ void excluir_re(void)
     Receita *rec;
     int achou;
     char resp;
+    char procuradoc[20];
     int procurado;
     fp = fopen("cad-receita-m2.dat", "r+b");
     if (fp == NULL)
@@ -226,7 +231,10 @@ void excluir_re(void)
     }
     printf("\n\n");
     printf("Buscamos pelo ID da receita, para apagar a receita: \n");
-    scanf("%d", &procurado);
+    // scanf("%d", &procurado);
+    ler_id(procuradoc);
+    int tam = strlen(procuradoc);
+    procurado = transform_to_integer(procuradoc, tam);
     getchar();
 
     rec = (Receita *)malloc(sizeof(Receita));
