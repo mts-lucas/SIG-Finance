@@ -59,13 +59,6 @@ void gerencia_menu_principal(void)
 
         else if (op == '4')
         {
-            system("clear||cls");
-            printf("///////////////////////////////////////////////////////////////////////////////\n");
-            printf("///                                                                         ///\n");
-            printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-            printf("///          = = = = =    Gerenciamento de Receita    = = = = =             ///\n");
-            printf("///                                                                         ///\n");
-            printf("///////////////////////////////////////////////////////////////////////////////\n");
             checar_re();
             getchar();
         }
@@ -335,6 +328,7 @@ void checar_re(void)
     printf("///                            Fim da Operação!                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("... Pressione enter pra sair");
 }
 
 void mostrarReceita(Receita *newreceita)

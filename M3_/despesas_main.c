@@ -403,6 +403,7 @@ void checar_dp(void)
     printf("///                            Fim da Operação!                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("... Pressione Enter para sair");
 }
 
 void sobre_dp(void)

@@ -190,6 +190,7 @@ void altera_morador(void)
     getchar();
     printf("Deseja realmente editar este Morador (s/n)? ");
     scanf("%c", &resp);
+    getchar();
     if (resp == 's' || resp == 'S')
     {
 
@@ -282,6 +283,7 @@ void deletar_morador(void)
     getchar();
     printf("Deseja realmente apagar este morador (s/n)? ");
     scanf("%c", &resp);
+    getchar();
     if (resp == 's' || resp == 'S')
     {
       mor->status = 'A';
@@ -297,6 +299,7 @@ void deletar_morador(void)
   else
   {
     printf("O morador %s não foi encontrado...\n", procurado);
+    printf("...Pressione Enter para sair");
     getchar();
   }
   free(mor);
@@ -417,6 +420,7 @@ void buscarUm(void)
   system("clear");
   printf("\n informe o nome do morador que voce busca\t");
   scanf("%s", nomeBusca);
+  getchar();
   mor = (Morador *)malloc(sizeof(Morador));
   resultado = 0;
   while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
@@ -438,7 +442,7 @@ void buscarUm(void)
   else
   {
     printf("Morador %s não encontrado...", nomeBusca);
-    getchar();
+    printf("...Pressione enter para sair");
   }
   free(mor);
 }
