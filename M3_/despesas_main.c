@@ -389,11 +389,12 @@ void checar_dp(void)
         if (dp->status == 'C')
         {
             mostrarDesepesa(dp);
+            
         }
     }
     fclose(fp2);
-    free(dp);
     getchar();
+    free(dp);
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
