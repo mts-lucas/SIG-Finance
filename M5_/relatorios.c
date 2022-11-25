@@ -28,6 +28,11 @@ void interacao_menu_relatorios(void)
             buscar_receita();
         }
 
+        else if (op == '3')
+        {
+            buscar_despesa();
+        }
+
         else
         {
             printf("\n\t Opção invalida. digite outra...");
