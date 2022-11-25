@@ -23,9 +23,9 @@ void interacao_menu_relatorios(void)
             checar_re();
         }
 
-        else if (op == '3')
+        else if (op == '4')
         {
-            
+            buscar_receita();
         }
 
         else

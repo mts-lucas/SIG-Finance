@@ -331,6 +331,55 @@ void checar_re(void)
     printf("... Pressione enter pra sair");
 }
 
+void buscar_receita(void)
+{
+
+    FILE *fp;
+    Receita *rec;
+    int resultado;
+    int aux_id;
+    char procurando[20];
+
+    fp = fopen("cad-receita-m2.dat", "rb");
+    if (fp == NULL)
+    {
+        /* code */
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    system("clear || cls");
+    printf("Buscamos a receita pelo Id da receita.\n");
+    // scanf("%d", &aux_id);
+    ler_id(procurando);
+    int tam = strlen(procurando);
+    aux_id = transform_to_integer(procurando, tam);
+    rec = (Receita *)malloc(sizeof(Receita));
+    resultado = 0;
+    while ((!resultado) && (fread(rec, sizeof(Receita), 1, fp)))
+    {
+        /* code */
+        if ((rec->id == aux_id) && (rec->status == 'C'))
+        {
+            /* code */
+            resultado = 1;
+        }
+    }
+    fclose(fp);
+    if (resultado)
+    {
+        /* code */
+        mostrarReceita(rec);
+        getchar();
+    }
+    else
+    {
+        printf("Receita com o ID %d não encontrada...", aux_id);
+        printf("...Pressione enter para sair");
+    }
+    free(rec);
+}
+
 void mostrarReceita(Receita *newreceita)
 {
     // system("clear||cls");
