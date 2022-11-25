@@ -33,6 +33,7 @@ void interacao_menu_relatorios(void)
             buscar_despesa();
         }
 
+
         else
         {
             printf("\n\t Opção invalida. digite outra...");
