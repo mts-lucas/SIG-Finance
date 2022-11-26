@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "relatorios.h"
+#include "../auxiliares/funcoes_auxiliares.h"
+#include "../M3_/despesas_main.h"
+#include "../M2_/receitas_main.h"
 
 void interacao_menu_relatorios(void)
 {
@@ -12,13 +15,24 @@ void interacao_menu_relatorios(void)
 
         if (op == '1')
         {
-            por_datas();
+            checar_dp();
         }
 
         else if (op == '2')
         {
-            entre_datas();
+            checar_re();
         }
+
+        else if (op == '4')
+        {
+            buscar_receita();
+        }
+
+        else if (op == '3')
+        {
+            buscar_despesa();
+        }
+
 
         else
         {
@@ -41,8 +55,10 @@ char menu_relatorios(void)
     printf("///                                                                         ///\n");
     printf("///          = = = = =           Relatórios           = = = = =             ///\n");
     printf("///                                                                         ///\n");
-    printf("///            1. Pesquisar por data                                        ///\n");
-    printf("///            2. Pesquisar por período de tempo                            ///\n");
+    printf("///            1. Mostrar todas as Despesas                                 ///\n");
+    printf("///            2. Mostrar todas as Recetias                                 ///\n");
+    printf("///            3. Pesquisar Despesa por ID                                  ///\n");
+    printf("///            4. Pesquisar Receita por ID                                  ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");

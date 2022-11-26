@@ -389,11 +389,12 @@ void checar_dp(void)
         if (dp->status == 'C')
         {
             mostrarDesepesa(dp);
+            
         }
     }
     fclose(fp2);
-    free(dp);
     getchar();
+    free(dp);
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -404,6 +405,54 @@ void checar_dp(void)
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("... Pressione Enter para sair");
+}
+
+void buscar_despesa(void) {
+
+    FILE *fp;
+    Despesa *dep;
+    int resultado;
+    int aux_id;
+    char procurando[20];
+
+    fp = fopen("cad-despesa-m3.dat", "rb");
+    if (fp == NULL)
+    {
+        /* code */
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    system("clear || cls");
+    printf("Buscamos a Despesa pelo Id da Despesa.\n");
+    // scanf("%d", &aux_id);
+    ler_id(procurando);
+    int tam = strlen(procurando);
+    aux_id = transform_to_integer(procurando, tam);
+    dep = (Despesa *)malloc(sizeof(Despesa));
+    resultado = 0;
+    while ((!resultado) && (fread(dep, sizeof(Despesa), 1, fp)))
+    {
+        /* code */
+        if ((dep->id == aux_id) && (dep->status == 'C'))
+        {
+            /* code */
+            resultado = 1;
+        }
+    }
+    fclose(fp);
+    if (resultado)
+    {
+        /* code */
+        mostrarDesepesa(dep);
+        getchar();
+    }
+    else
+    {
+        printf("Despesa com o ID %d não encontrada...", aux_id);
+        printf("...Pressione enter para sair");
+    }
+    free(dep);
 }
 
 void sobre_dp(void)

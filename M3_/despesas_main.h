@@ -17,6 +17,7 @@ void mostrarDesepesa(Despesa *newdespesa);
 void gravarDesepesa(Despesa *newdespesa);
 // void exibe_receita(Despesa* desp);
 
+void buscar_despesa(void);
 char menu_principal_dp(void);
 void gerencia_menu_principal_dp(void);
 char ler_dp(void);
