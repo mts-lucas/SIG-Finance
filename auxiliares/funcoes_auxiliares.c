@@ -319,11 +319,13 @@ void ler_cpf_cad(char *cpf)
     int tam;
     do
     {
-        printf("             Informe o CPF do morador cad:\n");
+        printf("             Informe o CPF do morador:\n");
         scanf("%s", cpf);
         getchar();
         tam = strlen(cpf);
-    } while ((!(verificarcpf(cpf, tam))) && (checarCPF()) );
+
+    } while (!((verificarcpf(cpf, tam)) && (checarCPF(cpf))));
+    
 }
 
 void ler_idade(char *idade)
@@ -535,13 +537,12 @@ float transform_to_float(char *vetorchar, int tam)
     return vetor_retorno;
 }
 
-int checarCPF()
+int checarCPF(char *cpfbusca)
 {
-
     FILE *fp;
     Morador *mor;
     int resultado;
-    char cpfbusca[11];
+    // char cpfbusca[11];
     fp = fopen("cadastro-m1.dat", "rb");
     if (fp == NULL)
     {
@@ -550,9 +551,6 @@ int checarCPF()
         printf("Não é possível continuar o programa...\n");
         exit(1);
     }
-    system("clear");
-    printf("\n informe o nome do morador que voce busca\t");
-    ler_cpf(cpfbusca);
     mor = (Morador *)malloc(sizeof(Morador));
     resultado = 0;
     while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
@@ -561,6 +559,7 @@ int checarCPF()
         if ((strcmp(mor->cpf, cpfbusca) == 0) && (mor->status == 'C'))
         {
             /* code */
+            printf("\n\tCPF já cadastrado\n");
             resultado = 1;
         }
     }
@@ -568,12 +567,12 @@ int checarCPF()
     if (resultado)
     {
         /* code */
-        printf("teste571");
+        // printf("teste571");
         return 0;
     }
     else
     {
-        printf("teste576");
+        // printf("teste576");
         return 1;
     }
     free(mor);
