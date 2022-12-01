@@ -110,7 +110,7 @@ void preenche_morador(void)
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("            Insira os dados do novo morador:\n");
   ler_nome(nome);
-  ler_cpf(cpf);
+  ler_cpf_cad(cpf);
   ler_idade(idade);
   ler_ocupacao(ocupacao);
   ler_renda(renda);
