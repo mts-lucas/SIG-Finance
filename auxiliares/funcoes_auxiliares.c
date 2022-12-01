@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "../M2_/receitas_main.h"
 #include "../M3_/despesas_main.h"
+#include "../M1_/cadastro_moradores_main.h"
 
 int meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 char decimais[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -312,6 +313,19 @@ void ler_cpf(char *cpf)
     } while (!(verificarcpf(cpf, tam)));
 }
 
+void ler_cpf_cad(char *cpf)
+{
+
+    int tam;
+    do
+    {
+        printf("             Informe o CPF do morador cad:\n");
+        scanf("%s", cpf);
+        getchar();
+        tam = strlen(cpf);
+    } while ((!(verificarcpf(cpf, tam))) && (checarCPF()) );
+}
+
 void ler_idade(char *idade)
 {
 
@@ -519,4 +533,48 @@ float transform_to_float(char *vetorchar, int tam)
     }
 
     return vetor_retorno;
+}
+
+int checarCPF()
+{
+
+    FILE *fp;
+    Morador *mor;
+    int resultado;
+    char cpfbusca[11];
+    fp = fopen("cadastro-m1.dat", "rb");
+    if (fp == NULL)
+    {
+        /* code */
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    system("clear");
+    printf("\n informe o nome do morador que voce busca\t");
+    ler_cpf(cpfbusca);
+    mor = (Morador *)malloc(sizeof(Morador));
+    resultado = 0;
+    while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
+    {
+        /* code */
+        if ((strcmp(mor->cpf, cpfbusca) == 0) && (mor->status == 'C'))
+        {
+            /* code */
+            resultado = 1;
+        }
+    }
+    fclose(fp);
+    if (resultado)
+    {
+        /* code */
+        printf("teste571");
+        return 0;
+    }
+    else
+    {
+        printf("teste576");
+        return 1;
+    }
+    free(mor);
 }
