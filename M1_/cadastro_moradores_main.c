@@ -408,7 +408,7 @@ void buscarUm(void)
   FILE *fp;
   Morador *mor;
   int resultado;
-  char nomeBusca[51];
+  char cpfbusca[12];
   fp = fopen("cadastro-m1.dat", "rb");
   if (fp == NULL)
   {
@@ -419,14 +419,13 @@ void buscarUm(void)
   }
   system("clear");
   printf("\n informe o nome do morador que voce busca\t");
-  scanf("%s", nomeBusca);
-  getchar();
+  ler_cpf(cpfbusca);
   mor = (Morador *)malloc(sizeof(Morador));
   resultado = 0;
   while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
   {
     /* code */
-    if ((strcmp(mor->nome, nomeBusca) == 0) && (mor->status == 'C'))
+    if ((strcmp(mor->cpf, cpfbusca) == 0) && (mor->status == 'C'))
     {
       /* code */
       resultado = 1;
@@ -441,8 +440,9 @@ void buscarUm(void)
   }
   else
   {
-    printf("Morador %s não encontrado...", nomeBusca);
+    printf("Morador %s não encontrado...", cpfbusca);
     printf("...Pressione enter para sair");
   }
   free(mor);
 }
+

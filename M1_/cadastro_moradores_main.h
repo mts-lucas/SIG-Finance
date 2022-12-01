@@ -3,7 +3,7 @@ typedef struct morador Morador;
 struct morador
 {
     char nome[51];
-    char cpf[15];
+    char cpf[12];
     char idade[4];
     char ocupacao[20];
     float renda;
