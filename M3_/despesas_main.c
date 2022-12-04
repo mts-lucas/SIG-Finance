@@ -298,9 +298,7 @@ void pagar_dp(void)
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =         Pagar Despesa          = = = = =             ///\n");
-    printf("///                                                                         ///\n");
-    printf("///                            Fim da Operação!                             ///\n");
+    printf("///          = = = = =          Pagar Despesa         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     FILE *fp;
@@ -359,7 +357,7 @@ void pagar_dp(void)
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
-    printf("///          = = = = =         Pagar Despesa          = = = = =             ///\n");
+    printf("///          = = = = =          Pagar Despesa         = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///                            Fim da Operação!                             ///\n");
     printf("///                                                                         ///\n");
