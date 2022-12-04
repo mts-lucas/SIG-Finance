@@ -91,6 +91,7 @@ void preenche_despesa(void)
     char cpf[15];
     char descricao[100];
     char valor[11];
+    char data[11];
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
@@ -110,9 +111,11 @@ void preenche_despesa(void)
     ler_valordepositado(valor);
     int tam = strlen(valor);
     newdespesa->tipo = tipos_despesa();
+    ler_data(data);
     newdespesa->status = 'C';
     newdespesa->sitacao = 'D';
     newdespesa->id = idDespesa();
+    strcpy(newdespesa->data, data);
     strcpy(newdespesa->cpf, cpf);
     strcpy(newdespesa->descricao, descricao);
     // strcpy(newdespesa->valor, valor);

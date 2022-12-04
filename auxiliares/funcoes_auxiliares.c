@@ -548,11 +548,10 @@ int checarCPF(char *cpfbusca)
     FILE *fp;
     Morador *mor;
     int resultado;
-    // char cpfbusca[11];
     fp = fopen("cadastro-m1.dat", "rb");
     if (fp == NULL)
     {
-        /* code */
+        
         printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
         printf("Não é possível continuar o programa...\n");
         exit(1);
@@ -561,10 +560,10 @@ int checarCPF(char *cpfbusca)
     resultado = 0;
     while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
     {
-        /* code */
+        
         if ((strcmp(mor->cpf, cpfbusca) == 0) && (mor->status == 'C'))
         {
-            /* code */
+            
             printf("\n\tCPF já cadastrado\n");
             resultado = 1;
         }
@@ -572,13 +571,10 @@ int checarCPF(char *cpfbusca)
     fclose(fp);
     if (resultado)
     {
-        /* code */
-        // printf("teste571");
         return 0;
     }
     else
     {
-        // printf("teste576");
         return 1;
     }
     free(mor);

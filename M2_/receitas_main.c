@@ -86,6 +86,7 @@ void preenche_receita(void)
     char cpf[15];
     char descricao[100];
     char valor[11];
+    char data[11];
 
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -106,7 +107,9 @@ void preenche_receita(void)
     ler_valordepositado(valor);
     int tam = strlen(valor);
     newreceita->tipo = tipos_rec();
+    ler_data(data);
     newreceita->status = 'C';
+    strcpy(newreceita->data, data);
     strcpy(newreceita->cpf, cpf);
     strcpy(newreceita->descricao, descricao);
     // strcpy(newreceita->valor, valor);
@@ -388,6 +391,7 @@ void mostrarReceita(Receita *newreceita)
     printf("\n          Tipo: %c", newreceita->tipo);
     printf("\n          Valor: %.2f", newreceita->valor);
     printf("\n          Id: %d", newreceita->id);
+    printf("\n          Data: %c", newreceita->data);
     printf("\n");
     // getchar();
 }
