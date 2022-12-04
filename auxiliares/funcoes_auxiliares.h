@@ -10,6 +10,7 @@ int validar_idade(char idade[], int tam);
 
 void ler_nome(char* name);
 void ler_cpf(char *cpf);
+void ler_cpf_cad(char *cpf);
 void ler_idade(char* idade);
 void ler_ocupacao(char* ocupacao);
 void ler_renda(char* renda);
@@ -23,3 +24,4 @@ int validar_id(char* id, int tam);
 void ler_id(char* id);
 int transform_to_integer(char* vetorchar, int tam);
 float transform_to_float(char* vetorchar, int tam);
+int checarCPF(char *cpf);

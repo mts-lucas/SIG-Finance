@@ -4,6 +4,7 @@
 #include "../auxiliares/funcoes_auxiliares.h"
 #include "../M3_/despesas_main.h"
 #include "../M2_/receitas_main.h"
+#include "../M1_/cadastro_moradores_main.h"
 
 void interacao_menu_relatorios(void)
 {
@@ -33,6 +34,10 @@ void interacao_menu_relatorios(void)
             buscar_despesa();
         }
 
+        else if (op == '5')
+        {
+            buscarUm();
+        }
 
         else
         {
@@ -59,6 +64,7 @@ char menu_relatorios(void)
     printf("///            2. Mostrar todas as Recetias                                 ///\n");
     printf("///            3. Pesquisar Despesa por ID                                  ///\n");
     printf("///            4. Pesquisar Receita por ID                                  ///\n");
+    printf("///            5. Pesquisar Morador por CPF                                 ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
