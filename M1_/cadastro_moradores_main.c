@@ -379,7 +379,7 @@ void sobre_m1(void)
 void mostrarMorador(Morador *mor)
 {
 
-  printf("\n Nome do morador: %s", mor->nome);
+  printf("\nNome do morador: %s", mor->nome);
   printf("\nCPF do morador: %s", mor->cpf);
   printf("\nIdade do morador: %s", mor->idade);
   printf("\nOcupação do morador: %s", mor->ocupacao);

@@ -88,6 +88,8 @@ void preenche_despesa(void)
     system("clear||cls");
     Despesa *newdespesa;
     newdespesa = (Despesa *)malloc(sizeof(Despesa));
+    Saldo *newsaldo;
+    newsaldo = (Saldo *)malloc(sizeof(Saldo));
     char cpf[15];
     char descricao[100];
     char valor[11];
@@ -115,13 +117,20 @@ void preenche_despesa(void)
     newdespesa->status = 'C';
     newdespesa->sitacao = 'D';
     newdespesa->id = idDespesa();
+
+    newsaldo->valor_despesas = ultimaDespesa() + transform_to_float(valor, tam);
+    newsaldo->valor_atual = ultimoSaldo();
+
     strcpy(newdespesa->data, data);
     strcpy(newdespesa->cpf, cpf);
     strcpy(newdespesa->descricao, descricao);
     // strcpy(newdespesa->valor, valor);
     newdespesa->valor = transform_to_float(valor, tam);
     mostrarDesepesa(newdespesa);
+    mostrarSaldo(newsaldo);
     gravarDesepesa(newdespesa);
+    gravarSaldo(newsaldo);
+    free(newsaldo);
     free(newdespesa);
     printf("Aperte enter para sair...");
     getchar();
@@ -174,7 +183,7 @@ void editar_dp(void)
         getchar();
         if (resp == 's' || resp == 'S')
         {
-
+            float valoraux = des->valor;
             ler_cpf(cpf);
             ler_valordepositado(valor);
             int tam = strlen(valor);
@@ -187,6 +196,14 @@ void editar_dp(void)
             des->valor = transform_to_float(valor, tam);
             fseek(fp, (-1) * sizeof(Despesa), SEEK_CUR);
             fwrite(des, sizeof(Despesa), 1, fp);
+
+            Saldo *newsaldo;
+            newsaldo = (Saldo *)malloc(sizeof(Saldo));
+            newsaldo->valor_atual = ultimoSaldo();
+            newsaldo->valor_despesas = ultimaDespesa() + transform_to_float(valor, tam) - valoraux;
+            gravarSaldo(newsaldo);
+            free(newsaldo);
+
             printf("\nDespesa editada com sucesso!!!\n");
         }
         else
@@ -261,9 +278,18 @@ void excluir_dp(void)
         getchar();
         if (resp == 's' || resp == 'S')
         {
+            float valoraux = des->valor;
             des->status = 'A';
             fseek(fp, (-1) * sizeof(Despesa), SEEK_CUR);
             fwrite(des, sizeof(Despesa), 1, fp);
+
+            Saldo *newsaldo;
+            newsaldo = (Saldo *)malloc(sizeof(Saldo));
+            newsaldo->valor_despesas = ultimaDespesa() - valoraux;
+            newsaldo->valor_atual = ultimoSaldo();
+            gravarSaldo(newsaldo);
+            free(newsaldo);
+
             printf("\nDespesa excluída com sucesso!!!\n");
         }
         else
@@ -335,10 +361,22 @@ void pagar_dp(void)
         getchar();
         if (resp == 's' || resp == 'S')
         {
+            float valoraux = des->valor;
             des->sitacao = 'Q';
             fseek(fp, (-1) * sizeof(Despesa), SEEK_CUR);
             fwrite(des, sizeof(Despesa), 1, fp);
+
+            Saldo *newsaldo;
+            newsaldo = (Saldo *)malloc(sizeof(Saldo));
+            newsaldo->valor_despesas = ultimaDespesa() - valoraux;
+            newsaldo->valor_atual = ultimoSaldo() - valoraux;
+            gravarSaldo(newsaldo);
+            mostrarSaldo(newsaldo);
+            free(newsaldo);
+
             printf("\nDespesa quitada com sucesso!!!\n");
+            printf("\n\t Pressione Enter");
+            getchar();
         }
         else
         {
@@ -390,7 +428,6 @@ void checar_dp(void)
         if (dp->status == 'C')
         {
             mostrarDesepesa(dp);
-            
         }
     }
     fclose(fp2);
@@ -408,7 +445,8 @@ void checar_dp(void)
     printf("... Pressione Enter para sair");
 }
 
-void buscar_despesa(void) {
+void buscar_despesa(void)
+{
 
     FILE *fp;
     Despesa *dep;

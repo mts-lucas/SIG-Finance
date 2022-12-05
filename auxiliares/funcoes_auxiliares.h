@@ -3,6 +3,7 @@ typedef struct saldo Saldo;
 struct saldo
 {
     float valor_atual;
+    float valor_despesas;
 };
 
 int dia_do_ano(int, int, int);
@@ -35,3 +36,5 @@ int checarCPF(char *cpf);
 void ler_data(char *data);
 void gravarSaldo(Saldo *newsaldo);
 float ultimoSaldo(void);
+void mostrarSaldo(Saldo *newsaldo);
+float ultimaDespesa(void);

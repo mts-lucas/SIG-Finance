@@ -629,3 +629,34 @@ float ultimoSaldo(void){
         return ultimo_valor;
     }
 }
+
+void mostrarSaldo(Saldo *newsaldo)
+{
+    // system("clear||cls");
+    printf("\n          Saldo: %.2f", newsaldo->valor_atual);
+    printf("\n          Valor das despesas: %.2f", newsaldo->valor_despesas);
+    printf("\n");
+    // getchar();
+}
+
+float ultimaDespesa(void){
+
+  FILE *fp;
+  Saldo *ult_saldo;
+  ult_saldo = (Saldo *)malloc(sizeof(Saldo));
+  fp = fopen("saldo-casa.dat", "rb");
+   if (fp == NULL)
+    {
+        return 0.0;
+    }
+
+    else
+    {
+        fseek(fp, -1 * sizeof(Saldo), SEEK_END);
+        fread(ult_saldo, sizeof(Saldo), 1, fp);
+        float ultimo_valor = ult_saldo->valor_despesas;
+        fclose(fp);
+        free(ult_saldo);
+        return ultimo_valor;
+    }
+}

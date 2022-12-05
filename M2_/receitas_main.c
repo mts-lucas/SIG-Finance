@@ -83,6 +83,8 @@ void preenche_receita(void)
     system("clear||cls");
     Receita *newreceita;
     newreceita = (Receita *)malloc(sizeof(Receita));
+    Saldo *newsaldo;
+    newsaldo = (Saldo *)malloc(sizeof(Saldo));
     char cpf[15];
     char descricao[100];
     char valor[11];
@@ -116,9 +118,15 @@ void preenche_receita(void)
     newreceita->valor = transform_to_float(valor, tam);
     newreceita->id = idReceita();
 
+    newsaldo->valor_atual = ultimoSaldo() + transform_to_float(valor, tam);
+    newsaldo->valor_despesas =ultimaDespesa();
+
     mostrarReceita(newreceita);
+    mostrarSaldo(newsaldo);
     gravarReceita(newreceita);
+    gravarSaldo(newsaldo);
     getchar();
+    free(newsaldo);
     free(newreceita);
 }
 
@@ -174,6 +182,7 @@ void editar_re(void)
         if (resp == 's' || resp == 'S')
         {
 
+            float valoraux = rec->valor;
             ler_cpf(cpf);
             ler_valordepositado(valor);
             int tam = strlen(valor);
@@ -186,6 +195,14 @@ void editar_re(void)
             rec->valor = transform_to_float(valor, tam);
             fseek(fp, (-1) * sizeof(Receita), SEEK_CUR);
             fwrite(rec, sizeof(Receita), 1, fp);
+
+            Saldo *newsaldo;
+            newsaldo = (Saldo *)malloc(sizeof(Saldo));
+            newsaldo->valor_atual = ultimoSaldo() + transform_to_float(valor, tam) - valoraux;
+            newsaldo->valor_despesas = ultimaDespesa();
+            gravarSaldo(newsaldo);
+            free(newsaldo);
+
             printf("\nREceita editada com sucesso!!!\n");
         }
         else
@@ -264,8 +281,15 @@ void excluir_re(void)
         if (resp == 's' || resp == 'S')
         {
             rec->status = 'A';
+            float valoraux = rec->valor;
             fseek(fp, (-1) * sizeof(Receita), SEEK_CUR);
             fwrite(rec, sizeof(Receita), 1, fp);
+            Saldo *newsaldo;
+            newsaldo = (Saldo *)malloc(sizeof(Saldo));
+            newsaldo->valor_atual = ultimoSaldo() - valoraux;
+            newsaldo->valor_despesas = ultimaDespesa();
+            gravarSaldo(newsaldo);
+            free(newsaldo);
             printf("\nReceita excluído com sucesso!!!\n");
         }
         else
