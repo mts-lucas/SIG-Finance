@@ -391,7 +391,7 @@ void mostrarReceita(Receita *newreceita)
     printf("\n          Tipo: %c", newreceita->tipo);
     printf("\n          Valor: %.2f", newreceita->valor);
     printf("\n          Id: %d", newreceita->id);
-    printf("\n          Data: %c", newreceita->data);
+    printf("\n          Data: %s", newreceita->data);
     printf("\n");
     // getchar();
 }

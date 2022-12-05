@@ -33,3 +33,5 @@ int transform_to_integer(char *vetorchar, int tam);
 float transform_to_float(char *vetorchar, int tam);
 int checarCPF(char *cpf);
 void ler_data(char *data);
+void gravarSaldo(Saldo *newsaldo);
+float ultimoSaldo(void);

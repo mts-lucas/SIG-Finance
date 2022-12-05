@@ -551,19 +551,20 @@ int checarCPF(char *cpfbusca)
     fp = fopen("cadastro-m1.dat", "rb");
     if (fp == NULL)
     {
-        
-        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-        printf("Não é possível continuar o programa...\n");
-        exit(1);
+
+        // printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        // printf("Não é possível continuar o programa...\n");
+        // exit(1);
+        return 1;
     }
     mor = (Morador *)malloc(sizeof(Morador));
     resultado = 0;
     while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
     {
-        
+
         if ((strcmp(mor->cpf, cpfbusca) == 0) && (mor->status == 'C'))
         {
-            
+
             printf("\n\tCPF já cadastrado\n");
             resultado = 1;
         }
@@ -591,4 +592,40 @@ void ler_data(char *data)
         getchar();
         tam = strlen(data);
     } while (!(validar_formato_data(data, tam)));
+}
+
+void gravarSaldo(Saldo *newsaldo)
+{
+    FILE *fp;
+    fp = fopen("saldo-casa.dat", "ab");
+    if (fp == NULL)
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    fwrite(newsaldo, sizeof(Saldo), 1, fp);
+    fclose(fp);
+}
+
+float ultimoSaldo(void){
+
+  FILE *fp;
+  Saldo *ult_saldo;
+  ult_saldo = (Saldo *)malloc(sizeof(Saldo));
+  fp = fopen("saldo-casa.dat", "rb");
+   if (fp == NULL)
+    {
+        return 0.0;
+    }
+
+    else
+    {
+        fseek(fp, -1 * sizeof(Saldo), SEEK_END);
+        fread(ult_saldo, sizeof(Saldo), 1, fp);
+        float ultimo_valor = ult_saldo->valor_atual;
+        fclose(fp);
+        free(ult_saldo);
+        return ultimo_valor;
+    }
 }

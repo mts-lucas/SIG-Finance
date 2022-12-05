@@ -481,6 +481,7 @@ void mostrarDesepesa(Despesa *newdespesa)
     printf("\n          Valor: %.2f", newdespesa->valor);
     printf("\n          Situação: %c", newdespesa->sitacao);
     printf("\n          Id: %d", newdespesa->id);
+    printf("\n          Data: %s", newdespesa->data);
     printf("\n");
 }
 
