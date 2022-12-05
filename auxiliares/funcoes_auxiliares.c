@@ -103,55 +103,62 @@ int dia_do_ano(int dd, int mm, int aa) // by Flavius Gorgonio
     return soma;
 }
 
-int validar_formato_data(char data[11])
+int validar_formato_data(char data[11], int tam)
 {
 
-    for (int i = 0; i <= 10; i++)
+    if (tam == 10)
     {
-
-        if ((i != 2) && (i != 5))
+        for (int i = 0; i <= 10; i++)
         {
-            for (int j = 0; j <= 10; j++)
-            {
 
-                if ((j == 10) && (data[i] != decimais[j]))
+            if ((i != 2) && (i != 5))
+            {
+                for (int j = 0; j <= 10; j++)
                 {
-                    return 0;
-                }
-                else if (data[i] == decimais[j])
-                {
-                    break;
+
+                    if ((j == 10) && (data[i] != decimais[j]))
+                    {
+                        return 0;
+                    }
+                    else if (data[i] == decimais[j])
+                    {
+                        break;
+                    }
                 }
             }
-        }
-        else if ((i == 2) && (data[i] != '/'))
-        {
+            else if ((i == 2) && (data[i] != '/'))
+            {
 
-            return 0;
-        }
-        else if ((i == 5) && (data[i] != '/'))
-        {
+                return 0;
+            }
+            else if ((i == 5) && (data[i] != '/'))
+            {
 
-            return 0;
+                return 0;
+            }
         }
+
+        int d1, d2, dd, m1, m2, mm, a1, a2, a3, a4, aa;
+        d1 = data[0] - '0';
+        d2 = data[1] - '0';
+        dd = (d1 * 10) + d2;
+
+        m1 = data[3] - '0';
+        m2 = data[4] - '0';
+        mm = (m1 * 10) + m2;
+
+        a1 = data[6] - '0';
+        a2 = data[7] - '0';
+        a3 = data[8] - '0';
+        a4 = data[9] - '0';
+        aa = (a1 * 1000) + (a2 * 100) + (a3 * 10) + a4;
+
+        return dataValida(dd, mm, aa);
     }
-
-    int d1, d2, dd, m1, m2, mm, a1, a2, a3, a4, aa;
-    d1 = data[0] - '0';
-    d2 = data[1] - '0';
-    dd = (d1 * 10) + d2;
-
-    m1 = data[3] - '0';
-    m2 = data[4] - '0';
-    mm = (m1 * 10) + m2;
-
-    a1 = data[6] - '0';
-    a2 = data[7] - '0';
-    a3 = data[8] - '0';
-    a4 = data[9] - '0';
-    aa = (a1 * 1000) + (a2 * 100) + (a3 * 10) + a4;
-
-    return dataValida(dd, mm, aa);
+    else
+    {
+        return 0;
+    }
 }
 
 int validar_letras(char nome[], int tam)
@@ -325,7 +332,6 @@ void ler_cpf_cad(char *cpf)
         tam = strlen(cpf);
 
     } while (!((verificarcpf(cpf, tam)) && (checarCPF(cpf))));
-    
 }
 
 void ler_idade(char *idade)
@@ -542,23 +548,23 @@ int checarCPF(char *cpfbusca)
     FILE *fp;
     Morador *mor;
     int resultado;
-    // char cpfbusca[11];
     fp = fopen("cadastro-m1.dat", "rb");
     if (fp == NULL)
     {
-        /* code */
-        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-        printf("Não é possível continuar o programa...\n");
-        exit(1);
+
+        // printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        // printf("Não é possível continuar o programa...\n");
+        // exit(1);
+        return 1;
     }
     mor = (Morador *)malloc(sizeof(Morador));
     resultado = 0;
     while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
     {
-        /* code */
+
         if ((strcmp(mor->cpf, cpfbusca) == 0) && (mor->status == 'C'))
         {
-            /* code */
+
             printf("\n\tCPF já cadastrado\n");
             resultado = 1;
         }
@@ -566,14 +572,91 @@ int checarCPF(char *cpfbusca)
     fclose(fp);
     if (resultado)
     {
-        /* code */
-        // printf("teste571");
         return 0;
     }
     else
     {
-        // printf("teste576");
         return 1;
     }
     free(mor);
+}
+
+void ler_data(char *data)
+{
+
+    int tam;
+    do
+    {
+        printf("             Informe a data da operação:\n");
+        scanf("%s", data);
+        getchar();
+        tam = strlen(data);
+    } while (!(validar_formato_data(data, tam)));
+}
+
+void gravarSaldo(Saldo *newsaldo)
+{
+    FILE *fp;
+    fp = fopen("saldo-casa.dat", "ab");
+    if (fp == NULL)
+    {
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    fwrite(newsaldo, sizeof(Saldo), 1, fp);
+    fclose(fp);
+}
+
+float ultimoSaldo(void){
+
+  FILE *fp;
+  Saldo *ult_saldo;
+  ult_saldo = (Saldo *)malloc(sizeof(Saldo));
+  fp = fopen("saldo-casa.dat", "rb");
+   if (fp == NULL)
+    {
+        return 0.0;
+    }
+
+    else
+    {
+        fseek(fp, -1 * sizeof(Saldo), SEEK_END);
+        fread(ult_saldo, sizeof(Saldo), 1, fp);
+        float ultimo_valor = ult_saldo->valor_atual;
+        fclose(fp);
+        free(ult_saldo);
+        return ultimo_valor;
+    }
+}
+
+void mostrarSaldo(Saldo *newsaldo)
+{
+    // system("clear||cls");
+    printf("\n          Saldo: %.2f", newsaldo->valor_atual);
+    printf("\n          Valor das despesas: %.2f", newsaldo->valor_despesas);
+    printf("\n");
+    // getchar();
+}
+
+float ultimaDespesa(void){
+
+  FILE *fp;
+  Saldo *ult_saldo;
+  ult_saldo = (Saldo *)malloc(sizeof(Saldo));
+  fp = fopen("saldo-casa.dat", "rb");
+   if (fp == NULL)
+    {
+        return 0.0;
+    }
+
+    else
+    {
+        fseek(fp, -1 * sizeof(Saldo), SEEK_END);
+        fread(ult_saldo, sizeof(Saldo), 1, fp);
+        float ultimo_valor = ult_saldo->valor_despesas;
+        fclose(fp);
+        free(ult_saldo);
+        return ultimo_valor;
+    }
 }
