@@ -38,18 +38,29 @@ void interacao_menu_relatorios(void)
 
         else if (op == '5')
         {
-            buscarUm();
-        }
-
-        else if (op == '6')
-        {
             RelatorioValorReceita(1);
             getchar();
         }
-        else if (op == '7')
+        else if (op == '6')
         {
             RelatorioValorReceita(2);
             getchar();
+        }
+
+        else if (op == '7')
+        {
+            RelatorioValorDespesa(1);
+            getchar();
+        }
+        else if (op == '8')
+        {
+            RelatorioValorDespesa(2);
+            getchar();
+        }
+
+        else if (op == '9')
+        {
+            buscarUm();
         }
 
         else
@@ -77,9 +88,11 @@ char menu_relatorios(void)
     printf("///            2. Mostrar todas as Recetias                                 ///\n");
     printf("///            3. Pesquisar Despesa por ID                                  ///\n");
     printf("///            4. Pesquisar Receita por ID                                  ///\n");
-    printf("///            6. Pesquisar Receita em ordem de Maior valor                 ///\n");
-    printf("///            7. Pesquisar Receita em ordem de Menor valor                 ///\n");
-    printf("///            5. Pesquisar Morador por CPF                                 ///\n");
+    printf("///            5. Pesquisar Receita em ordem de Maior valor                 ///\n");
+    printf("///            6. Pesquisar Receita em ordem de Menor valor                 ///\n");
+    printf("///            7. Pesquisar Despesa em ordem de Maior valor                 ///\n");
+    printf("///            8. Pesquisar Despesa em ordem de Menor valor                 ///\n");
+    printf("///            9. Pesquisar Morador por CPF                                 ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -132,7 +145,6 @@ void RelatorioValorReceita(int num)
                     novo->status = rec->status;
                     novo->id = rec->id;
 
-              
                     if (num == 1)
                     {
                         if (lista == NULL)
