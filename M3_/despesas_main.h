@@ -1,10 +1,5 @@
 typedef struct despesa Despesa;
 typedef struct desdin Desdin;
-{
-    /* data */
-};
-
-
 struct despesa
 {
     char cpf[15];
