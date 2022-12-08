@@ -1,8 +1,5 @@
 typedef struct receita Receita;
 typedef struct recdin RecDin;
-{
-    /* data */
-};
 
 struct receita
 {
