@@ -122,7 +122,7 @@ void RelatorioValorReceita(int num)
                 if (rec->status == 'C')
                 {
                     /* code */
-                    novo = (RecDin*)malloc(sizeof(RecDin));
+                    novo = (RecDin *)malloc(sizeof(RecDin));
 
                     strcpy(novo->cpf, rec->cpf);
                     strcpy(novo->descricao, rec->descricao);
@@ -132,6 +132,7 @@ void RelatorioValorReceita(int num)
                     novo->status = rec->status;
                     novo->id = rec->id;
 
+              
                     if (num == 1)
                     {
                         if (lista == NULL)
@@ -219,6 +220,132 @@ void RelatorioValorReceita(int num)
     }
 }
 
-void RelatorioValorDespesa(int num) {
-    
+void RelatorioValorDespesa(int num)
+{
+    FILE *fp;
+    Despesa *des;
+    Desdin *novo;
+    Desdin *lista;
+
+    if (access("cad-despesa-m3.dat", F_OK) != -1)
+    {
+        /* code */
+        fp = fopen("cad-despesa-m3.dat", "rb");
+
+        if (fp == NULL)
+        {
+
+            printf("Erro na abertura do arquivo");
+            exit(1);
+        }
+
+        else
+        {
+            /* code */
+            lista = NULL;
+
+            des = (Despesa *)malloc(sizeof(Despesa));
+
+            while (fread(des, sizeof(Despesa), 1, fp))
+            {
+                /* code */
+                if (des->status == 'C')
+                {
+                    /* code */
+                    novo = (Desdin *)malloc(sizeof(Desdin));
+
+                    strcpy(novo->cpf, des->cpf);
+                    strcpy(novo->descricao, des->descricao);
+                    strcpy(novo->data, des->data);
+                    novo->valor = des->valor;
+                    novo->tipo = des->tipo;
+                    novo->status = des->status;
+                    novo->sitacao = des->sitacao;
+                    novo->id = des->id;
+
+                    if (num == 1)
+                    {
+                        if (lista == NULL)
+                        {
+                            lista = novo;
+                            novo->prox = NULL;
+                        }
+
+                        else if (novo->valor > lista->valor)
+                        {
+                            novo->prox = lista;
+                            lista = novo;
+                        }
+
+                        else
+                        {
+                            Desdin *anter = lista;
+                            Desdin *atual = lista->prox;
+
+                            while ((atual != NULL) && atual->valor > novo->valor)
+                            {
+                                anter = atual;
+                                atual = atual->prox;
+                            }
+
+                            anter->prox = novo;
+                            novo->prox = atual;
+                        }
+                    }
+
+                    else
+                    {
+                        if (lista == NULL)
+                        {
+                            lista = novo;
+                            novo->prox = NULL;
+                        }
+
+                        else if (novo->valor < lista->valor)
+                        {
+                            novo->prox = lista;
+                            lista = novo;
+                        }
+
+                        else
+                        {
+                            Desdin *anter = lista;
+                            Desdin *atual = lista->prox;
+
+                            while ((atual != NULL) && atual->valor < novo->valor)
+                            {
+                                anter = atual;
+                                atual = atual->prox;
+                            }
+
+                            anter->prox = novo;
+                            novo->prox = atual;
+                        }
+                    }
+                }
+            }
+
+            free(des);
+
+            novo = lista;
+            while (novo != NULL)
+            {
+
+                mostrarDesDin(novo);
+                novo = novo->prox;
+            }
+
+            novo = lista;
+            while (lista != NULL)
+            {
+                lista = lista->prox;
+                // free(novo->nome);
+                // free(novo->status);
+                free(novo);
+                novo = lista;
+            }
+        }
+
+        fclose(fp);
+    }
 }
