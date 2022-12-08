@@ -559,6 +559,7 @@ int checarCPF(char *cpfbusca)
         preenche_morador();
         return 1;
     }
+    
     mor = (Morador *)malloc(sizeof(Morador));
     resultado = 0;
     while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
