@@ -1,5 +1,5 @@
 typedef struct receita Receita;
-typedef struct receitadin RecetiaDin;
+typedef struct recdin RecDin;
 {
     /* data */
 };
@@ -15,7 +15,7 @@ struct receita
     int id;
 };
 
-struct receitadin
+struct recdin
 {
     char cpf[15];
     char descricao[100];
@@ -24,7 +24,7 @@ struct receitadin
     char data[11];
     char status;
     int id;
-    RecetiaDin* prox;
+    RecDin* prox;
 };
 
 void preenche_receita(void);
