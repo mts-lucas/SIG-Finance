@@ -430,7 +430,7 @@ void mostrarRecdin(RecDin *novo)
     printf("\n          Id: %d", novo->id);
     printf("\n          Data: %s", novo->data);
     printf("\n");
-    getchar();
+    // getchar();
 }
 
 void sobre_re(void)
