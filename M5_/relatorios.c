@@ -74,5 +74,3 @@ char menu_relatorios(void)
     getchar();
     return op;
 }
-
-
