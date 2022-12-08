@@ -218,3 +218,7 @@ void RelatorioValorReceita(int num)
         fclose(fp);
     }
 }
+
+void RelatorioValorDespesa(int num) {
+    
+}
