@@ -317,7 +317,7 @@ void ler_cpf(char *cpf)
         scanf("%s", cpf);
         getchar();
         tam = strlen(cpf);
-    } while (!(verificarcpf(cpf, tam)));
+    } while ((!(verificarcpf(cpf, tam))) || ((checarCPF(cpf))));
 }
 
 void ler_cpf_cad(char *cpf)
@@ -552,11 +552,14 @@ int checarCPF(char *cpfbusca)
     if (fp == NULL)
     {
 
-        // printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-        // printf("Não é possível continuar o programa...\n");
-        // exit(1);
+        printf("Nenhum morador cadastrado\n");
+        printf("Voce sera redirecionado para pagina de cadastro do morador após apertar qualquer tecla\t");
+        getchar();
+        system("cls || clear");
+        preenche_morador();
         return 1;
     }
+    
     mor = (Morador *)malloc(sizeof(Morador));
     resultado = 0;
     while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))

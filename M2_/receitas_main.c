@@ -420,6 +420,19 @@ void mostrarReceita(Receita *newreceita)
     // getchar();
 }
 
+void mostrarRecdin(RecDin *novo)
+{
+    // system("clear||cls");
+    printf("\n          CPF do Morador: %s", novo->cpf);
+    printf("\n          Descrição: %s", novo->descricao);
+    printf("\n          Tipo: %c", novo->tipo);
+    printf("\n          Valor: %.2f", novo->valor);
+    printf("\n          Id: %d", novo->id);
+    printf("\n          Data: %s", novo->data);
+    printf("\n");
+    // getchar();
+}
+
 void sobre_re(void)
 {
     system("clear||cls");

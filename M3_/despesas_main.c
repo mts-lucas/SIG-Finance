@@ -523,6 +523,18 @@ void mostrarDesepesa(Despesa *newdespesa)
     printf("\n");
 }
 
+void mostrarDesDin(Desdin *novo) {
+
+    printf("\n          CPF do morador: %s", novo->cpf);
+    printf("\n          Descrição: %s", novo->descricao);
+    printf("\n          Tipo: %c", novo->tipo);
+    printf("\n          Valor: %.2f", novo->valor);
+    printf("\n          Situação: %c", novo->sitacao);
+    printf("\n          Id: %d", novo->id);
+    printf("\n          Data: %s", novo->data);
+    printf("\n");
+}
+
 void gravarDesepesa(Despesa *newdespesa)
 {
     FILE *fp2;

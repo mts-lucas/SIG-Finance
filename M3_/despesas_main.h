@@ -1,5 +1,5 @@
 typedef struct despesa Despesa;
-
+typedef struct desdin Desdin;
 struct despesa
 {
     char cpf[15];
@@ -12,8 +12,23 @@ struct despesa
     int id;
 };
 
+struct desdin
+{
+    char cpf[15];
+    char descricao[100];
+    float valor;
+    char tipo;
+    char data[11];
+    char status;
+    char sitacao;
+    int id;
+    Desdin *prox;
+};
+
+
 void preenche_despesa(void);
 void mostrarDesepesa(Despesa *newdespesa);
+void mostrarDesDin(Desdin *novo);
 void gravarDesepesa(Despesa *newdespesa);
 // void exibe_receita(Despesa* desp);
 
