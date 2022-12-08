@@ -524,7 +524,7 @@ void mostrarDesepesa(Despesa *newdespesa)
 }
 
 void mostrarDesDin(Desdin *novo) {
-{
+
     printf("\n          CPF do morador: %s", novo->cpf);
     printf("\n          Descrição: %s", novo->descricao);
     printf("\n          Tipo: %c", novo->tipo);
