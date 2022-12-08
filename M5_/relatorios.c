@@ -186,7 +186,7 @@ void RelatorioValorReceita(int num)
             while (novo != NULL)
             {
 
-                mostrarReceita(novo);
+                mostrarRecdin(novo);
                 novo = novo->prox;
             }
 
