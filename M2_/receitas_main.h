@@ -29,6 +29,7 @@ struct recdin
 
 void preenche_receita(void);
 void mostrarReceita(Receita* newreceita);
+void mostrarReceita(RecDin* novo);
 void gravarReceita(Receita* newreceita);
 // void exibe_receita(Receita* mor);
 
