@@ -41,6 +41,17 @@ void interacao_menu_relatorios(void)
             buscarUm();
         }
 
+        else if (op == '6')
+        {
+            RelatorioValorReceita(1);
+            getchar();
+        }
+        else if (op == '7')
+        {
+            RelatorioValorReceita(2);
+            getchar();
+        }
+
         else
         {
             printf("\n\t Opção invalida. digite outra...");
@@ -66,6 +77,8 @@ char menu_relatorios(void)
     printf("///            2. Mostrar todas as Recetias                                 ///\n");
     printf("///            3. Pesquisar Despesa por ID                                  ///\n");
     printf("///            4. Pesquisar Receita por ID                                  ///\n");
+    printf("///            6. Pesquisar Receita em ordem de Maior valor                 ///\n");
+    printf("///            7. Pesquisar Receita em ordem de Menor valor                 ///\n");
     printf("///            5. Pesquisar Morador por CPF                                 ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
@@ -84,15 +97,16 @@ void RelatorioValorReceita(int num)
     RecDin *novo;
     RecDin *lista;
 
-    if (access("bovinos.dat", F_OK) != -1)
+    if (access("cad-receita-m2.dat", F_OK) != -1)
     {
         /* code */
-        fp = fopen("bovinos.dat", "rb");
+        fp = fopen("cad-receita-m2.dat", "rb");
 
         if (fp == NULL)
         {
 
             printf("Erro na abertura do arquivo");
+            exit(1);
         }
 
         else
