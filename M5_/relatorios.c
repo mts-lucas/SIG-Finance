@@ -62,11 +62,11 @@ void interacao_menu_relatorios(void)
         {
             buscarUm();
         }
-        else if (op == 'A')
+        else if ((op == 'A') || (op == 'a'))
         {
             MostrarReceitasPorData();
         }
-        else if (op == 'B')
+        else if ((op == 'B') || (op == 'b'))
         {
             MostrarDespesasPorData();
         }
@@ -392,7 +392,7 @@ void MostrarReceitasPorData(void)
     printf("Por favor informe a data inicial do intervalo.\n");
     ler_data(datainicial);
     printf("Por favor informe a data final do intervalo.\n");
-    ler_data(datainicial);
+    ler_data(datafinal);
     rec = (Receita *)malloc(sizeof(Receita));
     while ((fread(rec, sizeof(Receita), 1, fp)))
     {

@@ -557,7 +557,11 @@ int checarCPF(char *cpfbusca)
         getchar();
         system("cls || clear");
         preenche_morador();
-        return 0;
+        system("cls || clear");
+        printf("Agora tente novamente, pressione qualquer teclar para prosseguir\t");
+        getchar();
+        system("cls || clear");
+        return 1;
     }
 
     mor = (Morador *)malloc(sizeof(Morador));
