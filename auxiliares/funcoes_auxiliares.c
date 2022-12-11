@@ -331,7 +331,7 @@ void ler_cpf_cad(char *cpf)
         getchar();
         tam = strlen(cpf);
 
-    } while (!((verificarcpf(cpf, tam)) && (checarCPF(cpf))));
+    } while (!((verificarcpf(cpf, tam)) && (checarCPFCad(cpf))));
 }
 
 void ler_idade(char *idade)
@@ -557,6 +557,42 @@ int checarCPF(char *cpfbusca)
         getchar();
         system("cls || clear");
         preenche_morador();
+        return 0;
+    }
+
+    mor = (Morador *)malloc(sizeof(Morador));
+    resultado = 0;
+    while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
+    {
+
+        if ((strcmp(mor->cpf, cpfbusca) == 0) && (mor->status == 'C'))
+        {
+
+            printf("\n\tCPF já cadastrado\n");
+            resultado = 1;
+        }
+    }
+    fclose(fp);
+    if (resultado)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+    free(mor);
+}
+
+int checarCPFCad(char *cpfbusca)
+{
+
+    FILE *fp;
+    Morador *mor;
+    int resultado;
+    fp = fopen("cadastro-m1.dat", "rb");
+    if (fp == NULL)
+    {
         return 1;
     }
 
@@ -666,6 +702,54 @@ float ultimaDespesa(void)
     }
 }
 
+int convertDataToInt(char *data, int func)
+{
+
+    // func = 1 = dia
+    // func = 2 = mes
+    // func = 3 = ano
+
+    if (func == 1)
+    {
+
+        int dia = 0;
+        int aux = 1;
+        for (int i = 1; i >= 0; i--)
+        {
+
+            dia += (data[i] - '0') * aux;
+            aux *= 10;
+        }
+        return dia;
+    }
+    else if (func == 2)
+    {
+
+        int mes = 0;
+        int aux = 1;
+        for (int i = 4; i >= 3; i--)
+        {
+
+            mes += (data[i] - '0') * aux;
+            aux *= 10;
+        }
+        return mes;
+    }
+    else if (func == 3)
+    {
+
+        int ano = 0;
+        int aux = 1;
+        for (int i = 9; i >= 6; i--)
+        {
+
+            ano += (data[i] - '0') * aux;
+            aux *= 10;
+        }
+        return ano;
+    }
+}
+
 int compararDatas(char *datainicial, char *datafinal, char *dataarch)
 {
 
@@ -742,53 +826,5 @@ int compararDatas(char *datainicial, char *datafinal, char *dataarch)
     {
 
         return 0;
-    }
-}
-
-int convertDataToInt(char *data, int func)
-{
-
-    // func = 1 = dia
-    // func = 2 = mes
-    // func = 3 = ano
-
-    if (func == 1)
-    {
-
-        int dia = 0;
-        int aux = 1;
-        for (int i = 1; i >= 0; i--)
-        {
-
-            dia += (data[i] - '0') * aux;
-            aux *= 10;
-        }
-        return dia;
-    }
-    else if (func == 2)
-    {
-
-        int mes = 0;
-        int aux = 1;
-        for (int i = 4; i >= 3; i--)
-        {
-
-            mes += (data[i] - '0') * aux;
-            aux *= 10;
-        }
-        return mes;
-    }
-    else if (func == 3)
-    {
-
-        int ano = 0;
-        int aux = 1;
-        for (int i = 9; i >= 6; i--)
-        {
-
-            ano += (data[i] - '0') * aux;
-            aux *= 10;
-        }
-        return ano;
     }
 }

@@ -62,7 +62,14 @@ void interacao_menu_relatorios(void)
         {
             buscarUm();
         }
-
+        else if (op == 'A')
+        {
+            MostrarReceitasPorData();
+        }
+        else if (op == 'B')
+        {
+            MostrarDespesasPorData();
+        }
         else
         {
             printf("\n\t Opção invalida. digite outra...");
@@ -85,7 +92,7 @@ char menu_relatorios(void)
     printf("///          = = = = =           Relatórios           = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///            1. Mostrar todas as Despesas                                 ///\n");
-    printf("///            2. Mostrar todas as Recetias                                 ///\n");
+    printf("///            2. Mostrar todas as Receitas                                 ///\n");
     printf("///            3. Pesquisar Despesa por ID                                  ///\n");
     printf("///            4. Pesquisar Receita por ID                                  ///\n");
     printf("///            5. Pesquisar Receita em ordem de Maior valor                 ///\n");
@@ -93,6 +100,8 @@ char menu_relatorios(void)
     printf("///            7. Pesquisar Despesa em ordem de Maior valor                 ///\n");
     printf("///            8. Pesquisar Despesa em ordem de Menor valor                 ///\n");
     printf("///            9. Pesquisar Morador por CPF                                 ///\n");
+    printf("///            A. Mostrar Receitas em intervalo de tempo                   ///\n");
+    printf("///            B. Mostrar Despesas em intervalo de tempo                   ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -360,4 +369,96 @@ void RelatorioValorDespesa(int num)
 
         fclose(fp);
     }
+}
+
+void MostrarReceitasPorData(void)
+{
+
+    FILE *fp;
+    Receita *rec;
+    char datainicial[11];
+    char datafinal[11];
+    int achou;
+
+    fp = fopen("cad-receita-m2.dat", "rb");
+    if (fp == NULL)
+    {
+        /* code */
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    system("clear || cls");
+    printf("Por favor informe a data inicial do intervalo.\n");
+    ler_data(datainicial);
+    printf("Por favor informe a data final do intervalo.\n");
+    ler_data(datainicial);
+    rec = (Receita *)malloc(sizeof(Receita));
+    while ((fread(rec, sizeof(Receita), 1, fp)))
+    {
+        if ((compararDatas(datainicial, datafinal, rec->data)) && (rec->status == 'C'))
+        {
+            mostrarReceita(rec);
+            achou += 1;
+        }
+    }
+    if (achou > 0)
+    {
+
+        getchar();
+    }
+    else
+    {
+        printf("Nenhuma Receita encontrada nesse intervalo de tempo");
+        printf("...Pressione enter para sair");
+        getchar();
+    }
+    fclose(fp);
+    free(rec);
+}
+
+void MostrarDespesasPorData(void)
+{
+
+    FILE *fp;
+    Despesa *dep;
+    char datainicial[11];
+    char datafinal[11];
+    int achou;
+
+    fp = fopen("cad-despesa-m3.dat", "rb");
+    if (fp == NULL)
+    {
+        /* code */
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar o programa...\n");
+        exit(1);
+    }
+    system("clear || cls");
+    printf("Por favor informe a data inicial do intervalo.\n");
+    ler_data(datainicial);
+    printf("Por favor informe a data final do intervalo.\n");
+    ler_data(datainicial);
+    dep = (Despesa *)malloc(sizeof(Despesa));
+    while ((fread(dep, sizeof(Despesa), 1, fp)))
+    {
+        if ((compararDatas(datainicial, datafinal, dep->data)) && (dep->status == 'C'))
+        {
+            mostrarDesepesa(dep);
+            achou += 1;
+        }
+    }
+    if (achou > 0)
+    {
+
+        getchar();
+    }
+    else
+    {
+        printf("Nenhuma Despesa encontrada nesse intervalo de tempo");
+        printf("...Pressione enter para sair");
+        getchar();
+    }
+    fclose(fp);
+    free(dep);
 }
