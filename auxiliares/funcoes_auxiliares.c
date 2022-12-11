@@ -663,3 +663,53 @@ float ultimaDespesa(void){
         return ultimo_valor;
     }
 }
+
+int compararDatas(char* datainicial, char* datafinal, char* dataarch){
+
+    int diaincial, mesinicial, anoinicial, diafinal, mesfinal, anofinal, diaarch, mesarch, anoarch;
+    return 0;
+}
+
+int convertDataToInt(char* data, int func){
+
+    // func = 1 = dia
+    // func = 2 = mes
+    // func = 3 = ano
+
+    if (func == 1){
+
+        int dia = 0;
+        int aux = 1;
+        for (int i = 1; i >= 0; i--){
+
+            dia += (data[i] -'0') * aux;
+            aux *= 10;
+
+        }
+        return dia;
+    }
+    else if (func == 2){
+
+        int mes = 0;
+        int aux = 1;
+        for (int i = 4; i >= 3; i--){
+
+            mes += (data[i] -'0') * aux;
+            aux *= 10;
+
+        }
+        return mes;
+    }
+    else if (func == 3){
+
+        int ano = 0;
+        int aux = 1;
+        for (int i = 9; i >= 6; i--){
+
+            ano += (data[i] -'0') * aux;
+            aux *= 10;
+
+        }
+        return ano;
+    }
+}
