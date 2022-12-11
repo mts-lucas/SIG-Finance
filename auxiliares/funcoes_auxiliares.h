@@ -38,3 +38,5 @@ void gravarSaldo(Saldo *newsaldo);
 float ultimoSaldo(void);
 void mostrarSaldo(Saldo *newsaldo);
 float ultimaDespesa(void);
+int compararDatas(char* datainicial, char* datafinal, char* dataarch);
+int convertDataToInt(char* data, int func);
