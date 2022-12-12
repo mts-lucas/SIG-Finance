@@ -331,7 +331,7 @@ void ler_cpf_cad(char *cpf)
         getchar();
         tam = strlen(cpf);
 
-    } while (!((verificarcpf(cpf, tam)) && (checarCPF(cpf))));
+    } while (!((verificarcpf(cpf, tam)) && (checarCPFCad(cpf))));
 }
 
 void ler_idade(char *idade)
@@ -557,9 +557,49 @@ int checarCPF(char *cpfbusca)
         getchar();
         system("cls || clear");
         preenche_morador();
+        system("cls || clear");
+        printf("Agora tente novamente, pressione qualquer teclar para prosseguir\t");
+        getchar();
+        system("cls || clear");
         return 1;
     }
-    
+
+    mor = (Morador *)malloc(sizeof(Morador));
+    resultado = 0;
+    while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
+    {
+
+        if ((strcmp(mor->cpf, cpfbusca) == 0) && (mor->status == 'C'))
+        {
+
+            printf("\n\tCPF já cadastrado\n");
+            resultado = 1;
+        }
+    }
+    fclose(fp);
+    if (resultado)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+    free(mor);
+}
+
+int checarCPFCad(char *cpfbusca)
+{
+
+    FILE *fp;
+    Morador *mor;
+    int resultado;
+    fp = fopen("cadastro-m1.dat", "rb");
+    if (fp == NULL)
+    {
+        return 1;
+    }
+
     mor = (Morador *)malloc(sizeof(Morador));
     resultado = 0;
     while ((!resultado) && (fread(mor, sizeof(Morador), 1, fp)))
@@ -611,13 +651,14 @@ void gravarSaldo(Saldo *newsaldo)
     fclose(fp);
 }
 
-float ultimoSaldo(void){
+float ultimoSaldo(void)
+{
 
-  FILE *fp;
-  Saldo *ult_saldo;
-  ult_saldo = (Saldo *)malloc(sizeof(Saldo));
-  fp = fopen("saldo-casa.dat", "rb");
-   if (fp == NULL)
+    FILE *fp;
+    Saldo *ult_saldo;
+    ult_saldo = (Saldo *)malloc(sizeof(Saldo));
+    fp = fopen("saldo-casa.dat", "rb");
+    if (fp == NULL)
     {
         return 0.0;
     }
@@ -642,13 +683,14 @@ void mostrarSaldo(Saldo *newsaldo)
     // getchar();
 }
 
-float ultimaDespesa(void){
+float ultimaDespesa(void)
+{
 
-  FILE *fp;
-  Saldo *ult_saldo;
-  ult_saldo = (Saldo *)malloc(sizeof(Saldo));
-  fp = fopen("saldo-casa.dat", "rb");
-   if (fp == NULL)
+    FILE *fp;
+    Saldo *ult_saldo;
+    ult_saldo = (Saldo *)malloc(sizeof(Saldo));
+    fp = fopen("saldo-casa.dat", "rb");
+    if (fp == NULL)
     {
         return 0.0;
     }
@@ -661,5 +703,132 @@ float ultimaDespesa(void){
         fclose(fp);
         free(ult_saldo);
         return ultimo_valor;
+    }
+}
+
+int convertDataToInt(char *data, int func)
+{
+
+    // func = 1 = dia
+    // func = 2 = mes
+    // func = 3 = ano
+
+    if (func == 1)
+    {
+
+        int dia = 0;
+        int aux = 1;
+        for (int i = 1; i >= 0; i--)
+        {
+
+            dia += (data[i] - '0') * aux;
+            aux *= 10;
+        }
+        return dia;
+    }
+    else if (func == 2)
+    {
+
+        int mes = 0;
+        int aux = 1;
+        for (int i = 4; i >= 3; i--)
+        {
+
+            mes += (data[i] - '0') * aux;
+            aux *= 10;
+        }
+        return mes;
+    }
+    else if (func == 3)
+    {
+
+        int ano = 0;
+        int aux = 1;
+        for (int i = 9; i >= 6; i--)
+        {
+
+            ano += (data[i] - '0') * aux;
+            aux *= 10;
+        }
+        return ano;
+    }
+}
+
+int compararDatas(char *datainicial, char *datafinal, char *dataarch)
+{
+
+    int diaincial, mesinicial, anoinicial, diafinal, mesfinal, anofinal, diaarch, mesarch, anoarch;
+    diaincial = convertDataToInt(datainicial, 1);
+    mesinicial = convertDataToInt(datainicial, 2);
+    anoinicial = convertDataToInt(datainicial, 3);
+
+    diafinal = convertDataToInt(datafinal, 1);
+    mesfinal = convertDataToInt(datafinal, 2);
+    anofinal = convertDataToInt(datafinal, 3);
+
+    diaarch = convertDataToInt(dataarch, 1);
+    mesarch = convertDataToInt(dataarch, 2);
+    anoarch = convertDataToInt(dataarch, 3);
+
+    if ((anoarch <= anofinal) && (anoarch >= anoinicial) && (anoinicial < anofinal))
+    {
+        if ((anoarch == anofinal) && (mesarch == mesfinal) && (diaarch <= diafinal))
+        {
+            return 1;
+        }
+        else if ((anoarch == anofinal) && (mesarch < mesfinal))
+        {
+
+            return 1;
+        }
+        else if ((anoarch == anoinicial) && (mesarch == mesinicial) && (diaarch >= diaincial))
+        {
+
+            return 1;
+        }
+        else if ((anoarch == anoinicial) && (mesarch > mesinicial))
+        {
+
+            return 1;
+        }
+        else if (((anofinal - anoinicial) > 1) && (anoarch < anofinal) && (anoarch > anoinicial))
+        {
+
+            return 1;
+        }
+        else
+        {
+
+            return 0;
+        }
+    }
+    else if ((anoinicial == anofinal) && (anoarch == anoinicial))
+    {
+
+        if ((mesinicial == mesfinal) && (mesinicial == mesarch) && (diaarch >= diaincial) && (diaarch <= diafinal))
+        {
+
+            return 1;
+        }
+        else if ((mesarch > mesinicial) && (mesarch == mesfinal) && (diaarch <= diafinal))
+        {
+
+            return 1;
+        }
+        else if ((mesarch < mesfinal) && (mesarch == mesinicial) && (diaarch >= diaincial))
+        {
+
+            return 1;
+        }
+        else
+        {
+
+            return 0;
+        }
+    }
+    else
+    {
+
+        return 0;
     }
 }
