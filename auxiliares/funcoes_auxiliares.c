@@ -300,7 +300,7 @@ void ler_nome(char *name)
     int tam;
     do
     {
-        printf("          Informe o nome do morador:\n");
+        printf("\t\t\tInforme o nome do morador:\n\t\t\t");
         scanf("%s", name);
         getchar();
         tam = strlen(name);
@@ -313,7 +313,7 @@ void ler_cpf(char *cpf)
     int tam;
     do
     {
-        printf("             Informe o CPF do morador:\n");
+        printf("\t\t\tInforme o CPF do morador:\n\t\t\t");
         scanf("%s", cpf);
         getchar();
         tam = strlen(cpf);
@@ -326,7 +326,7 @@ void ler_cpf_cad(char *cpf)
     int tam;
     do
     {
-        printf("             Informe o CPF do morador:\n");
+        printf("\t\t\tInforme o CPF do morador:\n\t\t\t");
         scanf("%s", cpf);
         getchar();
         tam = strlen(cpf);
@@ -340,7 +340,7 @@ void ler_idade(char *idade)
     int tam;
     do
     {
-        printf("             Informe a idade do morador:\n");
+        printf("\t\t\tInforme a idade do morador:\n\t\t\t");
         scanf("%s", idade);
         getchar();
         tam = strlen(idade);
@@ -372,7 +372,7 @@ int validar_idade(char idade[], int tam)
 
 void ler_ocupacao(char *ocupacao)
 {
-    printf("             Informe a atual ocupação do morador:\n");
+    printf("\t\t\tInforme a atual ocupação do morador:\n\t\t\t");
     scanf("%s", ocupacao);
     getchar();
 }
@@ -383,7 +383,7 @@ void ler_renda(char *renda)
     int tam;
     do
     {
-        printf("             Informe a renda mensal do morador:\n");
+        printf("\t\t\tInforme a renda mensal do morador:\n\t\t\t");
         scanf("%s", renda);
         getchar();
         tam = strlen(renda);
@@ -393,7 +393,7 @@ void ler_renda(char *renda)
 void ler_descricaor(char *descricaor)
 {
 
-    printf("\n          Descrição:\n");
+    printf("\n\t\t\tDescrição:\n\t\t\t");
     scanf("%50[^\n]", descricaor);
     getchar();
 }
@@ -403,7 +403,7 @@ void ler_valordepositado(char *deposito)
     int tam;
     do
     {
-        printf("            Valor:\n");
+        printf("\t\t\tValor:\n\t\t\t");
         scanf("%s", deposito);
         getchar();
         tam = strlen(deposito);
@@ -412,8 +412,8 @@ void ler_valordepositado(char *deposito)
 
 char tipos_rec(void)
 {
-    printf("            Tipo da receita?\n");
-    printf("            1-Contribuição Mensal\t2-Extra\n");
+    printf("\t\t\tTipo da receita?\n");
+    printf("\t\t\t1-Contribuição Mensal\t2-Extra\n\t\t\t");
     char tipo;
     scanf("%c", &tipo);
     getchar();
@@ -422,8 +422,8 @@ char tipos_rec(void)
 
 char tipos_despesa(void)
 {
-    printf("            Tipo da despesa:\n");
-    printf("1-Gasto Mensal\t2-Gasto Extra\t3-Emergência\n");
+    printf("\t\t\tTipo da despesa:\n");
+    printf("\t\t\t1-Gasto Mensal\t2-Gasto Extra\t3-Emergência\n\t\t\t");
     char tipo;
     scanf("%c", &tipo);
     getchar();
@@ -497,7 +497,7 @@ void ler_id(char *id)
     int tam;
     do
     {
-        printf("             Informe ID:\n");
+        printf("\t\t\tInforme ID:\n\t\t\t");
         scanf("%s", id);
         getchar();
         tam = strlen(id);
@@ -630,7 +630,7 @@ void ler_data(char *data)
     int tam;
     do
     {
-        printf("             Informe a data da operação:\n");
+        printf("\t\t\tInforme a data da operação:\n\t\t\t");
         scanf("%s", data);
         getchar();
         tam = strlen(data);

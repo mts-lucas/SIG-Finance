@@ -27,7 +27,7 @@ char menu_cad_moradores(void)
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
-  printf("Selecione sua opção:");
+  printf("\t\t\tSelecione sua opção:");
   char op;
   return op = ler();
 }
@@ -71,7 +71,7 @@ void interacao_menu_cad_morador(void)
     }
     else
     {
-      printf("\n\t Opcao invalida. digite outra...");
+      printf("\n\t\t\tOpcao invalida. digite outra...");
       getchar();
     }
 
@@ -108,7 +108,7 @@ void preenche_morador(void)
   printf("///          = = = = =       Cadastro de Morador      = = = = =             ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
-  printf("            Insira os dados do novo morador:\n");
+  printf("\t\t\tInsira os dados do novo morador:\n");
   ler_nome(nome);
   ler_cpf_cad(cpf);
   ler_idade(idade);
@@ -135,7 +135,7 @@ void preenche_morador(void)
   printf("///                          Morador cadastrado!:                           ///\n");
   printf("///                                                                         ///\n");
   printf("///////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n\t ...Enter para sair");
+  printf("\n\t\t\tPressione Enter para sair");
   getchar();
   free(mor);
 }
@@ -173,7 +173,7 @@ void altera_morador(void)
     exit(1);
   }
   printf("\n\n");
-  printf("Informe o CPF do morador a ser alterado: ");
+  printf("\t\t\tInforme o CPF do morador a ser alterado:\n");
   ler_cpf(procurado);
   mor = (Morador *)malloc(sizeof(Morador));
   achou = 0;
@@ -188,7 +188,7 @@ void altera_morador(void)
   {
     mostrarMorador(mor);
     getchar();
-    printf("Deseja realmente editar este Morador (s/n)? ");
+    printf("\t\t\tDeseja realmente editar este Morador (s/n)?\n\t\t\t");
     scanf("%c", &resp);
     getchar();
     if (resp == 's' || resp == 'S')
@@ -210,16 +210,16 @@ void altera_morador(void)
       mor->status = 'C';
       fseek(fp, (-1) * sizeof(Morador), SEEK_CUR);
       fwrite(mor, sizeof(Morador), 1, fp);
-      printf("\nMorador editado com sucesso!!!\n");
+      printf("\n\t\t\tMorador editado com sucesso!!!\n");
     }
     else
     {
-      printf("\nOk, os dados não foram alterados\n");
+      printf("\n\t\t\tOk, os dados não foram alterados\n");
     }
   }
   else
   {
-    printf("O Morador %s não foi encontrado...\n", procurado);
+    printf("\t\t\tO Morador %s não foi encontrado...\n", procurado);
     getchar();
   }
   free(mor);
@@ -265,7 +265,7 @@ void deletar_morador(void)
     exit(1);
   }
   printf("\n\n");
-  printf("Informe o CPF do morador a ser apagado: ");
+  printf("\t\t\tInforme o CPF do morador a ser apagado:\n");
   ler_cpf(procurado);
   mor = (Morador *)malloc(sizeof(Morador));
   achou = 0;
@@ -281,7 +281,7 @@ void deletar_morador(void)
   {
     mostrarMorador(mor);
     getchar();
-    printf("Deseja realmente apagar este morador (s/n)? ");
+    printf("\t\t\tDeseja realmente apagar este morador (s/n)?\n\t\t\t");
     scanf("%c", &resp);
     getchar();
     if (resp == 's' || resp == 'S')
@@ -289,17 +289,17 @@ void deletar_morador(void)
       mor->status = 'A';
       fseek(fp, (-1) * sizeof(Morador), SEEK_CUR);
       fwrite(mor, sizeof(Morador), 1, fp);
-      printf("\nMorador excluído com sucesso!!!\n");
+      printf("\n\t\t\tMorador excluído com sucesso!!!\n");
     }
     else
     {
-      printf("\nOk, os dados não foram alterados\n");
+      printf("\n\t\t\tOk, os dados não foram alterados\n");
     }
   }
   else
   {
-    printf("O morador %s não foi encontrado...\n", procurado);
-    printf("...Pressione Enter para sair");
+    printf("\t\t\tO morador %s não foi encontrado...\n", procurado);
+    printf("\t\t\tPressione Enter para sair");
     getchar();
   }
   free(mor);
@@ -379,12 +379,12 @@ void sobre_m1(void)
 void mostrarMorador(Morador *mor)
 {
 
-  printf("\nNome do morador: %s", mor->nome);
-  printf("\nCPF do morador: %s", mor->cpf);
-  printf("\nIdade do morador: %s", mor->idade);
-  printf("\nOcupação do morador: %s", mor->ocupacao);
-  printf("\nRenda do morador: %.2f", mor->renda);
-  printf("\nStatus do morador: %c", mor->status);
+  printf("\n\t\t\tNome do morador: %s", mor->nome);
+  printf("\n\t\t\tCPF do morador: %s", mor->cpf);
+  printf("\n\t\t\tIdade do morador: %s", mor->idade);
+  printf("\n\t\t\tOcupação do morador: %s", mor->ocupacao);
+  printf("\n\t\t\tRenda do morador: %.2f", mor->renda);
+  printf("\n\t\t\tStatus do morador: %c", mor->status);
   printf("\n");
 }
 
@@ -418,7 +418,7 @@ void buscarUm(void)
     exit(1);
   }
   system("clear");
-  printf("\n informe o nome do morador que voce busca\t");
+  printf("\n\t\t\tinforme o nome do morador que voce busca\t");
   ler_cpf(cpfbusca);
   mor = (Morador *)malloc(sizeof(Morador));
   resultado = 0;
@@ -440,8 +440,8 @@ void buscarUm(void)
   }
   else
   {
-    printf("Morador %s não encontrado...", cpfbusca);
-    printf("...Pressione enter para sair");
+    printf("\t\t\tMorador %s não encontrado...", cpfbusca);
+    printf("\t\t\tPressione enter para sair");
   }
   free(mor);
 }
