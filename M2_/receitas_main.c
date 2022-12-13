@@ -6,7 +6,7 @@
 
 char ler_re(void)
 {
-    printf("Selecione sua opção:");
+    printf("\t\t\tSelecione sua opção: ");
     char op;
     scanf("%c", &op);
     getchar();
@@ -96,7 +96,7 @@ void preenche_receita(void)
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("            Informe de qual morador você deseja editar a receita:\n");
+    printf("\t\t\tInforme de qual morador você deseja editar a receita:\n");
     ler_cpf(cpf);
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -157,7 +157,7 @@ void editar_re(void)
         exit(1);
     }
     printf("\n\n");
-    printf("Buscamos a receita pelo Id da receita.\n");
+    printf("\t\t\tBuscamos a receita pelo Id da receita.\n");
     // scanf("%d", &aux_id);
     ler_id(procurado);
     int tam = strlen(procurado);
@@ -176,7 +176,7 @@ void editar_re(void)
     if (achou)
     {
         mostrarReceita(rec);
-        printf("Deseja realmente editar esta Receita? (s/n)? ");
+        printf("\t\t\tDeseja realmente editar esta Receita? (s/n)?\n\t\t\t");
         scanf("%c", &resp);
         getchar();
         if (resp == 's' || resp == 'S')
@@ -203,16 +203,16 @@ void editar_re(void)
             gravarSaldo(newsaldo);
             free(newsaldo);
 
-            printf("\nREceita editada com sucesso!!!\n");
+            printf("\n\t\t\tREceita editada com sucesso!!!\n");
         }
         else
         {
-            printf("\nOk, os dados não foram alterados\n");
+            printf("\n\t\t\tOk, os dados não foram alterados\n");
         }
     }
     else
     {
-        printf("Não ha receitas cadastradas com esse CPF %d...\n", aux_id);
+        printf("\t\t\tNão ha receitas cadastradas com esse CPF %d...\n", aux_id);
         getchar();
     }
     free(rec);
@@ -255,7 +255,7 @@ void excluir_re(void)
         exit(1);
     }
     printf("\n\n");
-    printf("Buscamos pelo ID da receita, para apagar a receita: \n");
+    printf("\t\t\tBuscamos pelo ID da receita, para apagar a receita: \n");
     // scanf("%d", &procurado);
     ler_id(procuradoc);
     int tam = strlen(procuradoc);
@@ -275,7 +275,7 @@ void excluir_re(void)
     if (achou)
     {
         mostrarReceita(rec);
-        printf("Deseja realmente apagar está receita (s/n)? ");
+        printf("\t\t\tDeseja realmente apagar está receita (s/n)?\n\t\t\t");
         scanf("%c", &resp);
         getchar();
         if (resp == 's' || resp == 'S')
@@ -290,16 +290,16 @@ void excluir_re(void)
             newsaldo->valor_despesas = ultimaDespesa();
             gravarSaldo(newsaldo);
             free(newsaldo);
-            printf("\nReceita excluído com sucesso!!!\n");
+            printf("\n\t\t\tReceita excluído com sucesso!!!\n");
         }
         else
         {
-            printf("\nOk, os dados não foram alterados\n");
+            printf("\n\t\t\tOk, os dados não foram alterados\n");
         }
     }
     else
     {
-        printf("A receita do morador com esse cpf %d não foi encontrada...\n", procurado);
+        printf("\t\t\tA receita do morador com esse cpf %d não foi encontrada...\n", procurado);
         getchar();
     }
     free(rec);
@@ -355,7 +355,7 @@ void checar_re(void)
     printf("///                            Fim da Operação!                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("... Pressione enter pra sair");
+    printf("\t\t\tPressione enter pra sair");
 }
 
 void buscar_receita(void)
@@ -376,7 +376,7 @@ void buscar_receita(void)
         exit(1);
     }
     system("clear || cls");
-    printf("Buscamos a receita pelo Id da receita.\n");
+    printf("\t\t\tBuscamos a receita pelo Id da receita.\n");
     // scanf("%d", &aux_id);
     ler_id(procurando);
     int tam = strlen(procurando);
@@ -401,8 +401,8 @@ void buscar_receita(void)
     }
     else
     {
-        printf("Receita com o ID %d não encontrada...", aux_id);
-        printf("...Pressione enter para sair");
+        printf("\t\t\tReceita com o ID %d não encontrada...", aux_id);
+        printf("\n\t\t\tPressione enter para sair");
     }
     free(rec);
 }
@@ -410,12 +410,12 @@ void buscar_receita(void)
 void mostrarReceita(Receita *newreceita)
 {
     // system("clear||cls");
-    printf("\n          CPF do Morador: %s", newreceita->cpf);
-    printf("\n          Descrição: %s", newreceita->descricao);
-    printf("\n          Tipo: %c", newreceita->tipo);
-    printf("\n          Valor: %.2f", newreceita->valor);
-    printf("\n          Id: %d", newreceita->id);
-    printf("\n          Data: %s", newreceita->data);
+    printf("\n\t\t\tCPF do Morador: %s", newreceita->cpf);
+    printf("\n\t\t\tDescrição: %s", newreceita->descricao);
+    printf("\n\t\t\tTipo: %c", newreceita->tipo);
+    printf("\n\t\t\tValor: %.2f", newreceita->valor);
+    printf("\n\t\t\tId: %d", newreceita->id);
+    printf("\n\t\t\tData: %s", newreceita->data);
     printf("\n");
     // getchar();
 }
@@ -423,12 +423,12 @@ void mostrarReceita(Receita *newreceita)
 void mostrarRecdin(RecDin *novo)
 {
     // system("clear||cls");
-    printf("\n          CPF do Morador: %s", novo->cpf);
-    printf("\n          Descrição: %s", novo->descricao);
-    printf("\n          Tipo: %c", novo->tipo);
-    printf("\n          Valor: %.2f", novo->valor);
-    printf("\n          Id: %d", novo->id);
-    printf("\n          Data: %s", novo->data);
+    printf("\n\t\t\tCPF do Morador: %s", novo->cpf);
+    printf("\n\t\t\tDescrição: %s", novo->descricao);
+    printf("\n\t\t\tTipo: %c", novo->tipo);
+    printf("\n\t\t\tValor: %.2f", novo->valor);
+    printf("\n\t\t\tId: %d", novo->id);
+    printf("\n\t\t\tData: %s", novo->data);
     printf("\n");
     // getchar();
 }

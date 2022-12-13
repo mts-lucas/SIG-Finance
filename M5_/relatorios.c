@@ -106,7 +106,7 @@ char menu_relatorios(void)
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    printf("Selecione sua opção:");
+    printf("\t\t\tSelecione sua opção:");
     scanf("%c", &op);
     getchar();
     return op;
@@ -118,6 +118,15 @@ void RelatorioValorReceita(int num)
     Receita *rec;
     RecDin *novo;
     RecDin *lista;
+
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
+    printf("///          = = = = =   Exib. de Receita por valor   = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
 
     if (access("cad-receita-m2.dat", F_OK) != -1)
     {
@@ -247,6 +256,15 @@ void RelatorioValorDespesa(int num)
     Despesa *des;
     Desdin *novo;
     Desdin *lista;
+
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
+    printf("///          = = = = =   Exib. de Despesa por valor   = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
 
     if (access("cad-despesa-m3.dat", F_OK) != -1)
     {
@@ -380,6 +398,15 @@ void MostrarReceitasPorData(void)
     char datafinal[11];
     int achou;
 
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
+    printf("///          = = = = =  Exib. de Receita entre datas  = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+
     fp = fopen("cad-receita-m2.dat", "rb");
     if (fp == NULL)
     {
@@ -389,9 +416,9 @@ void MostrarReceitasPorData(void)
         exit(1);
     }
     system("clear || cls");
-    printf("Por favor informe a data inicial do intervalo.\n");
+    printf("\t\t\tPor favor informe a data inicial do intervalo.\n");
     ler_data(datainicial);
-    printf("Por favor informe a data final do intervalo.\n");
+    printf("\t\t\tPor favor informe a data final do intervalo.\n");
     ler_data(datafinal);
     rec = (Receita *)malloc(sizeof(Receita));
     while ((fread(rec, sizeof(Receita), 1, fp)))
@@ -409,8 +436,8 @@ void MostrarReceitasPorData(void)
     }
     else
     {
-        printf("Nenhuma Receita encontrada nesse intervalo de tempo");
-        printf("...Pressione enter para sair");
+        printf("\t\t\tNenhuma Receita encontrada nesse intervalo de tempo");
+        printf("\t\t\tPressione enter para sair");
         getchar();
     }
     fclose(fp);
@@ -426,6 +453,15 @@ void MostrarDespesasPorData(void)
     char datafinal[11];
     int achou;
 
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
+    printf("///          = = = = =  Exib. de Despesas entre datas  = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+
     fp = fopen("cad-despesa-m3.dat", "rb");
     if (fp == NULL)
     {
@@ -435,9 +471,9 @@ void MostrarDespesasPorData(void)
         exit(1);
     }
     system("clear || cls");
-    printf("Por favor informe a data inicial do intervalo.\n");
+    printf("\t\t\tPor favor informe a data inicial do intervalo.\n");
     ler_data(datainicial);
-    printf("Por favor informe a data final do intervalo.\n");
+    printf("\t\t\tPor favor informe a data final do intervalo.\n");
     ler_data(datainicial);
     dep = (Despesa *)malloc(sizeof(Despesa));
     while ((fread(dep, sizeof(Despesa), 1, fp)))
@@ -455,8 +491,8 @@ void MostrarDespesasPorData(void)
     }
     else
     {
-        printf("Nenhuma Despesa encontrada nesse intervalo de tempo");
-        printf("...Pressione enter para sair");
+        printf("\t\t\tNenhuma Despesa encontrada nesse intervalo de tempo");
+        printf("\t\t\tPressione enter para sair");
         getchar();
     }
     fclose(fp);

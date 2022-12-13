@@ -6,7 +6,7 @@
 
 char ler_dp(void)
 {
-    printf("Selecione sua opção:");
+    printf("\t\t\tSelecione sua opção:");
     char op;
     scanf("%c", &op);
     getchar();
@@ -100,7 +100,7 @@ void preenche_despesa(void)
     printf("///          = = = = =        Login do morador        = = = = =             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("            De qual Morador vai cadastrar a despesa?\n");
+    printf("\t\t\tDe qual Morador vai cadastrar a despesa?\n");
     ler_cpf(cpf);
     system("clear||cls");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -132,7 +132,7 @@ void preenche_despesa(void)
     gravarSaldo(newsaldo);
     free(newsaldo);
     free(newdespesa);
-    printf("Aperte enter para sair...");
+    printf("\n\t\t\tAperte enter para sair");
     getchar();
 }
 
@@ -163,7 +163,7 @@ void editar_dp(void)
         exit(1);
     }
     printf("\n\n");
-    printf("Buscamos a Despesas pelo ID da Despesa .\n");
+    printf("\t\t\tBuscamos a Despesas pelo ID da Despesa .\n\t\t\t");
     scanf("%d", &procurado);
     getchar();
     des = (Despesa *)malloc(sizeof(Despesa));
@@ -178,7 +178,7 @@ void editar_dp(void)
     if (achou)
     {
         mostrarDesepesa(des);
-        printf("Deseja realmente editar esta Despesa? (s/n)? ");
+        printf("\t\t\tDeseja realmente editar esta Despesa? (s/n)?\n\t\t\t");
         scanf("%c", &resp);
         getchar();
         if (resp == 's' || resp == 'S')
@@ -204,17 +204,17 @@ void editar_dp(void)
             gravarSaldo(newsaldo);
             free(newsaldo);
 
-            printf("\nDespesa editada com sucesso!!!\n");
+            printf("\n\t\t\tDespesa editada com sucesso!!!\n");
         }
         else
         {
-            printf("\nOk, os dados não foram alterados\n");
+            printf("\n\t\t\tOk, os dados não foram alterados\n");
         }
     }
     else
     {
-        printf("Não ha Despesas cadastradas com esse ID %d...\n", procurado);
-        printf("\n\t Pressione Enter para sair");
+        printf("\t\t\tNão ha Despesas cadastradas com esse ID %d...\n", procurado);
+        printf("\n\t\t\tPressione Enter para sair");
         getchar();
     }
     free(des);
@@ -229,7 +229,7 @@ void editar_dp(void)
     printf("///                            Fim da Operação!                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n\t Pressione Enter para sair");
+    printf("\n\t\t\tPressione Enter para sair");
     getchar();
 }
 
@@ -256,8 +256,8 @@ void excluir_dp(void)
         exit(1);
     }
     printf("\n\n");
-    printf("Lembrando que apagar despesa é diferente de pagar!!!\n");
-    printf("Buscamos pelo ID da despesa, para apagar sespesa: \n");
+    printf("\t\t\tLembrando que apagar despesa é diferente de pagar!!!\n");
+    printf("\t\t\tBuscamos pelo ID da despesa, para apagar a despesa: \n\t\t\t");
     scanf("%d", &procurado);
     getchar();
     des = (Despesa *)malloc(sizeof(Despesa));
@@ -273,7 +273,7 @@ void excluir_dp(void)
     if (achou)
     {
         mostrarDesepesa(des);
-        printf("Deseja realmente apagar está Despesa (s/n)? ");
+        printf("\t\t\tDeseja realmente apagar está Despesa (s/n)?\n\t\t\t");
         scanf("%c", &resp);
         getchar();
         if (resp == 's' || resp == 'S')
@@ -290,17 +290,17 @@ void excluir_dp(void)
             gravarSaldo(newsaldo);
             free(newsaldo);
 
-            printf("\nDespesa excluída com sucesso!!!\n");
+            printf("\n\t\t\tDespesa excluída com sucesso!!!\n");
         }
         else
         {
-            printf("\nOk, os dados não foram alterados\n");
+            printf("\n\t\t\tOk, os dados não foram alterados\n");
         }
     }
     else
     {
-        printf("A despesa do morador com esse ID %d não foi encontrada...\n", procurado);
-        printf("\n\t Pressione Enter para sair");
+        printf("\t\t\tA despesa do morador com esse ID %d não foi encontrada...\n", procurado);
+        printf("\n\t\t\tPressione Enter para sair");
         getchar();
     }
     free(des);
@@ -340,7 +340,7 @@ void pagar_dp(void)
         exit(1);
     }
     printf("\n\n");
-    printf("Buscamos pelo ID da despesa, para pagar despesa: \n");
+    printf("\t\t\tBuscamos pelo ID da despesa, para pagar despesa: \n");
     scanf("%d", &procurado);
     getchar();
     des = (Despesa *)malloc(sizeof(Despesa));
@@ -356,7 +356,7 @@ void pagar_dp(void)
     if (achou)
     {
         mostrarDesepesa(des);
-        printf("Deseja realmente pagar está Despesa (s/n)? Esse pagamento será descontado no saldo ");
+        printf("\t\t\tDeseja realmente pagar está Despesa (s/n)? Esse pagamento será descontado no saldo\n\t\t\t");
         scanf("%c", &resp);
         getchar();
         if (resp == 's' || resp == 'S')
@@ -374,19 +374,19 @@ void pagar_dp(void)
             mostrarSaldo(newsaldo);
             free(newsaldo);
 
-            printf("\nDespesa quitada com sucesso!!!\n");
-            printf("\n\t Pressione Enter");
+            printf("\n\t\t\tDespesa quitada com sucesso!!!\n");
+            printf("\n\t\t\tPressione Enter");
             getchar();
         }
         else
         {
-            printf("\nOk, a despesa não foi paga\n");
+            printf("\n\t\t\tOk, a despesa não foi paga\n");
         }
     }
     else
     {
-        printf("A despesa do morador com esse ID %d não foi encontrada... Ou já foi paga\n", procurado);
-        printf("\n\t Pressione Enter para sair");
+        printf("\t\t\tA despesa do morador com esse ID %d não foi encontrada... Ou já foi paga\n", procurado);
+        printf("\n\t\t\tPressione Enter para sair");
         getchar();
     }
     free(des);
@@ -442,7 +442,7 @@ void checar_dp(void)
     printf("///                            Fim da Operação!                             ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("... Pressione Enter para sair");
+    printf("\t\t\tPressione Enter para sair");
 }
 
 void buscar_despesa(void)
@@ -454,6 +454,14 @@ void buscar_despesa(void)
     int aux_id;
     char procurando[20];
 
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =          Buscar Despesa        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+
     fp = fopen("cad-despesa-m3.dat", "rb");
     if (fp == NULL)
     {
@@ -463,7 +471,7 @@ void buscar_despesa(void)
         exit(1);
     }
     system("clear || cls");
-    printf("Buscamos a Despesa pelo Id da Despesa.\n");
+    printf("\t\t\tBuscamos a Despesa pelo Id da Despesa.\n");
     // scanf("%d", &aux_id);
     ler_id(procurando);
     int tam = strlen(procurando);
@@ -488,8 +496,8 @@ void buscar_despesa(void)
     }
     else
     {
-        printf("Despesa com o ID %d não encontrada...", aux_id);
-        printf("...Pressione enter para sair");
+        printf("\t\t\tDespesa com o ID %d não encontrada...", aux_id);
+        printf("\t\t\tPressione enter para sair");
     }
     free(dep);
 }
@@ -513,25 +521,26 @@ void sobre_dp(void)
 
 void mostrarDesepesa(Despesa *newdespesa)
 {
-    printf("\n          CPF do morador: %s", newdespesa->cpf);
-    printf("\n          Descrição: %s", newdespesa->descricao);
-    printf("\n          Tipo: %c", newdespesa->tipo);
-    printf("\n          Valor: %.2f", newdespesa->valor);
-    printf("\n          Situação: %c", newdespesa->sitacao);
-    printf("\n          Id: %d", newdespesa->id);
-    printf("\n          Data: %s", newdespesa->data);
+    printf("\n\t\t\tCPF do morador: %s", newdespesa->cpf);
+    printf("\n\t\t\tDescrição: %s", newdespesa->descricao);
+    printf("\n\t\t\tTipo: %c", newdespesa->tipo);
+    printf("\n\t\t\tValor: %.2f", newdespesa->valor);
+    printf("\n\t\t\tSituação: %c", newdespesa->sitacao);
+    printf("\n\t\t\tId: %d", newdespesa->id);
+    printf("\n\t\t\tData: %s", newdespesa->data);
     printf("\n");
 }
 
-void mostrarDesDin(Desdin *novo) {
+void mostrarDesDin(Desdin *novo)
+{
 
-    printf("\n          CPF do morador: %s", novo->cpf);
-    printf("\n          Descrição: %s", novo->descricao);
-    printf("\n          Tipo: %c", novo->tipo);
-    printf("\n          Valor: %.2f", novo->valor);
-    printf("\n          Situação: %c", novo->sitacao);
-    printf("\n          Id: %d", novo->id);
-    printf("\n          Data: %s", novo->data);
+    printf("\n\t\t\tCPF do morador: %s", novo->cpf);
+    printf("\n\t\t\tDescrição: %s", novo->descricao);
+    printf("\n\t\t\tTipo: %c", novo->tipo);
+    printf("\n\t\t\tValor: %.2f", novo->valor);
+    printf("\n\t\t\tSituação: %c", novo->sitacao);
+    printf("\n\t\t\tId: %d", novo->id);
+    printf("\n\t\t\tData: %s", novo->data);
     printf("\n");
 }
 
