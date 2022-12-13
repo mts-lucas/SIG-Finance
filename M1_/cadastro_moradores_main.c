@@ -409,6 +409,16 @@ void buscarUm(void)
   Morador *mor;
   int resultado;
   char cpfbusca[12];
+
+  system("clear||cls");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                         ///\n");
+  printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+  printf("///          = = = = =       Perfil de Moradores      = = = = =             ///\n");
+  printf("///          = = = = =         Buscar Morador         = = = = =             ///\n");
+  printf("///                                                                         ///\n");
+  printf("///////////////////////////////////////////////////////////////////////////////\n");
+
   fp = fopen("cadastro-m1.dat", "rb");
   if (fp == NULL)
   {

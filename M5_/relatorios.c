@@ -119,6 +119,15 @@ void RelatorioValorReceita(int num)
     RecDin *novo;
     RecDin *lista;
 
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
+    printf("///          = = = = =   Exib. de Receita por valor   = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+
     if (access("cad-receita-m2.dat", F_OK) != -1)
     {
         /* code */
@@ -247,6 +256,15 @@ void RelatorioValorDespesa(int num)
     Despesa *des;
     Desdin *novo;
     Desdin *lista;
+
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
+    printf("///          = = = = =   Exib. de Despesa por valor   = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
 
     if (access("cad-despesa-m3.dat", F_OK) != -1)
     {
@@ -380,6 +398,15 @@ void MostrarReceitasPorData(void)
     char datafinal[11];
     int achou;
 
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
+    printf("///          = = = = =  Exib. de Receita entre datas  = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+
     fp = fopen("cad-receita-m2.dat", "rb");
     if (fp == NULL)
     {
@@ -425,6 +452,15 @@ void MostrarDespesasPorData(void)
     char datainicial[11];
     char datafinal[11];
     int achou;
+
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =           Relatórios           = = = = =             ///\n");
+    printf("///          = = = = =  Exib. de Despesas entre datas  = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
 
     fp = fopen("cad-despesa-m3.dat", "rb");
     if (fp == NULL)

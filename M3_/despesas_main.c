@@ -454,6 +454,14 @@ void buscar_despesa(void)
     int aux_id;
     char procurando[20];
 
+    system("clear||cls");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                                         ///\n");
+    printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
+    printf("///          = = = = =          Buscar Despesa        = = = = =             ///\n");
+    printf("///                                                                         ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n");
+
     fp = fopen("cad-despesa-m3.dat", "rb");
     if (fp == NULL)
     {
@@ -523,7 +531,8 @@ void mostrarDesepesa(Despesa *newdespesa)
     printf("\n");
 }
 
-void mostrarDesDin(Desdin *novo) {
+void mostrarDesDin(Desdin *novo)
+{
 
     printf("\n\t\t\tCPF do morador: %s", novo->cpf);
     printf("\n\t\t\tDescrição: %s", novo->descricao);
