@@ -106,7 +106,7 @@ char menu_relatorios(void)
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    printf("Selecione sua opção:");
+    printf("\t\t\tSelecione sua opção:");
     scanf("%c", &op);
     getchar();
     return op;
@@ -389,9 +389,9 @@ void MostrarReceitasPorData(void)
         exit(1);
     }
     system("clear || cls");
-    printf("Por favor informe a data inicial do intervalo.\n");
+    printf("\t\t\tPor favor informe a data inicial do intervalo.\n");
     ler_data(datainicial);
-    printf("Por favor informe a data final do intervalo.\n");
+    printf("\t\t\tPor favor informe a data final do intervalo.\n");
     ler_data(datafinal);
     rec = (Receita *)malloc(sizeof(Receita));
     while ((fread(rec, sizeof(Receita), 1, fp)))
@@ -409,8 +409,8 @@ void MostrarReceitasPorData(void)
     }
     else
     {
-        printf("Nenhuma Receita encontrada nesse intervalo de tempo");
-        printf("...Pressione enter para sair");
+        printf("\t\t\tNenhuma Receita encontrada nesse intervalo de tempo");
+        printf("\t\t\tPressione enter para sair");
         getchar();
     }
     fclose(fp);
@@ -435,9 +435,9 @@ void MostrarDespesasPorData(void)
         exit(1);
     }
     system("clear || cls");
-    printf("Por favor informe a data inicial do intervalo.\n");
+    printf("\t\t\tPor favor informe a data inicial do intervalo.\n");
     ler_data(datainicial);
-    printf("Por favor informe a data final do intervalo.\n");
+    printf("\t\t\tPor favor informe a data final do intervalo.\n");
     ler_data(datainicial);
     dep = (Despesa *)malloc(sizeof(Despesa));
     while ((fread(dep, sizeof(Despesa), 1, fp)))
@@ -455,8 +455,8 @@ void MostrarDespesasPorData(void)
     }
     else
     {
-        printf("Nenhuma Despesa encontrada nesse intervalo de tempo");
-        printf("...Pressione enter para sair");
+        printf("\t\t\tNenhuma Despesa encontrada nesse intervalo de tempo");
+        printf("\t\t\tPressione enter para sair");
         getchar();
     }
     fclose(fp);
