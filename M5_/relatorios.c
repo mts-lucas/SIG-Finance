@@ -100,8 +100,8 @@ char menu_relatorios(void)
     printf("///            7. Pesquisar Despesa em ordem de Maior valor                 ///\n");
     printf("///            8. Pesquisar Despesa em ordem de Menor valor                 ///\n");
     printf("///            9. Pesquisar Morador por CPF                                 ///\n");
-    printf("///            A. Mostrar Receitas em intervalo de tempo                   ///\n");
-    printf("///            B. Mostrar Despesas em intervalo de tempo                   ///\n");
+    printf("///            A. Mostrar Receitas em intervalo de tempo                    ///\n");
+    printf("///            B. Mostrar Despesas em intervalo de tempo                    ///\n");
     printf("///            0. Sair                                                      ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -458,7 +458,7 @@ void MostrarDespesasPorData(void)
     printf("///                                                                         ///\n");
     printf("///          = = = = =          SIG - FINANCE         = = = = =             ///\n");
     printf("///          = = = = =           Relatórios           = = = = =             ///\n");
-    printf("///          = = = = =  Exib. de Despesas entre datas  = = = = =             ///\n");
+    printf("///          = = = = =  Exib. de Despesas entre datas  = = = = =            ///\n");
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
 
